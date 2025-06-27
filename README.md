@@ -1,12 +1,12 @@
 # Volvexer - Expert Taxation Services Landing Page
 
-A beautiful, modern single-page landing website for Volvexer, a fictional taxation company. Built with HTML, CSS, JavaScript, jQuery, and TailwindCSS, served by Flask.
+A beautiful, modern single-page landing website for Volvexer, a fictional taxation company. Built with HTML, CSS, JavaScript, jQuery, and TailwindCSS. 100% static, no backend required.
 
 ## 🚀 Features
 
 - **Responsive Design**: Mobile-first approach with TailwindCSS
 - **Smooth Animations**: jQuery-powered scroll animations and transitions
-- **Interactive Elements**: Hover effects, form handling, and dynamic content
+- **Interactive Elements**: Hover effects, WhatsApp integration, and dynamic content
 - **Modern UI**: Clean, professional design with gradient backgrounds
 - **Accessibility**: WCAG compliant with proper focus states and semantic HTML
 - **Performance Optimized**: Lightweight and fast loading
@@ -30,63 +30,39 @@ A beautiful, modern single-page landing website for Volvexer, a fictional taxati
 - **Interactions**: jQuery 3.7.1
 - **Icons**: Font Awesome 6.4.0
 - **Animations**: AOS (Animate On Scroll)
-- **Backend**: Flask (Python)
-- **No Database**: Static content only
+- **No Backend**: 100% static content
 
 ## 📁 Project Structure
 
 ```
 volvexer/
-├── app.py                 # Flask application
-├── templates/
-│   └── index.html        # Main HTML template
-├── static/
-│   ├── css/
-│   │   └── styles.css    # Custom CSS styles
-│   ├── js/
-│   │   └── scripts.js    # jQuery functionality
-│   └── assets/           # Images and other assets
+├── public/
+│   ├── index.html         # Main HTML file
+│   └── static/
+│       ├── css/
+│       │   └── styles.css    # Custom CSS styles
+│       ├── js/
+│       │   └── scripts.js    # jQuery functionality
+│       └── assets/           # Images and other assets
 └── README.md             # This file
 ```
 
 ## 🚀 Quick Start
 
-### Prerequisites
+### 1. Clone or download the project
+```bash
+cd volvexer
+```
 
-- Python 3.7 or higher
-- pip (Python package manager)
+### 2. Open the site locally
+Just open `public/index.html` in your browser. No installation or server required!
 
-### Installation
-
-1. **Clone or download the project**
-   ```bash
-   # If you have the files locally, navigate to the project directory
-   cd volvexer
-   ```
-
-2. **Create a virtual environment (recommended)**
-   ```bash
-   python -m venv venv
-   
-   # Activate virtual environment
-   # On Windows:
-   venv\Scripts\activate
-   # On macOS/Linux:
-   source venv/bin/activate
-   ```
-
-3. **Install Flask**
-   ```bash
-   pip install flask
-   ```
-
-4. **Run the application**
-   ```bash
-   python app.py
-   ```
-
-5. **Open your browser**
-   Navigate to `http://localhost:5000`
+### 3. Deploy for free
+You can deploy the `public` folder to any static hosting provider:
+- **Netlify**: Drag and drop the `public` folder in the Netlify dashboard
+- **Vercel**: Import the repo and set `public` as the output directory
+- **GitHub Pages**: Set the `public` folder as your publishing source
+- **Any static host**: Upload the contents of `public/`
 
 ## 🎨 Customization
 
@@ -108,7 +84,7 @@ tailwind.config = {
 ```
 
 ### WhatsApp Numbers
-Update the WhatsApp contact numbers in `templates/index.html`:
+Update the WhatsApp contact numbers in `public/index.html`:
 
 ```html
 <!-- Primary Support -->
@@ -122,17 +98,17 @@ Update the WhatsApp contact numbers in `templates/index.html`:
 ```
 
 ### Content
-- Edit `templates/index.html` to modify page content
+- Edit `public/index.html` to modify page content
 - Update company information, services, and contact details
 - Modify the hero section text and call-to-action
 
 ### Styling
-- Custom CSS animations and effects in `static/css/styles.css`
+- Custom CSS animations and effects in `public/static/css/styles.css`
 - TailwindCSS utility classes in the HTML
 - Responsive breakpoints and mobile optimizations
 
 ### Functionality
-- jQuery interactions in `static/js/scripts.js`
+- jQuery interactions in `public/static/js/scripts.js`
 - WhatsApp integration, smooth scrolling, and animations
 - Mobile menu functionality
 
@@ -146,15 +122,15 @@ The website is fully responsive with breakpoints:
 ## 🔧 Development
 
 ### Adding New Sections
-1. Add HTML structure to `templates/index.html`
-2. Include corresponding CSS in `static/css/styles.css`
-3. Add any JavaScript functionality to `static/js/scripts.js`
+1. Add HTML structure to `public/index.html`
+2. Include corresponding CSS in `public/static/css/styles.css`
+3. Add any JavaScript functionality to `public/static/js/scripts.js`
 
 ### Adding Images
-1. Place images in `static/assets/`
-2. Reference them using Flask's `url_for()` function:
+1. Place images in `public/static/assets/`
+2. Reference them directly:
    ```html
-   <img src="{{ url_for('static', filename='assets/image.jpg') }}" alt="Description">
+   <img src="static/assets/image.jpg" alt="Description">
    ```
 
 ### WhatsApp Integration
