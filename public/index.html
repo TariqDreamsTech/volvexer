@@ -41,19 +41,65 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-bubbles"></div>
-        <div class="hero-container">
+        <div class="hero-container" style="display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;">
+            <div class="hero-left-anim"
+                style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;gap:0;">
+                <div class="hero-anim-line">
+                    <div class="hero-anim-line-bg"></div>
+                    <svg id="spinning-calc-left" width="60" height="60" viewBox="0 0 100 100"
+                        style="animation: spinCalc 2.5s linear infinite;">
+                        <rect x="15" y="15" width="70" height="70" rx="14" fill="#fff" stroke="#2563eb"
+                            stroke-width="4" />
+                        <rect x="30" y="30" width="40" height="18" rx="4" fill="#e0e7ff" />
+                        <rect x="30" y="55" width="10" height="10" rx="2" fill="#7c3aed" />
+                        <rect x="45" y="55" width="10" height="10" rx="2" fill="#7c3aed" />
+                        <rect x="60" y="55" width="10" height="10" rx="2" fill="#7c3aed" />
+                        <rect x="30" y="70" width="10" height="10" rx="2" fill="#7c3aed" />
+                        <rect x="45" y="70" width="10" height="10" rx="2" fill="#7c3aed" />
+                        <rect x="60" y="70" width="10" height="10" rx="2" fill="#7c3aed" />
+                    </svg>
+                </div>
+                <div class="hero-anim-line">
+                    <div class="hero-anim-line-bg"></div>
+                    <svg id="floating-doc" width="60" height="60" viewBox="0 0 80 80"
+                        style="animation: floatDoc 2.2s ease-in-out infinite alternate;">
+                        <rect x="12" y="14" width="56" height="52" rx="10" fill="#fff" stroke="#2563eb"
+                            stroke-width="3" />
+                        <rect x="22" y="28" width="36" height="8" rx="2" fill="#e0e7ff" />
+                        <rect x="22" y="42" width="36" height="8" rx="2" fill="#e0e7ff" />
+                        <rect x="22" y="56" width="20" height="8" rx="2" fill="#e0e7ff" />
+                        <polyline points="26,64 40,74 58,38" fill="none" stroke="#22c55e" stroke-width="4"
+                            stroke-linecap="round" />
+                    </svg>
+                </div>
+                <div class="hero-anim-line">
+                    <div class="hero-anim-line-bg"></div>
+                    <svg id="rupee-coin" width="48" height="48" viewBox="0 0 60 60"
+                        style="animation: pulseCoin 1.8s infinite alternate;">
+                        <circle cx="30" cy="30" r="26" fill="#fde68a" stroke="#f59e0b" stroke-width="4" />
+                        <text x="30" y="40" text-anchor="middle" font-size="28" fill="#b45309"
+                            font-weight="bold">₹</text>
+                    </svg>
+                </div>
+                <div class="hero-anim-line">
+                    <div class="hero-anim-line-bg"></div>
+                    <svg id="bar-graph" width="60" height="40" viewBox="0 0 80 60"
+                        style="animation: floatGraph 2.7s ease-in-out infinite alternate;">
+                        <rect x="10" y="40" width="12" height="18" rx="3" fill="#7c3aed" />
+                        <rect x="28" y="30" width="12" height="28" rx="3" fill="#2563eb" />
+                        <rect x="46" y="20" width="12" height="38" rx="3" fill="#22d3ee" />
+                        <rect x="64" y="10" width="12" height="48" rx="3" fill="#ef4444" />
+                    </svg>
+                </div>
+            </div>
             <div class="hero-content">
-                <h1 class="hero-title">
-                    File Your Taxes In Just <span class="highlight" style="color:#ef4444;font-weight:800;">6
-                        Minutes</span> With Our Qualified Consultants!
-                </h1>
-                <p class="hero-subtitle">
-                    Now available in just <strong style="color:#ef4444;font-weight:800;">Rs. 3,500/-</strong>
-                </p>
-                <p class="hero-description">
-                    Volvexer goes beyond tax filing! We also help with all your business registration,
-                    sales tax filing, trademark registration, and LLC registration — all in one place.
-                </p>
+                <h1 class="hero-title" style="font-size:2.2rem;">File Your Taxes In Just <span class="highlight"
+                        style="color:#ef4444;font-weight:800;">6 Minutes</span> With Our Qualified Consultants!</h1>
+                <p class="hero-subtitle" style="font-size:1.2rem;">Now available in just <strong
+                        style="color:#ef4444;font-weight:800;">Rs. 3,500/-</strong></p>
+                <p class="hero-description" style="font-size:1rem;">Volvexer goes beyond tax filing! We also help with
+                    all your business registration, sales tax filing, trademark registration, and LLC registration — all
+                    in one place.</p>
                 <div class="hero-buttons">
                     <button class="btn btn-primary" onclick="scrollToCalculator()">
                         <i class="fas fa-calculator"></i>
@@ -65,9 +111,9 @@
                     </button>
                 </div>
             </div>
-            <div class="hero-image">
+            <div class="hero-right-anim" style="display:flex;justify-content:center;align-items:center;height:100%;">
+                <!-- Animated child face SVG (alert/sad/happy animation) -->
                 <div class="hero-illustration" id="hero-anim">
-                    <!-- Animated SVG illustration -->
                     <div id="notice-anim" style="display:flex;flex-direction:column;align-items:center;">
                         <svg id="notice-icon" width="60" height="60" viewBox="0 0 60 60"
                             style="margin-bottom:16px;opacity:0;transition:opacity 0.5s;">
@@ -76,22 +122,16 @@
                                 font-weight="bold">!</text>
                         </svg>
                         <svg id="weep-person" width="120" height="120" viewBox="0 0 120 120">
-                            <!-- Head -->
-                            <circle cx="60" cy="40" r="24" fill="#ffe0b2" stroke="#b08968" stroke-width="2" />
-                            <!-- Eyes (sad) -->
-                            <ellipse cx="50" cy="42" rx="4" ry="6" fill="#333" />
-                            <ellipse cx="70" cy="42" rx="4" ry="6" fill="#333" />
+                            <!-- Head (child: round, large) -->
+                            <circle cx="60" cy="60" r="40" fill="#ffe0b2" stroke="#b08968" stroke-width="2" />
+                            <!-- Eyes (large, round, sad) -->
+                            <ellipse cx="48" cy="70" rx="7" ry="10" fill="#333" />
+                            <ellipse cx="72" cy="70" rx="7" ry="10" fill="#333" />
                             <!-- Tears -->
-                            <ellipse cx="50" cy="50" rx="2" ry="4" fill="#60a5fa" />
-                            <ellipse cx="70" cy="50" rx="2" ry="4" fill="#60a5fa" />
+                            <ellipse cx="48" cy="85" rx="2.5" ry="5" fill="#60a5fa" />
+                            <ellipse cx="72" cy="85" rx="2.5" ry="5" fill="#60a5fa" />
                             <!-- Mouth (sad) -->
-                            <path d="M50 60 Q60 52 70 60" stroke="#b08968" stroke-width="2" fill="none" />
-                            <!-- Body -->
-                            <rect x="44" y="64" width="32" height="36" rx="16" fill="#7c3aed" />
-                            <!-- Folded hands -->
-                            <ellipse cx="60" cy="100" rx="12" ry="8" fill="#ffe0b2" stroke="#b08968" stroke-width="2" />
-                            <ellipse cx="54" cy="98" rx="4" ry="3" fill="#ffe0b2" stroke="#b08968" stroke-width="1" />
-                            <ellipse cx="66" cy="98" rx="4" ry="3" fill="#ffe0b2" stroke="#b08968" stroke-width="1" />
+                            <path d="M50 100 Q60 90 70 100" stroke="#b08968" stroke-width="2" fill="none" />
                         </svg>
                         <div id="weep-text"
                             style="margin-top:10px;font-size:1.1rem;color:#ef4444;font-weight:600;opacity:0;transition:opacity 0.5s;">
@@ -99,21 +139,13 @@
                     </div>
                     <div id="relief-anim" style="display:none;flex-direction:column;align-items:center;">
                         <svg id="happy-person" width="120" height="120" viewBox="0 0 120 120">
-                            <!-- Head -->
-                            <circle cx="60" cy="40" r="24" fill="#ffe0b2" stroke="#b08968" stroke-width="2" />
-                            <!-- Eyes (happy) -->
-                            <ellipse cx="50" cy="42" rx="4" ry="4" fill="#333" />
-                            <ellipse cx="70" cy="42" rx="4" ry="4" fill="#333" />
+                            <!-- Head (child: round, large) -->
+                            <circle cx="60" cy="60" r="40" fill="#ffe0b2" stroke="#b08968" stroke-width="2" />
+                            <!-- Eyes (large, round, happy) -->
+                            <ellipse cx="48" cy="70" rx="7" ry="7" fill="#333" />
+                            <ellipse cx="72" cy="70" rx="7" ry="7" fill="#333" />
                             <!-- Smile -->
-                            <path d="M50 54 Q60 66 70 54" stroke="#b08968" stroke-width="2" fill="none" />
-                            <!-- Body -->
-                            <rect x="44" y="64" width="32" height="36" rx="16" fill="#22d3ee" />
-                            <!-- Raised hands -->
-                            <ellipse cx="48" cy="80" rx="4" ry="10" fill="#ffe0b2" stroke="#b08968" stroke-width="1" />
-                            <ellipse cx="72" cy="80" rx="4" ry="10" fill="#ffe0b2" stroke="#b08968" stroke-width="1" />
-                            <!-- Checkmark -->
-                            <polyline points="52,110 60,118 76,98" fill="none" stroke="#22c55e" stroke-width="4"
-                                stroke-linecap="round" />
+                            <path d="M50 95 Q60 110 70 95" stroke="#b08968" stroke-width="2" fill="none" />
                         </svg>
                         <div id="relief-text" style="margin-top:10px;font-size:1.1rem;color:#22c55e;font-weight:700;">
                             Don’t worry, Volvexer helps you!</div>
@@ -396,13 +428,8 @@
                         <div class="contact-method">
                             <i class="fab fa-whatsapp"></i>
                             <h4>WhatsApp</h4>
-                            <p><a href="https://wa.me/93390625000"
-                                    style="color:#2563eb;font-weight:600;">+93390625000</a></p>
-                        </div>
-                        <div class="contact-method">
-                            <i class="fas fa-phone"></i>
-                            <h4>Phone</h4>
-                            <p><a href="tel:+93390625000" style="color:#2563eb;font-weight:600;">+93390625000</a></p>
+                            <p><a href="https://wa.me/923390625000" style="color:#2563eb;font-weight:600;">+92 339
+                                    0625000</a></p>
                         </div>
                     </div>
 
@@ -496,10 +523,10 @@
                 <div class="footer-section">
                     <h4>Contact Info</h4>
                     <div class="contact-info-footer">
-                        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/93390625000"
-                                style="color:#2563eb;font-weight:600;">+93390625000</a></p>
-                        <p><i class="fas fa-phone"></i> <a href="tel:+93390625000"
-                                style="color:#2563eb;font-weight:600;">+93390625000</a></p>
+                        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/923390625000"
+                                style="color:#2563eb;font-weight:600;">+92 339 0625000</a></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+923390625000"
+                                style="color:#2563eb;font-weight:600;">+92 339 0625000</a></p>
                     </div>
                     <div class="social-links-footer">
                         <a href="#" class="social-link">

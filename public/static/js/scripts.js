@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(() => {
                     bubble.classList.add('show');
                     // Animate out after 2.5s
-                    setTimeout(() => {
+        setTimeout(() => {
                         bubble.classList.remove('show');
                         // Repeat after a short random delay
                         animateBubble(bubble, Math.random() * 1200 + 400);

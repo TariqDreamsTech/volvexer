@@ -1469,6 +1469,46 @@ html {
     }
 }
 
+@keyframes spinCalc {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes floatDoc {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-18px);
+    }
+}
+
+@keyframes pulseCoin {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.13);
+    }
+}
+
+@keyframes floatGraph {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(14px);
+    }
+}
+
 .fade-in {
     animation: fadeIn 0.6s ease-out;
 }
@@ -1535,4 +1575,33 @@ a:focus {
         box-shadow: none;
         border: 1px solid #ccc;
     }
+}
+
+.hero-anim-line {
+    position: relative;
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 8px 0;
+}
+
+.hero-anim-line-bg {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(to bottom, #e0e7ff 0%, #f3f4f6 100%);
+    border-radius: 2px;
+    opacity: 0.5;
+    transform: translateX(-50%);
+    z-index: 0;
+}
+
+.hero-anim-line svg {
+    position: relative;
+    z-index: 1;
 }
