@@ -1,617 +1,538 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volvexer - Expert Taxation Services</title>
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="static/assets/final icon 1.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="static/assets/final icon 1.png">
-    <link rel="apple-touch-icon" href="static/assets/final icon 1.png">
-    <link rel="shortcut icon" href="static/assets/final icon 1.png">
-
-    <!-- TailwindCSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <!-- Custom CSS -->
+    <title>Volvexer - Professional Tax Filing Services</title>
     <link rel="stylesheet" href="static/css/styles.css">
-
-    <!-- Tailwind Config -->
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        primary: '#1e40af',
-                        secondary: '#3b82f6',
-                        accent: '#f59e0b'
-                    }
-                }
-            }
-        }
-    </script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
-<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
-    <!-- Dark Mode Toggle -->
-    <div class="fixed top-4 right-4 z-50">
-        <button id="dark-mode-toggle"
-            class="bg-white dark:bg-gray-800 p-3 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110">
-            <i class="fas fa-sun text-yellow-500 dark:hidden"></i>
-            <i class="fas fa-moon text-blue-400 hidden dark:block"></i>
-        </button>
-    </div>
-
-    <!-- WhatsApp Float Button -->
-    <div class="fixed bottom-4 left-4 z-50">
-        <a href="https://wa.me/923156594108" target="_blank"
-            class="whatsapp-float bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 animate-bounce">
-            <i class="fab fa-whatsapp text-2xl"></i>
-        </a>
-    </div>
-
-    <!-- Loading Screen -->
-    <div id="loading-screen"
-        class="fixed inset-0 bg-gradient-to-br from-primary to-secondary z-[9999] flex items-center justify-center">
-        <div class="text-center text-white">
-            <div class="animate-spin rounded-full h-16 w-16 border-b-2 border-white mx-auto mb-4"></div>
-            <h2 class="text-2xl font-bold animate-pulse">Volvexer</h2>
-            <p class="text-blue-100 mt-2">Loading amazing experience...</p>
-        </div>
-    </div>
-
+<body>
     <!-- Navigation -->
-    <nav
-        class="bg-white/90 dark:bg-gray-800/90 backdrop-blur-lg shadow-lg fixed w-full z-50 transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center py-4">
-                <div class="flex items-center space-x-3">
-                    <!-- Logo -->
-                    <div class="logo-container">
-                        <img src="static/assets/final icon 1.png" alt="Volvexer Logo" class="w-20 h-20 object-contain">
-                    </div>
-                    <h1 class="text-4xl font-bold text-primary dark:text-blue-400 animate-glow">Volvexer</h1>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home"
-                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-all duration-300 relative group font-semibold">
-                        Home
-                        <span
-                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary dark:bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="#about"
-                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-all duration-300 relative group font-semibold">
-                        About
-                        <span
-                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary dark:bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="#services"
-                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-all duration-300 relative group font-semibold">
-                        Services
-                        <span
-                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary dark:bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="#why-us"
-                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-all duration-300 relative group font-semibold">
-                        Why Us
-                        <span
-                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary dark:bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                    <a href="#contact"
-                        class="nav-link text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-all duration-300 relative group font-semibold">
-                        Contact
-                        <span
-                            class="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary dark:bg-blue-400 transition-all duration-300 group-hover:w-full"></span>
-                    </a>
-                </div>
-                <!-- WhatsApp Button in Navbar -->
-                <div class="hidden md:block">
-                    <a href="https://wa.me/923156594108" target="_blank"
-                        class="whatsapp-nav-btn bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl flex items-center space-x-2">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>Chat Now</span>
-                    </a>
-                </div>
-                <div class="md:hidden">
-                    <button id="mobile-menu-btn"
-                        class="text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 transition-colors">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                </div>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="static/assets/final icon 1.png" alt="Volvexer Logo" class="logo-img">
+                <span class="logo-text">Volvexer</span>
             </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu"
-            class="hidden md:hidden bg-white/95 dark:bg-gray-800/95 backdrop-blur-lg border-t border-gray-200 dark:border-gray-700">
-            <div class="px-2 pt-2 pb-3 space-y-1">
-                <a href="#home"
-                    class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-all duration-300">Home</a>
-                <a href="#about"
-                    class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-all duration-300">About</a>
-                <a href="#services"
-                    class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-all duration-300">Services</a>
-                <a href="#why-us"
-                    class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-all duration-300">Why
-                    Us</a>
-                <a href="#contact"
-                    class="block px-3 py-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-blue-400 hover:bg-gray-100 dark:hover:bg-gray-700 rounded transition-all duration-300">Contact</a>
-                <a href="https://wa.me/923156594108" target="_blank"
-                    class="block px-3 py-2 bg-green-500 text-white rounded transition-all duration-300 flex items-center space-x-2">
-                    <i class="fab fa-whatsapp"></i>
-                    <span>WhatsApp</span>
-                </a>
+
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#calculator" class="nav-link">Tax Calculator</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <div class="nav-buttons">
+
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section id="home"
-        class="pt-20 bg-gradient-to-br from-primary via-secondary to-blue-600 dark:from-gray-800 dark:via-gray-700 dark:to-gray-600 text-white relative overflow-hidden">
-        <!-- Animated Background -->
-        <div class="absolute inset-0">
-            <div class="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20"></div>
-            <div class="absolute top-0 left-0 w-full h-full">
-                <div class="floating-shape shape-1"></div>
-                <div class="floating-shape shape-2"></div>
-                <div class="floating-shape shape-3"></div>
-                <div class="floating-shape shape-4"></div>
-            </div>
-        </div>
-
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 relative z-10">
-            <div class="text-center" data-aos="fade-up" data-aos-duration="1000">
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-typewriter overflow-hidden whitespace-nowrap">
-                    Expert Taxation Solutions
+    <section id="home" class="hero">
+        <div class="hero-bubbles"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    File Your Taxes In Just <span class="highlight" style="color:#ef4444;font-weight:800;">6
+                        Minutes</span> With Our Qualified Consultants!
                 </h1>
-                <p class="text-xl md:text-2xl mb-8 text-blue-100 dark:text-blue-200 max-w-3xl mx-auto"
-                    data-aos="fade-up" data-aos-delay="300">
-                    Simplify your tax journey with Volvexer's comprehensive taxation services.
-                    From filing to planning, we've got you covered.
+                <p class="hero-subtitle">
+                    Now available in just <strong style="color:#ef4444;font-weight:800;">Rs. 3,500/-</strong>
                 </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center" data-aos="fade-up"
-                    data-aos-delay="600">
-                    <a href="https://wa.me/923156594108" target="_blank"
-                        class="cta-button bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-8 rounded-lg text-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-2xl animate-bounce-in flex items-center space-x-2">
-                        <i class="fab fa-whatsapp text-xl"></i>
-                        <span class="relative z-10">Get Started on WhatsApp</span>
-                    </a>
-                    <button
-                        class="secondary-button border-2 border-white text-white hover:bg-white hover:text-primary font-bold py-4 px-8 rounded-lg text-lg transition-all transform hover:scale-105">
-                        Learn More
+                <p class="hero-description">
+                    Volvexer goes beyond tax filing! We also help with all your business registration,
+                    sales tax filing, trademark registration, and LLC registration — all in one place.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToCalculator()">
+                        <i class="fas fa-calculator"></i>
+                        File Now
+                    </button>
+                    <button class="btn btn-secondary" onclick="openWhatsApp()">
+                        <i class="fab fa-whatsapp"></i>
+                        Get Help
                     </button>
                 </div>
             </div>
-        </div>
-
-        <!-- Scroll Indicator -->
-        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-            <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
-                <div class="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+            <div class="hero-image">
+                <div class="hero-illustration" id="hero-anim">
+                    <!-- Animated SVG illustration -->
+                    <div id="notice-anim" style="display:flex;flex-direction:column;align-items:center;">
+                        <svg id="notice-icon" width="60" height="60" viewBox="0 0 60 60"
+                            style="margin-bottom:16px;opacity:0;transition:opacity 0.5s;">
+                            <circle cx="30" cy="30" r="28" fill="#fff0f0" stroke="#ef4444" stroke-width="3" />
+                            <text x="30" y="38" text-anchor="middle" font-size="32" fill="#ef4444"
+                                font-weight="bold">!</text>
+                        </svg>
+                        <svg id="weep-person" width="120" height="120" viewBox="0 0 120 120">
+                            <!-- Head -->
+                            <circle cx="60" cy="40" r="24" fill="#ffe0b2" stroke="#b08968" stroke-width="2" />
+                            <!-- Eyes (sad) -->
+                            <ellipse cx="50" cy="42" rx="4" ry="6" fill="#333" />
+                            <ellipse cx="70" cy="42" rx="4" ry="6" fill="#333" />
+                            <!-- Tears -->
+                            <ellipse cx="50" cy="50" rx="2" ry="4" fill="#60a5fa" />
+                            <ellipse cx="70" cy="50" rx="2" ry="4" fill="#60a5fa" />
+                            <!-- Mouth (sad) -->
+                            <path d="M50 60 Q60 52 70 60" stroke="#b08968" stroke-width="2" fill="none" />
+                            <!-- Body -->
+                            <rect x="44" y="64" width="32" height="36" rx="16" fill="#7c3aed" />
+                            <!-- Folded hands -->
+                            <ellipse cx="60" cy="100" rx="12" ry="8" fill="#ffe0b2" stroke="#b08968" stroke-width="2" />
+                            <ellipse cx="54" cy="98" rx="4" ry="3" fill="#ffe0b2" stroke="#b08968" stroke-width="1" />
+                            <ellipse cx="66" cy="98" rx="4" ry="3" fill="#ffe0b2" stroke="#b08968" stroke-width="1" />
+                        </svg>
+                        <div id="weep-text"
+                            style="margin-top:10px;font-size:1.1rem;color:#ef4444;font-weight:600;opacity:0;transition:opacity 0.5s;">
+                            Please save me! Help me!</div>
+                    </div>
+                    <div id="relief-anim" style="display:none;flex-direction:column;align-items:center;">
+                        <svg id="happy-person" width="120" height="120" viewBox="0 0 120 120">
+                            <!-- Head -->
+                            <circle cx="60" cy="40" r="24" fill="#ffe0b2" stroke="#b08968" stroke-width="2" />
+                            <!-- Eyes (happy) -->
+                            <ellipse cx="50" cy="42" rx="4" ry="4" fill="#333" />
+                            <ellipse cx="70" cy="42" rx="4" ry="4" fill="#333" />
+                            <!-- Smile -->
+                            <path d="M50 54 Q60 66 70 54" stroke="#b08968" stroke-width="2" fill="none" />
+                            <!-- Body -->
+                            <rect x="44" y="64" width="32" height="36" rx="16" fill="#22d3ee" />
+                            <!-- Raised hands -->
+                            <ellipse cx="48" cy="80" rx="4" ry="10" fill="#ffe0b2" stroke="#b08968" stroke-width="1" />
+                            <ellipse cx="72" cy="80" rx="4" ry="10" fill="#ffe0b2" stroke="#b08968" stroke-width="1" />
+                            <!-- Checkmark -->
+                            <polyline points="52,110 60,118 76,98" fill="none" stroke="#22c55e" stroke-width="4"
+                                stroke-linecap="round" />
+                        </svg>
+                        <div id="relief-text" style="margin-top:10px;font-size:1.1rem;color:#22c55e;font-weight:700;">
+                            Don’t worry, Volvexer helps you!</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- About Us Section -->
-    <section id="about" class="py-20 bg-white dark:bg-gray-900 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">About Volvexer</h2>
-                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                    We are your trusted partner in navigating the complex world of taxation
-                </p>
+    <!-- Tax Calculator Section -->
+    <section id="calculator" class="calculator-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Income Tax Calculator</h2>
+                <p>Calculate your income tax with our easy-to-use calculator</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div data-aos="fade-right" data-aos-duration="800">
-                    <h3 class="text-3xl font-bold text-gray-800 dark:text-white mb-6">Your Tax Experts</h3>
-                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
-                        At Volvexer, we understand that taxation can be overwhelming. Our team of certified
-                        tax professionals is dedicated to providing you with personalized, accurate, and
-                        efficient tax solutions that save you time and money.
-                    </p>
-                    <p class="text-lg text-gray-600 dark:text-gray-300 mb-6">
-                        With years of experience in tax law and regulations, we help individuals and businesses
-                        navigate the complexities of tax filing, planning, and compliance with confidence.
-                    </p>
-                    <div class="flex flex-wrap items-center gap-4">
-                        <div class="flex items-center bg-green-100 dark:bg-green-900/30 px-4 py-2 rounded-full">
-                            <i class="fas fa-check-circle text-green-500 text-xl mr-2"></i>
-                            <span class="text-gray-700 dark:text-gray-300">Certified Professionals</span>
-                        </div>
-                        <div class="flex items-center bg-blue-100 dark:bg-blue-900/30 px-4 py-2 rounded-full">
-                            <i class="fas fa-check-circle text-blue-500 text-xl mr-2"></i>
-                            <span class="text-gray-700 dark:text-gray-300">24/7 Support</span>
-                        </div>
+
+            <div class="calculator-container">
+                <div class="calculator-input">
+                    <label for="gross-income">ENTER GROSS INCOME (Monthly)</label>
+                    <div class="input-group">
+                        <span class="currency">Rs.</span>
+                        <input type="number" id="gross-income" placeholder="Enter your monthly income" min="0">
+                    </div>
+
+                    <div class="year-selector">
+                        <label>SELECT TAX YEAR</label>
+                        <select id="tax-year">
+                            <option value="2026" selected>2026 (Latest)</option>
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary calculate-btn" onclick="calculateTax()">
+                        Calculate Tax
+                    </button>
+                </div>
+
+                <div class="calculator-results">
+                    <div class="result-card">
+                        <h3>MONTHLY TAX</h3>
+                        <div class="result-value" id="monthly-tax">0</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>SALARY AFTER TAX</h3>
+                        <div class="result-value" id="salary-after-tax">0</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>ANNUAL TAX</h3>
+                        <div class="result-value" id="annual-tax">0</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>ANNUAL SALARY</h3>
+                        <div class="result-value" id="annual-salary">0</div>
                     </div>
                 </div>
-                <div class="bg-gradient-to-br from-primary to-secondary p-8 rounded-2xl text-white shadow-2xl transform hover:scale-105 transition-all duration-500"
-                    data-aos="fade-left" data-aos-duration="800">
-                    <div class="grid grid-cols-2 gap-6">
-                        <div class="text-center stat-item" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="text-4xl font-bold mb-2 stat-number" data-target="500">0</div>
-                            <div class="text-blue-100">Happy Clients</div>
-                        </div>
-                        <div class="text-center stat-item" data-aos="zoom-in" data-aos-delay="400">
-                            <div class="text-4xl font-bold mb-2 stat-number" data-target="10">0</div>
-                            <div class="text-blue-100">Years Experience</div>
-                        </div>
-                        <div class="text-center stat-item" data-aos="zoom-in" data-aos-delay="600">
-                            <div class="text-4xl font-bold mb-2 stat-number" data-target="99">0</div>
-                            <div class="text-blue-100">Success Rate</div>
-                        </div>
-                        <div class="text-center stat-item" data-aos="zoom-in" data-aos-delay="800">
-                            <div class="text-4xl font-bold mb-2 stat-number" data-target="24">0</div>
-                            <div class="text-blue-100">Support</div>
-                        </div>
+            </div>
+
+            <div class="tax-tips">
+                <a href="#services" class="tips-link">
+                    <i class="fas fa-lightbulb"></i>
+                    Learn how to save more on taxes ➜
+                </a>
+                <div class="tax-info">
+                    <p><strong id="tax-year-display">2026 Tax Slabs:</strong> <span id="tax-slabs-display">0% (up to
+                            600K), 1% (600K-1.2M), 11% (1.2M-2.2M), 23% (2.2M-3.2M), 30% (3.2M-4.1M), 35% (above
+                            4.1M)</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mobile App Section -->
+    <section class="mobile-app-section">
+        <div class="container">
+            <div class="app-content">
+                <div class="app-info">
+                    <h2>Say hello to the app that made everything even more convenient</h2>
+                    <p class="app-stats">1 million app downloads by professionals</p>
+                    <div class="app-buttons">
+                        <a href="#" class="app-store-btn">
+                            <i class="fab fa-google-play"></i>
+                            Google Play Store
+                        </a>
+                        <a href="#" class="app-store-btn">
+                            <i class="fab fa-apple"></i>
+                            Apple App Store
+                        </a>
                     </div>
+                </div>
+                <div class="app-mockup">
+                    <i class="fas fa-mobile-alt"></i>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section id="services" class="py-20 bg-gray-50 dark:bg-gray-800 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">Our Services</h2>
-                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                    Comprehensive taxation services tailored to your needs
-                </p>
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Popular Products</h2>
+                <p>Comprehensive tax and business services</p>
             </div>
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Tax Filing -->
-                <div class="service-card bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4"
-                    data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-center mb-6">
-                        <div
-                            class="service-icon bg-gradient-to-br from-blue-500 to-blue-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-file-alt text-white text-3xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Tax Filing</h3>
-                        <p class="text-gray-600 dark:text-gray-300">
-                            Professional tax preparation and filing for individuals and businesses
-                        </p>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-plus"></i>
                     </div>
+                    <h3>Individual NTN Registration</h3>
+                    <p>Just register your Individual NTN in 3 simple steps. Register, Upload, Pay.</p>
+                    <button class="btn btn-outline" onclick="openWhatsApp('NTN Registration')">
+                        Click here to start now
+                    </button>
                 </div>
 
-                <!-- Tax Planning -->
-                <div class="service-card bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4"
-                    data-aos="fade-up" data-aos-delay="200">
-                    <div class="text-center mb-6">
-                        <div
-                            class="service-icon bg-gradient-to-br from-green-500 to-green-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-chart-line text-white text-3xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Tax Planning</h3>
-                        <p class="text-gray-600 dark:text-gray-300">
-                            Strategic tax planning to minimize liabilities and maximize savings
-                        </p>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
                     </div>
+                    <h3>Tax Filing</h3>
+                    <p>No appointments, no documents, File your taxes within minutes.</p>
+                    <button class="btn btn-outline" onclick="openWhatsApp('Tax Filing')">
+                        Click here to start now
+                    </button>
                 </div>
 
-                <!-- Compliance -->
-                <div class="service-card bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4"
-                    data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-center mb-6">
-                        <div
-                            class="service-icon bg-gradient-to-br from-purple-500 to-purple-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-shield-alt text-white text-3xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Compliance</h3>
-                        <p class="text-gray-600 dark:text-gray-300">
-                            Ensure full compliance with tax laws and regulations
-                        </p>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
                     </div>
+                    <h3>Business NTN Registration</h3>
+                    <p>The simplest and quickest way to start your business.</p>
+                    <button class="btn btn-outline" onclick="openWhatsApp('Business NTN')">
+                        Click here to start now
+                    </button>
                 </div>
 
-                <!-- Audit Assistance -->
-                <div class="service-card bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4"
-                    data-aos="fade-up" data-aos-delay="400">
-                    <div class="text-center mb-6">
-                        <div
-                            class="service-icon bg-gradient-to-br from-red-500 to-red-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-search text-white text-3xl"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Audit Assistance</h3>
-                        <p class="text-gray-600 dark:text-gray-300">
-                            Expert support during tax audits and investigations
-                        </p>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-receipt"></i>
                     </div>
+                    <h3>Sales Tax Registration</h3>
+                    <p>GST Registration was never this easy, Register your sales tax with Volvexer Now.</p>
+                    <button class="btn btn-outline" onclick="openWhatsApp('Sales Tax Registration')">
+                        Click here to start now
+                    </button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Business Tax Filing</h3>
+                    <p>Stop worrying about your taxes, Volvexer team of experts got you covered.</p>
+                    <button class="btn btn-outline" onclick="openWhatsApp('Business Tax Filing')">
+                        Click here to start now
+                    </button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-trademark"></i>
+                    </div>
+                    <h3>Trademark Registration</h3>
+                    <p>Protect your brand with our trademark registration services.</p>
+                    <button class="btn btn-outline" onclick="openWhatsApp('Trademark Registration')">
+                        Click here to start now
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Why Choose Us Section -->
-    <section id="why-us" class="py-20 bg-white dark:bg-gray-900 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">Why Choose Volvexer?</h2>
-                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                    Discover what makes us the preferred choice for taxation services
-                </p>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What people have to say about us</h2>
             </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center feature-card" data-aos="fade-up" data-aos-delay="100">
-                    <div
-                        class="bg-gradient-to-br from-primary to-secondary w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300 shadow-lg">
-                        <i class="fas fa-award text-white text-2xl"></i>
+
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Its a great service to deal with the tax issues. staff is very cooperative, helpful and
+                            responds quickly."</p>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Expert Team</h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        Certified tax professionals with years of experience in the industry
-                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Muhammad Umair Umer</h4>
+                            <span>Business Owner</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-center feature-card" data-aos="fade-up" data-aos-delay="200">
-                    <div
-                        class="bg-gradient-to-br from-green-500 to-green-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300 shadow-lg">
-                        <i class="fas fa-clock text-white text-2xl"></i>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I was struggling in tax filing, Volvexer helped me in the process. The team is really
+                            professional and competent in their work. Highly recommend."</p>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Timely Service</h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        Fast and efficient service with guaranteed turnaround times
-                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Rizwan Muhammad</h4>
+                            <span>Freelancer</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-center feature-card" data-aos="fade-up" data-aos-delay="300">
-                    <div
-                        class="bg-gradient-to-br from-yellow-500 to-orange-500 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300 shadow-lg">
-                        <i class="fas fa-dollar-sign text-white text-2xl"></i>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"My experience have been quite good so far. They do focus on the significance of customer
+                            satisfaction."</p>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Cost Effective</h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        Competitive pricing with no hidden fees or surprises
-                    </p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Mamoon Javaid</h4>
+                            <span>Corporate Client</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-center feature-card" data-aos="fade-up" data-aos-delay="400">
-                    <div
-                        class="bg-gradient-to-br from-purple-500 to-purple-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300 shadow-lg">
-                        <i class="fas fa-lock text-white text-2xl"></i>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I filed my tax returns through Volvexer and it was an excellent experience."</p>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Secure & Confidential</h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        Your financial information is protected with bank-level security
-                    </p>
-                </div>
-                <div class="text-center feature-card" data-aos="fade-up" data-aos-delay="500">
-                    <div
-                        class="bg-gradient-to-br from-blue-500 to-blue-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300 shadow-lg">
-                        <i class="fas fa-headset text-white text-2xl"></i>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Hussain Khan</h4>
+                            <span>Salaried Employee</span>
+                        </div>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">24/7 Support</h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        Round-the-clock customer support for all your tax-related queries
-                    </p>
-                </div>
-                <div class="text-center feature-card" data-aos="fade-up" data-aos-delay="600">
-                    <div
-                        class="bg-gradient-to-br from-pink-500 to-pink-600 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-4 transform hover:scale-110 transition-transform duration-300 shadow-lg">
-                        <i class="fas fa-mobile-alt text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-2">Mobile Friendly</h3>
-                    <p class="text-gray-600 dark:text-gray-300">
-                        Access your tax information anytime, anywhere with our mobile platform
-                    </p>
                 </div>
             </div>
+
+            <div class="testimonial-controls">
+                <button class="control-btn" onclick="prevTestimonial()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="control-btn" onclick="nextTestimonial()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container" style="text-align:center;">
+            <h2><span style="color:#ef4444;font-weight:800;">100+</span> Talented & Qualified Team Members</h2>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-50 dark:bg-gray-800 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4">Get In Touch</h2>
-                <p class="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                    Ready to simplify your tax journey? Contact us on WhatsApp today!
-                </p>
-            </div>
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Contact Us</h2>
+                    <p>Get in touch with our expert team for any questions or assistance</p>
 
-            <!-- WhatsApp Contact Cards -->
-            <div class="grid md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="200">
-                <!-- WhatsApp Contact 1 -->
-                <div
-                    class="whatsapp-card bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 text-center">
-                    <div class="bg-green-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fab fa-whatsapp text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">Primary Support</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-6">Get instant help with your tax queries</p>
-                    <a href="https://wa.me/923156594108" target="_blank"
-                        class="whatsapp-btn bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center space-x-2">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>+92 321 6839454</span>
-                    </a>
-                </div>
-
-                <!-- WhatsApp Contact 2 -->
-                <div
-                    class="whatsapp-card bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 text-center">
-                    <div class="bg-blue-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fab fa-whatsapp text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">Business Support</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-6">Specialized business tax assistance</p>
-                    <a href="https://wa.me/923228791599" target="_blank"
-                        class="whatsapp-btn bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center space-x-2">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>+92 322 8791599</span>
-                    </a>
-                </div>
-
-                <!-- WhatsApp Contact 3 -->
-                <div
-                    class="whatsapp-card bg-white dark:bg-gray-700 p-8 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-4 text-center">
-                    <div class="bg-purple-500 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <i class="fab fa-whatsapp text-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-gray-800 dark:text-white mb-4">Technical Support</h3>
-                    <p class="text-gray-600 dark:text-gray-300 mb-6">Technical and compliance assistance</p>
-                    <a href="https://wa.me/92339087159" target="_blank"
-                        class="whatsapp-btn bg-purple-500 hover:bg-purple-600 text-white font-bold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl inline-flex items-center space-x-2">
-                        <i class="fab fa-whatsapp"></i>
-                        <span>+92 339 087159</span>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Contact Information -->
-            <div class="mt-16 grid md:grid-cols-2 gap-12">
-                <div data-aos="fade-right" data-aos-duration="800">
-                    <h3 class="text-2xl font-bold text-gray-800 dark:text-white mb-6">Contact Information</h3>
-                    <div class="space-y-6">
-                        <div
-                            class="flex items-center p-4 bg-white dark:bg-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                            <div class="bg-primary w-12 h-12 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-map-marker-alt text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800 dark:text-white">Address</h4>
-                                <p class="text-gray-600 dark:text-gray-300">Tulip-605, Park View, Lahore</p>
-                            </div>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/93390625000"
+                                    style="color:#2563eb;font-weight:600;">+93390625000</a></p>
                         </div>
-                        <div
-                            class="flex items-center p-4 bg-white dark:bg-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                            <div class="bg-green-500 w-12 h-12 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-phone text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800 dark:text-white">Phone</h4>
-                                <p class="text-gray-600 dark:text-gray-300">+92 3156594108</p>
-                            </div>
-                        </div>
-                        <div
-                            class="flex items-center p-4 bg-white dark:bg-gray-700 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105">
-                            <div class="bg-blue-500 w-12 h-12 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-envelope text-white"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-semibold text-gray-800 dark:text-white">Email</h4>
-                                <p class="text-gray-600 dark:text-gray-300">ahsantariq0724@gmail.com</p>
-                                <p class="text-gray-600 dark:text-gray-300">asimzubair454@gmail.com</p>
-                            </div>
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <h4>Phone</h4>
+                            <p><a href="tel:+93390625000" style="color:#2563eb;font-weight:600;">+93390625000</a></p>
                         </div>
                     </div>
-                </div>
-                <div data-aos="fade-left" data-aos-duration="800">
-                    <div class="bg-gradient-to-br from-primary to-secondary p-8 rounded-2xl text-white shadow-xl">
-                        <h3 class="text-2xl font-bold mb-6">Quick Contact</h3>
-                        <p class="text-blue-100 mb-6">
-                            Need immediate assistance? Our WhatsApp support team is available 24/7 to help you with all
-                            your tax-related questions and concerns.
-                        </p>
-                        <div class="space-y-4">
-                            <a href="https://wa.me/923156594108" target="_blank"
-                                class="block bg-white/20 hover:bg-white/30 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-105 flex items-center justify-center space-x-2">
-                                <i class="fab fa-whatsapp text-xl"></i>
-                                <span>Start Chat Now</span>
-                            </a>
-                            <p class="text-blue-100 text-sm text-center">
-                                Click to open WhatsApp and get instant support
-                            </p>
-                        </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
                     </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Quick Contact</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="Your Phone" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="service" required>
+                                <option value="">Select Service</option>
+                                <option value="tax-filing">Tax Filing</option>
+                                <option value="ntn-registration">NTN Registration</option>
+                                <option value="sales-tax">Sales Tax Registration</option>
+                                <option value="business-tax">Business Tax Filing</option>
+                                <option value="trademark">Trademark Registration</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Your Message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fab fa-whatsapp"></i>
+                            Send via WhatsApp
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 dark:bg-gray-950 text-white py-12 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <img src="static/assets/final icon 1.png" alt="Volvexer Logo" class="w-20 h-20 object-contain">
-                        <h3 class="text-4xl font-bold animate-glow">Volvexer</h3>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="static/assets/final icon 1.png" alt="Volvexer Logo" class="logo-img">
+                        <span class="logo-text">Volvexer</span>
                     </div>
-                    <p class="text-gray-300 mb-4">
-                        Your trusted partner in taxation services. Simplifying tax complexities for individuals and
-                        businesses.
-                    </p>
-                    <div class="flex space-x-4">
-                        <a href="https://www.facebook.com/profile.php?id=61578017150577&sk=about"
-                            class="social-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">
-                            <i class="fab fa-facebook text-xl"></i>
+                    <p>Volvexer is a joint initiative of team of leading tax professionals and technology enthusiasts.
+                        The initiative aims to simplify tax return filing process for individuals and promote the
+                        culture of documentation.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#calculator">Tax Calculator</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Tax Filing</a></li>
+                        <li><a href="#services">NTN Registration</a></li>
+                        <li><a href="#services">Sales Tax</a></li>
+                        <li><a href="#services">Business Registration</a></li>
+                        <li><a href="#services">Trademark Registration</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info-footer">
+                        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/93390625000"
+                                style="color:#2563eb;font-weight:600;">+93390625000</a></p>
+                        <p><i class="fas fa-phone"></i> <a href="tel:+93390625000"
+                                style="color:#2563eb;font-weight:600;">+93390625000</a></p>
+                    </div>
+                    <div class="social-links-footer">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="#"
-                            class="social-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">
-                            <i class="fab fa-twitter text-xl"></i>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
                         </a>
-                        <a href="https://www.linkedin.com/company/volvexer/about/"
-                            class="social-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">
-                            <i class="fab fa-linkedin text-xl"></i>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="#"
-                            class="social-link text-gray-300 hover:text-white transition-all duration-300 transform hover:scale-110">
-                            <i class="fab fa-instagram text-xl"></i>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
                         </a>
                     </div>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Services</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Tax
-                                Filing</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Tax
-                                Planning</a></li>
-                        <li><a href="#"
-                                class="text-gray-300 hover:text-white transition-colors duration-300">Compliance</a>
-                        </li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Audit
-                                Assistance</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Company</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">About
-                                Us</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Our
-                                Team</a></li>
-                        <li><a href="#"
-                                class="text-gray-300 hover:text-white transition-colors duration-300">Careers</a></li>
-                        <li><a href="#" class="text-gray-300 hover:text-white transition-colors duration-300">Privacy
-                                Policy</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
-                    <ul class="space-y-2">
-                        <li class="text-gray-300">Tulip-605, Park View, Lahore</li>
-                        <li class="text-gray-300">+923156594108</li>
-                        <li class="text-gray-300">ahsantariq0724@gmail.com</li>
-                        <li class="text-gray-300">asimzubair454@gmail.com</li>
-                        <li class="mt-4">
-                            <a href="https://wa.me/923156594108" target="_blank"
-                                class="inline-flex items-center space-x-2 bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg transition-all duration-300 transform hover:scale-105">
-                                <i class="fab fa-whatsapp"></i>
-                                <span>WhatsApp</span>
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </div>
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center">
-                <p class="text-gray-300">
-                    © 2024 Volvexer. All rights reserved. | Designed with ❤️ for better taxation
-                </p>
+
+            <div class="footer-bottom">
+                <p>&copy; 2018 - 2025 Volvexer (Pvt) Limited - Terms of Use | Privacy Statement</p>
+                <div class="security-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    PCI DSS SECURE
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Custom JavaScript -->
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
     <script src="static/js/scripts.js"></script>
 </body>
 
