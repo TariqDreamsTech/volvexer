@@ -155,6 +155,63 @@
         </div>
     </section>
 
+    <!-- About Section -->
+    <section class="about-section" style="position:relative;z-index:1;">
+        <div class="about-container"
+            style="display:grid;grid-template-columns:1fr 1.3fr;align-items:center;gap:3rem;max-width:1200px;margin:0 auto;padding:80px 0 60px;">
+            <!-- Left: Creative SVG illustration -->
+            <div class="about-illustration" style="display:flex;justify-content:center;align-items:center;">
+                <svg width="220" height="220" viewBox="0 0 220 220">
+                    <!-- Shield -->
+                    <path d="M110 30 Q180 60 170 120 Q160 190 110 210 Q60 190 50 120 Q40 60 110 30 Z" fill="#e0e7ff"
+                        stroke="#2563eb" stroke-width="4" />
+                    <!-- Document -->
+                    <rect x="80" y="70" width="60" height="70" rx="10" fill="#fff" stroke="#7c3aed" stroke-width="3" />
+                    <rect x="92" y="90" width="36" height="8" rx="2" fill="#c7d2fe" />
+                    <rect x="92" y="106" width="36" height="8" rx="2" fill="#c7d2fe" />
+                    <rect x="92" y="122" width="20" height="8" rx="2" fill="#c7d2fe" />
+                    <!-- Stars -->
+                    <polygon points="110,55 114,65 125,66 117,73 119,84 110,78 101,84 103,73 95,66 106,65"
+                        fill="#f59e0b" />
+                    <circle cx="150" cy="60" r="8" fill="#fbbf24" opacity="0.7" />
+                    <circle cx="70" cy="60" r="5" fill="#fbbf24" opacity="0.5" />
+                </svg>
+            </div>
+            <!-- Right: Animated headline and feature cards -->
+            <div class="about-content" style="position:relative;">
+                <h2 class="about-title gradient-text"
+                    style="font-size:2.3rem;font-weight:900;margin-bottom:1.2rem;line-height:1.1;">
+                    Why <span class="about-highlight"
+                        style="background:linear-gradient(90deg,#7c3aed,#2563eb);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Volvexer?</span>
+                </h2>
+                <div class="about-features"
+                    style="display:grid;grid-template-columns:1fr 1fr;gap:1.3rem 1.5rem;margin-bottom:2.2rem;">
+                    <div class="about-feature-card fade-in"
+                        style="background:#fff;border-radius:16px;box-shadow:0 4px 16px rgba(124,58,237,0.07);padding:1.3rem 1rem;display:flex;flex-direction:column;align-items:center;animation:fadeIn 1s 0.1s both;">
+                        <i class="fas fa-bolt" style="color:#ef4444;font-size:2rem;margin-bottom:0.5rem;"></i>
+                        <div style="font-weight:700;font-size:1.1rem;">Fastest Tax Filing</div>
+                    </div>
+                    <div class="about-feature-card fade-in"
+                        style="background:#fff;border-radius:16px;box-shadow:0 4px 16px rgba(34,211,238,0.07);padding:1.3rem 1rem;display:flex;flex-direction:column;align-items:center;animation:fadeIn 1s 0.3s both;">
+                        <i class="fas fa-user-tie" style="color:#2563eb;font-size:2rem;margin-bottom:0.5rem;"></i>
+                        <div style="font-weight:700;font-size:1.1rem;">Expert Support</div>
+                    </div>
+                    <div class="about-feature-card fade-in"
+                        style="background:#fff;border-radius:16px;box-shadow:0 4px 16px rgba(16,185,129,0.07);padding:1.3rem 1rem;display:flex;flex-direction:column;align-items:center;animation:fadeIn 1s 0.5s both;">
+                        <i class="fas fa-shield-alt" style="color:#7c3aed;font-size:2rem;margin-bottom:0.5rem;"></i>
+                        <div style="font-weight:700;font-size:1.1rem;">Secure & Private</div>
+                    </div>
+                    <div class="about-feature-card fade-in"
+                        style="background:#fff;border-radius:16px;box-shadow:0 4px 16px rgba(239,68,68,0.07);padding:1.3rem 1rem;display:flex;flex-direction:column;align-items:center;animation:fadeIn 1s 0.7s both;">
+                        <i class="fas fa-users" style="color:#f59e0b;font-size:2rem;margin-bottom:0.5rem;"></i>
+                        <div style="font-weight:700;font-size:1.1rem;">Trusted by Thousands</div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" style="font-size:1.1rem;padding:0.9rem 2.2rem;">Learn More</button>
+            </div>
+        </div>
+    </section>
+
     <!-- Tax Calculator Section -->
     <section id="calculator" class="calculator-section">
         <div class="container">
@@ -218,31 +275,6 @@
                     <p><strong id="tax-year-display">2026 Tax Slabs:</strong> <span id="tax-slabs-display">0% (up to
                             600K), 1% (600K-1.2M), 11% (1.2M-2.2M), 23% (2.2M-3.2M), 30% (3.2M-4.1M), 35% (above
                             4.1M)</span></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mobile App Section -->
-    <section class="mobile-app-section">
-        <div class="container">
-            <div class="app-content">
-                <div class="app-info">
-                    <h2>Say hello to the app that made everything even more convenient</h2>
-                    <p class="app-stats">1 million app downloads by professionals</p>
-                    <div class="app-buttons">
-                        <a href="#" class="app-store-btn">
-                            <i class="fab fa-google-play"></i>
-                            Google Play Store
-                        </a>
-                        <a href="#" class="app-store-btn">
-                            <i class="fab fa-apple"></i>
-                            Apple App Store
-                        </a>
-                    </div>
-                </div>
-                <div class="app-mockup">
-                    <i class="fas fa-mobile-alt"></i>
                 </div>
             </div>
         </div>
@@ -525,8 +557,7 @@
                     <div class="contact-info-footer">
                         <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/923390625000"
                                 style="color:#2563eb;font-weight:600;">+92 339 0625000</a></p>
-                        <p><i class="fas fa-phone"></i> <a href="tel:+923390625000"
-                                style="color:#2563eb;font-weight:600;">+92 339 0625000</a></p>
+
                     </div>
                     <div class="social-links-footer">
                         <a href="#" class="social-link">
@@ -546,7 +577,7 @@
             </div>
 
             <div class="footer-bottom">
-                <p>&copy; 2018 - 2025 Volvexer (Pvt) Limited - Terms of Use | Privacy Statement</p>
+                <p>&copy; 2018 - 2025 Volvexer - Terms of Use | Privacy Statement</p>
                 <div class="security-badge">
                     <i class="fas fa-shield-alt"></i>
                     PCI DSS SECURE
