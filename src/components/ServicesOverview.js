@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function ServicesOverview() {
     return (
@@ -9,7 +10,7 @@ function ServicesOverview() {
                     <p>Comprehensive solutions to grow and optimize your business</p>
                 </div>
                 <div className="services-overview-grid">
-                    <div className="service-overview-card" onClick={() => window.location.href = 'taxation.html'}>
+                    <div className="service-overview-card" onClick={() => window.location.href = '/taxation'}>
                         <div className="service-overview-icon">
                             <i className="fas fa-file-alt"></i>
                         </div>
@@ -24,7 +25,7 @@ function ServicesOverview() {
                             <button className="btn btn-primary">Explore Tax Services</button>
                         </div>
                     </div>
-                    <div className="service-overview-card" onClick={() => window.location.href = 'accounting.html'}>
+                    <div className="service-overview-card" onClick={() => window.location.href = '/accounting'}>
                         <div className="service-overview-icon">
                             <i className="fas fa-book"></i>
                         </div>
@@ -39,7 +40,7 @@ function ServicesOverview() {
                             <button className="btn btn-primary">Explore Accounting</button>
                         </div>
                     </div>
-                    <div className="service-overview-card" onClick={() => window.location.href = 'ai-engineer.html'}>
+                    <div className="service-overview-card" onClick={() => window.location.href = '/ai-engineer'}>
                         <div className="service-overview-icon">
                             <i className="fas fa-robot"></i>
                         </div>
