@@ -29,4 +29,4 @@ This is the React.js version of Volvexer - Complete Business Solutions (Tax Fili
 
 ---
 
-For any issues, contact info@volvexer.site check here
+For any issues, contact info@volvexer.site
