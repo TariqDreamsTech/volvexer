@@ -116,6 +116,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Initialize network visualization
     initializeNetworkVisualization();
+
+    // Initialize volvexer definition rotation
+    initializeVolvexerDefinitionRotation();
+
+    // Initialize volvexer acronym animation
+    initializeVolvexerAcronym();
+
+    // Initialize tagline word highlighting
+    initializeTaglineHighlighting();
 });
 
 // Mobile Menu
@@ -1140,4 +1149,356 @@ window.addEventListener('resize', debounce(() => {
 // Recreate floating stars periodically
 setInterval(() => {
     createFloatingStars();
-}, 10000); // Every 10 seconds 
+}, 10000); // Every 10 seconds
+
+// Volvexer Definition Rotation
+function initializeVolvexerDefinitionRotation() {
+    const definitionElement = document.getElementById('volvexer-definition');
+    if (!definitionElement) return;
+
+    const volvexerDefinitions = [
+        'Complete Business Solutions',
+        'Tax Filing Experts',
+        'AI Engineering Specialists',
+        'Accounting Professionals',
+        'Digital Transformation Partners',
+        'Financial Technology Innovators',
+        'Business Process Automation',
+        'Compliance & Regulatory Experts',
+        'Data-Driven Business Solutions',
+        'End-to-End Business Services',
+        'Smart Business Technology',
+        'Professional Service Excellence',
+        'Innovation & Growth Partners',
+        'Digital Business Solutions',
+        'Comprehensive Business Support'
+    ];
+
+    let currentIndex = 0;
+
+    function updateDefinition() {
+        // Fade out
+        definitionElement.style.opacity = '0';
+        definitionElement.style.transform = 'translateY(10px)';
+
+        setTimeout(() => {
+            // Update text
+            definitionElement.textContent = volvexerDefinitions[currentIndex];
+
+            // Fade in
+            definitionElement.style.opacity = '1';
+            definitionElement.style.transform = 'translateY(0)';
+
+            // Move to next definition
+            currentIndex = (currentIndex + 1) % volvexerDefinitions.length;
+        }, 300);
+    }
+
+    // Start the rotation after initial delay
+    setTimeout(() => {
+        updateDefinition();
+        // Update every 3 seconds
+        setInterval(updateDefinition, 3000);
+    }, 2000);
+}
+
+// Volvexer Acronym Animation
+function initializeVolvexerAcronym() {
+    const volvexerElement = document.getElementById('volvexer-acronym');
+    if (!volvexerElement) return;
+
+    const letterServices = volvexerElement.querySelectorAll('.letter-service');
+    let currentActiveIndex = 0;
+    let isAutoPlaying = true;
+
+    // Create moving background element for acronym
+    const acronymContainer = volvexerElement.parentElement;
+    if (acronymContainer) {
+        const movingBackground = document.createElement('div');
+        movingBackground.className = 'acronym-moving-bg';
+        movingBackground.style.cssText = `
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 8px 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0;
+        `;
+        acronymContainer.style.position = 'relative';
+        acronymContainer.appendChild(movingBackground);
+    }
+
+    // Sequential highlighting function
+    function highlightNextLetter() {
+        if (!isAutoPlaying) return;
+
+        // Remove active class from all letters
+        letterServices.forEach(letter => letter.classList.remove('active'));
+
+        // Add active class to current letter
+        letterServices[currentActiveIndex].classList.add('active');
+
+        // Move background to current letter
+        const currentLetter = letterServices[currentActiveIndex];
+        const movingBackground = document.querySelector('.acronym-moving-bg');
+
+        if (movingBackground && currentLetter) {
+            const letterRect = currentLetter.getBoundingClientRect();
+            const containerRect = acronymContainer.getBoundingClientRect();
+
+            const left = letterRect.left - containerRect.left - 12; // Adjust padding
+            const top = letterRect.top - containerRect.top - 8; // Adjust padding
+            const width = letterRect.width + 24; // Add padding
+            const height = letterRect.height + 16; // Add padding
+
+            movingBackground.style.left = `${left}px`;
+            movingBackground.style.top = `${top}px`;
+            movingBackground.style.width = `${width}px`;
+            movingBackground.style.height = `${height}px`;
+            movingBackground.style.opacity = '1';
+        }
+
+        // Show service notification
+        const service = currentLetter.getAttribute('data-service');
+        showNotification(service, 'info', `Volvexer - ${currentLetter.textContent}`, 2000);
+
+        // Move to next letter
+        currentActiveIndex = (currentActiveIndex + 1) % letterServices.length;
+    }
+
+    // Start the sequential highlighting
+    setTimeout(() => {
+        highlightNextLetter();
+        // Highlight each letter every 2.5 seconds
+        setInterval(highlightNextLetter, 2500);
+    }, 1000);
+
+    // Click functionality to pause/resume and show service details
+    letterServices.forEach((letter, index) => {
+        letter.addEventListener('click', function () {
+            const service = this.getAttribute('data-service');
+
+            // Pause auto-play
+            isAutoPlaying = false;
+
+            // Remove active from all letters
+            letterServices.forEach(l => l.classList.remove('active'));
+
+            // Highlight clicked letter
+            this.classList.add('active');
+
+            // Move background to clicked letter
+            const movingBackground = document.querySelector('.acronym-moving-bg');
+            if (movingBackground) {
+                const letterRect = this.getBoundingClientRect();
+                const containerRect = acronymContainer.getBoundingClientRect();
+
+                const left = letterRect.left - containerRect.left - 12;
+                const top = letterRect.top - containerRect.top - 8;
+                const width = letterRect.width + 24;
+                const height = letterRect.height + 16;
+
+                movingBackground.style.left = `${left}px`;
+                movingBackground.style.top = `${top}px`;
+                movingBackground.style.width = `${width}px`;
+                movingBackground.style.height = `${height}px`;
+                movingBackground.style.opacity = '1';
+            }
+
+            // Show service notification
+            showNotification(service, 'info', `Volvexer - ${this.textContent}`, 3000);
+
+            // Resume auto-play after 3 seconds
+            setTimeout(() => {
+                isAutoPlaying = true;
+                currentActiveIndex = (index + 1) % letterServices.length;
+            }, 3000);
+        });
+    });
+
+    // Add keyboard navigation
+    volvexerElement.addEventListener('keydown', function (e) {
+        const letters = Array.from(letterServices);
+        const currentIndex = letters.findIndex(letter => letter === document.activeElement);
+
+        if (e.key === 'ArrowRight' && currentIndex < letters.length - 1) {
+            letters[currentIndex + 1].focus();
+        } else if (e.key === 'ArrowLeft' && currentIndex > 0) {
+            letters[currentIndex - 1].focus();
+        } else if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            letters[currentIndex].click();
+        }
+    });
+
+    // Make letters focusable
+    letterServices.forEach(letter => {
+        letter.setAttribute('tabindex', '0');
+    });
+
+    // Update background position on window resize
+    window.addEventListener('resize', debounce(() => {
+        if (isAutoPlaying) {
+            const currentLetter = letterServices[currentActiveIndex];
+            const movingBackground = document.querySelector('.acronym-moving-bg');
+
+            if (movingBackground && currentLetter) {
+                const letterRect = currentLetter.getBoundingClientRect();
+                const containerRect = acronymContainer.getBoundingClientRect();
+
+                const left = letterRect.left - containerRect.left - 12;
+                const top = letterRect.top - containerRect.top - 8;
+                const width = letterRect.width + 24;
+                const height = letterRect.height + 16;
+
+                movingBackground.style.left = `${left}px`;
+                movingBackground.style.top = `${top}px`;
+                movingBackground.style.width = `${width}px`;
+                movingBackground.style.height = `${height}px`;
+            }
+        }
+    }, 250));
+}
+
+// Tagline Word Highlighting
+function initializeTaglineHighlighting() {
+    const taglineWords = document.querySelectorAll('.tagline-word');
+    if (taglineWords.length === 0) return;
+
+    let currentWordIndex = 0;
+    let isAutoPlaying = true;
+
+    // Create moving background element
+    const taglineContainer = document.querySelector('.hero-tagline');
+    if (taglineContainer) {
+        const movingBackground = document.createElement('div');
+        movingBackground.className = 'tagline-moving-bg';
+        movingBackground.style.cssText = `
+            position: absolute;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 8px;
+            padding: 8px 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0;
+        `;
+        taglineContainer.style.position = 'relative';
+        taglineContainer.appendChild(movingBackground);
+    }
+
+    // Sequential word highlighting function
+    function highlightNextWord() {
+        if (!isAutoPlaying) return;
+
+        // Remove active class from all words
+        taglineWords.forEach(word => word.classList.remove('active'));
+
+        // Add active class to current word
+        taglineWords[currentWordIndex].classList.add('active');
+
+        // Move background to current word
+        const currentWord = taglineWords[currentWordIndex];
+        const movingBackground = document.querySelector('.tagline-moving-bg');
+
+        if (movingBackground && currentWord) {
+            const wordRect = currentWord.getBoundingClientRect();
+            const containerRect = taglineContainer.getBoundingClientRect();
+
+            const left = wordRect.left - containerRect.left - 12; // Adjust padding
+            const top = wordRect.top - containerRect.top - 8; // Adjust padding
+            const width = wordRect.width + 24; // Add padding
+            const height = wordRect.height + 16; // Add padding
+
+            movingBackground.style.left = `${left}px`;
+            movingBackground.style.top = `${top}px`;
+            movingBackground.style.width = `${width}px`;
+            movingBackground.style.height = `${height}px`;
+            movingBackground.style.opacity = '1';
+        }
+
+        // Show word value notification
+        const value = currentWord.getAttribute('data-value');
+        showNotification(value, 'info', `"${currentWord.textContent}"`, 1800);
+
+        // Move to next word
+        currentWordIndex = (currentWordIndex + 1) % taglineWords.length;
+    }
+
+    // Start the sequential highlighting
+    setTimeout(() => {
+        highlightNextWord();
+        // Highlight each word every 2 seconds
+        setInterval(highlightNextWord, 2000);
+    }, 1500);
+
+    // Click functionality to pause/resume and show word value
+    taglineWords.forEach((word, index) => {
+        word.addEventListener('click', function () {
+            const value = this.getAttribute('data-value');
+
+            // Pause auto-play
+            isAutoPlaying = false;
+
+            // Remove active from all words
+            taglineWords.forEach(w => w.classList.remove('active'));
+
+            // Highlight clicked word
+            this.classList.add('active');
+
+            // Move background to clicked word
+            const movingBackground = document.querySelector('.tagline-moving-bg');
+            if (movingBackground) {
+                const wordRect = this.getBoundingClientRect();
+                const containerRect = taglineContainer.getBoundingClientRect();
+
+                const left = wordRect.left - containerRect.left - 12;
+                const top = wordRect.top - containerRect.top - 8;
+                const width = wordRect.width + 24;
+                const height = wordRect.height + 16;
+
+                movingBackground.style.left = `${left}px`;
+                movingBackground.style.top = `${top}px`;
+                movingBackground.style.width = `${width}px`;
+                movingBackground.style.height = `${height}px`;
+                movingBackground.style.opacity = '1';
+            }
+
+            // Show word value notification
+            showNotification(value, 'info', `"${this.textContent}"`, 2500);
+
+            // Resume auto-play after 2.5 seconds
+            setTimeout(() => {
+                isAutoPlaying = true;
+                currentWordIndex = (index + 1) % taglineWords.length;
+            }, 2500);
+        });
+    });
+
+    // Update background position on window resize
+    window.addEventListener('resize', debounce(() => {
+        if (isAutoPlaying) {
+            const currentWord = taglineWords[currentWordIndex];
+            const movingBackground = document.querySelector('.tagline-moving-bg');
+
+            if (movingBackground && currentWord) {
+                const wordRect = currentWord.getBoundingClientRect();
+                const containerRect = taglineContainer.getBoundingClientRect();
+
+                const left = wordRect.left - containerRect.left - 12;
+                const top = wordRect.top - containerRect.top - 8;
+                const width = wordRect.width + 24;
+                const height = wordRect.height + 16;
+
+                movingBackground.style.left = `${left}px`;
+                movingBackground.style.top = `${top}px`;
+                movingBackground.style.width = `${width}px`;
+                movingBackground.style.height = `${height}px`;
+            }
+        }
+    }, 250));
+} 

@@ -884,6 +884,250 @@ p {
 .highlight-stripe {
     color: var(--primary-color);
     font-weight: 600;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+#volvexer-definition {
+    display: inline-block;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.volvexer-acronym {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--primary-color);
+    letter-spacing: 0.2em;
+}
+
+.letter-service {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    padding: 0.2em 0.1em;
+    border-radius: 4px;
+    opacity: 0.6;
+}
+
+.letter-service.active {
+    background: rgba(124, 58, 237, 0.2);
+    transform: translateY(-3px) scale(1.1);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.3);
+    opacity: 1;
+    color: var(--primary-color);
+    font-weight: 800;
+}
+
+.letter-service:hover {
+    background: rgba(124, 58, 237, 0.1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(124, 58, 237, 0.2);
+    opacity: 0.8;
+}
+
+.letter-service::after {
+    content: attr(data-service);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    background: var(--primary-color);
+    color: white;
+    padding: 0.5em 1em;
+    border-radius: 8px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.letter-service::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-2px);
+    border: 6px solid transparent;
+    border-top-color: var(--primary-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.letter-service.active::after,
+.letter-service.active::before,
+.letter-service:hover::after,
+.letter-service:hover::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.letter-service.active::before,
+.letter-service:hover::before {
+    transform: translateX(-50%) translateY(-1px);
+}
+
+/* Animation for letter appearance */
+.letter-service {
+    animation: letterAppear 0.6s ease forwards;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+@keyframes letterAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+
+    50% {
+        opacity: 0.7;
+        transform: translateY(-5px) scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.letter-service:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.letter-service:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.letter-service:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.letter-service:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.letter-service:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.letter-service:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.letter-service:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+.letter-service:nth-child(8) {
+    animation-delay: 0.8s;
+}
+
+/* Tagline Word Highlighting */
+.tagline-word {
+    display: inline-block;
+    position: relative;
+    transition: all 0.5s ease;
+    padding: 0.2em 0.3em;
+    border-radius: 6px;
+    margin: 0 0.1em;
+    opacity: 0.7;
+}
+
+.tagline-word.active {
+    background: linear-gradient(135deg, rgba(124, 58, 237, 0.2), rgba(59, 130, 246, 0.2));
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+    opacity: 1;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+.tagline-word::after {
+    content: attr(data-value);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-8px);
+    background: var(--primary-color);
+    color: white;
+    padding: 0.4em 0.8em;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.tagline-word::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-2px);
+    border: 5px solid transparent;
+    border-top-color: var(--primary-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.tagline-word.active::after,
+.tagline-word.active::before {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
+}
+
+.tagline-word.active::before {
+    transform: translateX(-50%) translateY(-1px);
+}
+
+/* Moving Background for Tagline Words */
+.tagline-moving-bg {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 8px 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.hero-tagline {
+    position: relative;
+    display: inline-block;
+}
+
+/* Moving Background for Volvexer Acronym */
+.acronym-moving-bg {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 8px 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.hero-subtitle {
+    position: relative;
+    display: inline-block;
 }
 
 .hero-description {
