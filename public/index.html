@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Volvexer - Professional Tax Filing Services</title>
+    <title>Volvexer - Complete Business Solutions | Tax Filing, Accounting & AI Engineering</title>
     <link rel="stylesheet" href="static/css/styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -12,6 +12,15 @@
 </head>
 
 <body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <img src="static/assets/final icon 1.png" alt="Volvexer Logo" class="loading-logo">
+            <div class="loading-spinner"></div>
+            <p>Loading Volvexer...</p>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -23,13 +32,17 @@
             <div class="nav-menu" id="nav-menu">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#services" class="nav-link">Services</a>
-                <a href="#calculator" class="nav-link">Tax Calculator</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#contact" class="nav-link">Contact</a>
             </div>
 
             <div class="nav-buttons">
-
+                <button class="btn btn-login" onclick="openWhatsApp()">
+                    Get Help
+                </button>
+                <button class="btn btn-primary" onclick="scrollToServices()">
+                    Explore Services
+                </button>
                 <button class="mobile-menu-toggle" id="mobile-menu-toggle">
                     <span></span>
                     <span></span>
@@ -42,410 +55,158 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-bubbles"></div>
-        <div class="hero-container" style="display:grid;grid-template-columns:1fr 2fr 1fr;align-items:center;">
-            <div class="hero-left-anim"
-                style="display:flex;flex-direction:column;justify-content:center;align-items:center;height:100%;gap:0;">
-                <div class="hero-anim-line">
-                    <div class="hero-anim-line-bg"></div>
-                    <svg id="spinning-calc-left" width="60" height="60" viewBox="0 0 100 100"
-                        style="animation: spinCalc 2.5s linear infinite;">
-                        <rect x="15" y="15" width="70" height="70" rx="14" fill="#fff" stroke="#2563eb"
-                            stroke-width="4" />
-                        <rect x="30" y="30" width="40" height="18" rx="4" fill="#e0e7ff" />
-                        <rect x="30" y="55" width="10" height="10" rx="2" fill="#7c3aed" />
-                        <rect x="45" y="55" width="10" height="10" rx="2" fill="#7c3aed" />
-                        <rect x="60" y="55" width="10" height="10" rx="2" fill="#7c3aed" />
-                        <rect x="30" y="70" width="10" height="10" rx="2" fill="#7c3aed" />
-                        <rect x="45" y="70" width="10" height="10" rx="2" fill="#7c3aed" />
-                        <rect x="60" y="70" width="10" height="10" rx="2" fill="#7c3aed" />
-                    </svg>
-                </div>
-                <div class="hero-anim-line">
-                    <div class="hero-anim-line-bg"></div>
-                    <svg id="floating-doc" width="60" height="60" viewBox="0 0 80 80"
-                        style="animation: floatDoc 2.2s ease-in-out infinite alternate;">
-                        <rect x="12" y="14" width="56" height="52" rx="10" fill="#fff" stroke="#2563eb"
-                            stroke-width="3" />
-                        <rect x="22" y="28" width="36" height="8" rx="2" fill="#e0e7ff" />
-                        <rect x="22" y="42" width="36" height="8" rx="2" fill="#e0e7ff" />
-                        <rect x="22" y="56" width="20" height="8" rx="2" fill="#e0e7ff" />
-                        <polyline points="26,64 40,74 58,38" fill="none" stroke="#22c55e" stroke-width="4"
-                            stroke-linecap="round" />
-                    </svg>
-                </div>
-                <div class="hero-anim-line">
-                    <div class="hero-anim-line-bg"></div>
-                    <svg id="rupee-coin" width="48" height="48" viewBox="0 0 60 60"
-                        style="animation: pulseCoin 1.8s infinite alternate;">
-                        <circle cx="30" cy="30" r="26" fill="#fde68a" stroke="#f59e0b" stroke-width="4" />
-                        <text x="30" y="40" text-anchor="middle" font-size="28" fill="#b45309"
-                            font-weight="bold">₹</text>
-                    </svg>
-                </div>
-                <div class="hero-anim-line">
-                    <div class="hero-anim-line-bg"></div>
-                    <svg id="bar-graph" width="60" height="40" viewBox="0 0 80 60"
-                        style="animation: floatGraph 2.7s ease-in-out infinite alternate;">
-                        <rect x="10" y="40" width="12" height="18" rx="3" fill="#7c3aed" />
-                        <rect x="28" y="30" width="12" height="28" rx="3" fill="#2563eb" />
-                        <rect x="46" y="20" width="12" height="38" rx="3" fill="#22d3ee" />
-                        <rect x="64" y="10" width="12" height="48" rx="3" fill="#ef4444" />
-                    </svg>
-                </div>
-            </div>
+        <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title" style="font-size:2.2rem;">File Your Taxes In Just <span class="highlight"
-                        style="color:#ef4444;font-weight:800;">6 Minutes</span> With Our Qualified Consultants!</h1>
-                <p class="hero-subtitle" style="font-size:1.2rem;">Now available in just <strong
-                        style="color:#ef4444;font-weight:800;">Rs. 3,500/-</strong></p>
-                <p class="hero-description" style="font-size:1rem;">Volvexer goes beyond tax filing! We also help with
-                    all your business registration, sales tax filing, trademark registration, and LLC registration — all
-                    in one place.</p>
+                <h1 class="hero-title">Complete Business Solutions</h1>
+                <p class="hero-subtitle">From <span class="highlight-stripe">Tax Filing</span> to <span
+                        class="highlight-stripe">AI Engineering</span></p>
+                <p class="hero-description">Transform Your Business With Our Comprehensive Suite of Professional
+                    Services! Expert solutions for every business need.</p>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="scrollToCalculator()">
-                        <i class="fas fa-calculator"></i>
-                        File Now
+                    <button class="btn btn-primary" onclick="scrollToServices()">
+                        <i class="fas fa-rocket"></i>
+                        Explore Services
                     </button>
                     <button class="btn btn-secondary" onclick="openWhatsApp()">
                         <i class="fab fa-whatsapp"></i>
-                        Get Help
+                        Get Consultation
+                    </button>
+                    <button class="btn btn-outline" onclick="openWhatsApp('Business Services')">
+                        <i class="fas fa-phone"></i>
+                        Learn More
                     </button>
                 </div>
-            </div>
-            <div class="hero-right-anim" style="display:flex;justify-content:center;align-items:center;height:100%;">
-                <!-- Animated child face SVG (alert/sad/happy animation) -->
-                <div class="hero-illustration" id="hero-anim">
-                    <div id="notice-anim" style="display:flex;flex-direction:column;align-items:center;">
-                        <svg id="notice-icon" width="60" height="60" viewBox="0 0 60 60"
-                            style="margin-bottom:16px;opacity:0;transition:opacity 0.5s;">
-                            <circle cx="30" cy="30" r="28" fill="#fff0f0" stroke="#ef4444" stroke-width="3" />
-                            <text x="30" y="38" text-anchor="middle" font-size="32" fill="#ef4444"
-                                font-weight="bold">!</text>
-                        </svg>
-                        <svg id="weep-person" width="120" height="120" viewBox="0 0 120 120">
-                            <!-- Head (child: round, large) -->
-                            <circle cx="60" cy="60" r="40" fill="#ffe0b2" stroke="#b08968" stroke-width="2" />
-                            <!-- Eyes (large, round, sad) -->
-                            <ellipse cx="48" cy="70" rx="7" ry="10" fill="#333" />
-                            <ellipse cx="72" cy="70" rx="7" ry="10" fill="#333" />
-                            <!-- Tears -->
-                            <ellipse cx="48" cy="85" rx="2.5" ry="5" fill="#60a5fa" />
-                            <ellipse cx="72" cy="85" rx="2.5" ry="5" fill="#60a5fa" />
-                            <!-- Mouth (sad) -->
-                            <path d="M50 100 Q60 90 70 100" stroke="#b08968" stroke-width="2" fill="none" />
-                        </svg>
-                        <div id="weep-text"
-                            style="margin-top:10px;font-size:1.1rem;color:#ef4444;font-weight:600;opacity:0;transition:opacity 0.5s;">
-                            Please save me! Help me!</div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10,000+</span>
+                        <span class="stat-label">Happy Clients</span>
                     </div>
-                    <div id="relief-anim" style="display:none;flex-direction:column;align-items:center;">
-                        <svg id="happy-person" width="120" height="120" viewBox="0 0 120 120">
-                            <!-- Head (child: round, large) -->
-                            <circle cx="60" cy="60" r="40" fill="#ffe0b2" stroke="#b08968" stroke-width="2" />
-                            <!-- Eyes (large, round, happy) -->
-                            <ellipse cx="48" cy="70" rx="7" ry="7" fill="#333" />
-                            <ellipse cx="72" cy="70" rx="7" ry="7" fill="#333" />
-                            <!-- Smile -->
-                            <path d="M50 95 Q60 110 70 95" stroke="#b08968" stroke-width="2" fill="none" />
-                        </svg>
-                        <div id="relief-text" style="margin-top:10px;font-size:1.1rem;color:#22c55e;font-weight:700;">
-                            Don’t worry, Volvexer helps you!</div>
+                    <div class="stat-item">
+                        <span class="stat-number">99%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about-section" style="position:relative;z-index:1;">
-        <div class="about-container"
-            style="display:grid;grid-template-columns:1fr 1.3fr;align-items:center;gap:3rem;max-width:1200px;margin:0 auto;padding:80px 0 60px;">
-            <!-- Left: Creative SVG illustration -->
-            <div class="about-illustration" style="display:flex;justify-content:center;align-items:center;">
-                <svg width="220" height="220" viewBox="0 0 220 220">
-                    <!-- Shield -->
-                    <path d="M110 30 Q180 60 170 120 Q160 190 110 210 Q60 190 50 120 Q40 60 110 30 Z" fill="#e0e7ff"
-                        stroke="#2563eb" stroke-width="4" />
-                    <!-- Document -->
-                    <rect x="80" y="70" width="60" height="70" rx="10" fill="#fff" stroke="#7c3aed" stroke-width="3" />
-                    <rect x="92" y="90" width="36" height="8" rx="2" fill="#c7d2fe" />
-                    <rect x="92" y="106" width="36" height="8" rx="2" fill="#c7d2fe" />
-                    <rect x="92" y="122" width="20" height="8" rx="2" fill="#c7d2fe" />
-                    <!-- Stars -->
-                    <polygon points="110,55 114,65 125,66 117,73 119,84 110,78 101,84 103,73 95,66 106,65"
-                        fill="#f59e0b" />
-                    <circle cx="150" cy="60" r="8" fill="#fbbf24" opacity="0.7" />
-                    <circle cx="70" cy="60" r="5" fill="#fbbf24" opacity="0.5" />
-                </svg>
-            </div>
-            <!-- Right: Animated headline and feature cards -->
-            <div class="about-content" style="position:relative;">
-                <h2 class="about-title gradient-text"
-                    style="font-size:2.3rem;font-weight:900;margin-bottom:1.2rem;line-height:1.1;">
-                    Why <span class="about-highlight"
-                        style="background:linear-gradient(90deg,#7c3aed,#2563eb);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Volvexer?</span>
-                </h2>
-                <div class="about-features"
-                    style="display:grid;grid-template-columns:1fr 1fr;gap:1.3rem 1.5rem;margin-bottom:2.2rem;">
-                    <div class="about-feature-card fade-in"
-                        style="background:#fff;border-radius:16px;box-shadow:0 4px 16px rgba(124,58,237,0.07);padding:1.3rem 1rem;display:flex;flex-direction:column;align-items:center;animation:fadeIn 1s 0.1s both;">
-                        <i class="fas fa-bolt" style="color:#ef4444;font-size:2rem;margin-bottom:0.5rem;"></i>
-                        <div style="font-weight:700;font-size:1.1rem;">Fastest Tax Filing</div>
-                    </div>
-                    <div class="about-feature-card fade-in"
-                        style="background:#fff;border-radius:16px;box-shadow:0 4px 16px rgba(34,211,238,0.07);padding:1.3rem 1rem;display:flex;flex-direction:column;align-items:center;animation:fadeIn 1s 0.3s both;">
-                        <i class="fas fa-user-tie" style="color:#2563eb;font-size:2rem;margin-bottom:0.5rem;"></i>
-                        <div style="font-weight:700;font-size:1.1rem;">Expert Support</div>
-                    </div>
-                    <div class="about-feature-card fade-in"
-                        style="background:#fff;border-radius:16px;box-shadow:0 4px 16px rgba(16,185,129,0.07);padding:1.3rem 1rem;display:flex;flex-direction:column;align-items:center;animation:fadeIn 1s 0.5s both;">
-                        <i class="fas fa-shield-alt" style="color:#7c3aed;font-size:2rem;margin-bottom:0.5rem;"></i>
-                        <div style="font-weight:700;font-size:1.1rem;">Secure & Private</div>
-                    </div>
-                    <div class="about-feature-card fade-in"
-                        style="background:#fff;border-radius:16px;box-shadow:0 4px 16px rgba(239,68,68,0.07);padding:1.3rem 1rem;display:flex;flex-direction:column;align-items:center;animation:fadeIn 1s 0.7s both;">
-                        <i class="fas fa-users" style="color:#f59e0b;font-size:2rem;margin-bottom:0.5rem;"></i>
-                        <div style="font-weight:700;font-size:1.1rem;">Trusted by Thousands</div>
-                    </div>
-                </div>
-                <button class="btn btn-primary" style="font-size:1.1rem;padding:0.9rem 2.2rem;">Learn More</button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tax Calculator Section -->
-    <section id="calculator" class="calculator-section">
+    <!-- Services Overview Section -->
+    <section id="services" class="services-overview">
         <div class="container">
             <div class="section-header">
-                <h2>Income Tax Calculator</h2>
-                <p>Calculate your income tax with our easy-to-use calculator</p>
+                <h2>Our Professional Services</h2>
+                <p>Comprehensive solutions to grow and optimize your business</p>
             </div>
-
-            <div class="calculator-container">
-                <div class="calculator-input">
-                    <label for="gross-income">ENTER GROSS INCOME (Monthly)</label>
-                    <div class="input-group">
-                        <span class="currency">Rs.</span>
-                        <input type="number" id="gross-income" placeholder="Enter your monthly income" min="0">
-                    </div>
-
-                    <div class="year-selector">
-                        <label>SELECT TAX YEAR</label>
-                        <select id="tax-year">
-                            <option value="2026" selected>2026 (Latest)</option>
-                            <option value="2025">2025</option>
-                            <option value="2024">2024</option>
-                            <option value="2023">2023</option>
-                            <option value="2022">2022</option>
-                            <option value="2021">2021</option>
-                            <option value="2020">2020</option>
-                        </select>
-                    </div>
-
-                    <button class="btn btn-primary calculate-btn" onclick="calculateTax()">
-                        Calculate Tax
-                    </button>
-                </div>
-
-                <div class="calculator-results">
-                    <div class="result-card">
-                        <h3>MONTHLY TAX</h3>
-                        <div class="result-value" id="monthly-tax">0</div>
-                    </div>
-                    <div class="result-card">
-                        <h3>SALARY AFTER TAX</h3>
-                        <div class="result-value" id="salary-after-tax">0</div>
-                    </div>
-                    <div class="result-card">
-                        <h3>ANNUAL TAX</h3>
-                        <div class="result-value" id="annual-tax">0</div>
-                    </div>
-                    <div class="result-card">
-                        <h3>ANNUAL SALARY</h3>
-                        <div class="result-value" id="annual-salary">0</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="tax-tips">
-                <a href="#services" class="tips-link">
-                    <i class="fas fa-lightbulb"></i>
-                    Learn how to save more on taxes ➜
-                </a>
-                <div class="tax-info">
-                    <p><strong id="tax-year-display">2026 Tax Slabs:</strong> <span id="tax-slabs-display">0% (up to
-                            600K), 1% (600K-1.2M), 11% (1.2M-2.2M), 23% (2.2M-3.2M), 30% (3.2M-4.1M), 35% (above
-                            4.1M)</span></p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Services Section -->
-    <section id="services" class="services-section">
-        <div class="container">
-            <div class="section-header">
-                <h2>Popular Products</h2>
-                <p>Comprehensive tax and business services</p>
-            </div>
-
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-user-plus"></i>
-                    </div>
-                    <h3>Individual NTN Registration</h3>
-                    <p>Just register your Individual NTN in 3 simple steps. Register, Upload, Pay.</p>
-                    <button class="btn btn-outline" onclick="openWhatsApp('NTN Registration')">
-                        Click here to start now
-                    </button>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
+            <div class="services-overview-grid">
+                <div class="service-overview-card" onclick="window.location.href='taxation.html'">
+                    <div class="service-overview-icon">
                         <i class="fas fa-file-alt"></i>
                     </div>
-                    <h3>Tax Filing</h3>
-                    <p>No appointments, no documents, File your taxes within minutes.</p>
-                    <button class="btn btn-outline" onclick="openWhatsApp('Tax Filing')">
-                        Click here to start now
-                    </button>
+                    <div class="service-overview-content">
+                        <h3>Tax Filing Services</h3>
+                        <p>Professional tax filing built native to FBR. File your taxes in just 6 minutes with our
+                            qualified consultants.</p>
+                        <div class="service-overview-features">
+                            <span class="feature-tag">FBR Integration</span>
+                            <span class="feature-tag">6-Minute Filing</span>
+                            <span class="feature-tag">Expert Support</span>
+                        </div>
+                        <div class="service-overview-price">
+                            <span class="price-label">Starting at</span>
+                            <span class="price-amount">Rs. 3,500/-</span>
+                        </div>
+                        <button class="btn btn-primary">Explore Tax Services</button>
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-building"></i>
+                <div class="service-overview-card" onclick="window.location.href='accounting.html'">
+                    <div class="service-overview-icon">
+                        <i class="fas fa-book"></i>
                     </div>
-                    <h3>Business NTN Registration</h3>
-                    <p>The simplest and quickest way to start your business.</p>
-                    <button class="btn btn-outline" onclick="openWhatsApp('Business NTN')">
-                        Click here to start now
-                    </button>
+                    <div class="service-overview-content">
+                        <h3>Accounting & Bookkeeping</h3>
+                        <p>Comprehensive financial management solutions for businesses of all sizes. From basic
+                            bookkeeping to CFO services.</p>
+                        <div class="service-overview-features">
+                            <span class="feature-tag">Full Bookkeeping</span>
+                            <span class="feature-tag">Financial Analysis</span>
+                            <span class="feature-tag">Payroll Processing</span>
+                        </div>
+                        <div class="service-overview-price">
+                            <span class="price-label">Starting at</span>
+                            <span class="price-amount">Rs. 5,000/-</span>
+                            <span class="price-period">/month</span>
+                        </div>
+                        <button class="btn btn-primary">Explore Accounting</button>
+                    </div>
                 </div>
 
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-receipt"></i>
+                <div class="service-overview-card" onclick="window.location.href='ai-engineer.html'">
+                    <div class="service-overview-icon">
+                        <i class="fas fa-robot"></i>
                     </div>
-                    <h3>Sales Tax Registration</h3>
-                    <p>GST Registration was never this easy, Register your sales tax with Volvexer Now.</p>
-                    <button class="btn btn-outline" onclick="openWhatsApp('Sales Tax Registration')">
-                        Click here to start now
-                    </button>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
+                    <div class="service-overview-content">
+                        <h3>AI Engineering</h3>
+                        <p>Cutting-edge AI solutions to automate and optimize your business processes. From ML models to
+                            process automation.</p>
+                        <div class="service-overview-features">
+                            <span class="feature-tag">Machine Learning</span>
+                            <span class="feature-tag">NLP Solutions</span>
+                            <span class="feature-tag">Process Automation</span>
+                        </div>
+                        <div class="service-overview-price">
+                            <span class="price-label">Starting at</span>
+                            <span class="price-amount">Rs. 50,000/-</span>
+                            <span class="price-period">/project</span>
+                        </div>
+                        <button class="btn btn-primary">Explore AI Services</button>
                     </div>
-                    <h3>Business Tax Filing</h3>
-                    <p>Stop worrying about your taxes, Volvexer team of experts got you covered.</p>
-                    <button class="btn btn-outline" onclick="openWhatsApp('Business Tax Filing')">
-                        Click here to start now
-                    </button>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-trademark"></i>
-                    </div>
-                    <h3>Trademark Registration</h3>
-                    <p>Protect your brand with our trademark registration services.</p>
-                    <button class="btn btn-outline" onclick="openWhatsApp('Trademark Registration')">
-                        Click here to start now
-                    </button>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials-section">
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
         <div class="container">
             <div class="section-header">
-                <h2>What people have to say about us</h2>
+                <h2>Why Choose Volvexer?</h2>
+                <p>We deliver excellence across all our services</p>
             </div>
-
-            <div class="testimonials-slider">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"Its a great service to deal with the tax issues. staff is very cooperative, helpful and
-                            responds quickly."</p>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="author-info">
-                            <h4>Muhammad Umair Umer</h4>
-                            <span>Business Owner</span>
-                        </div>
-                    </div>
+                    <h3>Trusted & Secure</h3>
+                    <p>Your data and business information are protected with enterprise-grade security measures.</p>
                 </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"I was struggling in tax filing, Volvexer helped me in the process. The team is really
-                            professional and competent in their work. Highly recommend."</p>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="author-info">
-                            <h4>Rizwan Muhammad</h4>
-                            <span>Freelancer</span>
-                        </div>
-                    </div>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock support to ensure your business never stops, no matter the time or day.</p>
                 </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"My experience have been quite good so far. They do focus on the significance of customer
-                            satisfaction."</p>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="author-info">
-                            <h4>Mamoon Javaid</h4>
-                            <span>Corporate Client</span>
-                        </div>
-                    </div>
+                    <h3>Expert Team</h3>
+                    <p>Certified professionals with years of experience in their respective fields.</p>
                 </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>"I filed my tax returns through Volvexer and it was an excellent experience."</p>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-rocket"></i>
                     </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <i class="fas fa-user"></i>
-                        </div>
-                        <div class="author-info">
-                            <h4>Hussain Khan</h4>
-                            <span>Salaried Employee</span>
-                        </div>
-                    </div>
+                    <h3>Fast Delivery</h3>
+                    <p>Quick turnaround times without compromising on quality or accuracy.</p>
                 </div>
             </div>
-
-            <div class="testimonial-controls">
-                <button class="control-btn" onclick="prevTestimonial()">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button class="control-btn" onclick="nextTestimonial()">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Team Section -->
-    <section class="team-section">
-        <div class="container" style="text-align:center;">
-            <h2><span style="color:#ef4444;font-weight:800;">100+</span> Talented & Qualified Team Members</h2>
         </div>
     </section>
 
@@ -454,64 +215,26 @@
         <div class="container">
             <div class="contact-content">
                 <div class="contact-info">
-                    <h2>Contact Us</h2>
-                    <p>Get in touch with our expert team for any questions or assistance</p>
-
+                    <h2>Ready to Transform Your Business?</h2>
+                    <p>Get in touch with our expert team and discover how we can help you achieve your business goals.
+                    </p>
                     <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <h4>Call Us</h4>
+                            <p>+92 300 1234567</p>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <h4>Email Us</h4>
+                            <p>info@volvexer.com</p>
+                        </div>
                         <div class="contact-method">
                             <i class="fab fa-whatsapp"></i>
                             <h4>WhatsApp</h4>
-                            <p><a href="https://wa.me/923390625000" style="color:#2563eb;font-weight:600;">+92 339
-                                    0625000</a></p>
+                            <p>Get instant support</p>
                         </div>
                     </div>
-
-                    <div class="social-links">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="contact-form">
-                    <h3>Quick Contact</h3>
-                    <form id="contact-form">
-                        <div class="form-group">
-                            <input type="text" id="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="tel" id="phone" placeholder="Your Phone" required>
-                        </div>
-                        <div class="form-group">
-                            <select id="service" required>
-                                <option value="">Select Service</option>
-                                <option value="tax-filing">Tax Filing</option>
-                                <option value="ntn-registration">NTN Registration</option>
-                                <option value="sales-tax">Sales Tax Registration</option>
-                                <option value="business-tax">Business Tax Filing</option>
-                                <option value="trademark">Trademark Registration</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" placeholder="Your Message" rows="4"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fab fa-whatsapp"></i>
-                            Send via WhatsApp
-                        </button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -522,77 +245,44 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <div class="footer-logo">
-                        <img src="static/assets/final icon 1.png" alt="Volvexer Logo" class="logo-img">
-                        <span class="logo-text">Volvexer</span>
-                    </div>
-                    <p>Volvexer is a joint initiative of team of leading tax professionals and technology enthusiasts.
-                        The initiative aims to simplify tax return filing process for individuals and promote the
-                        culture of documentation.</p>
+                    <h4>Volvexer</h4>
+                    <p>Complete business solutions from tax filing to AI engineering. Your trusted partner for business
+                        growth.</p>
                 </div>
-
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#services">Services</a></li>
-                        <li><a href="#calculator">Tax Calculator</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-
                 <div class="footer-section">
                     <h4>Services</h4>
                     <ul>
-                        <li><a href="#services">Tax Filing</a></li>
-                        <li><a href="#services">NTN Registration</a></li>
-                        <li><a href="#services">Sales Tax</a></li>
-                        <li><a href="#services">Business Registration</a></li>
-                        <li><a href="#services">Trademark Registration</a></li>
+                        <li><a href="taxation.html">Tax Filing</a></li>
+                        <li><a href="accounting.html">Accounting</a></li>
+                        <li><a href="ai-engineer.html">AI Engineering</a></li>
                     </ul>
                 </div>
-
                 <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <div class="contact-info-footer">
-                        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/923390625000"
-                                style="color:#2563eb;font-weight:600;">+92 339 0625000</a></p>
-
-                    </div>
-                    <div class="social-links-footer">
-                        <a href="#" class="social-link">
-                            <i class="fab fa-facebook"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                    </div>
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+923001234567">+92 300 1234567</a></li>
+                        <li><a href="mailto:info@volvexer.com">info@volvexer.com</a></li>
+                        <li><a href="#" onclick="openWhatsApp()">WhatsApp</a></li>
+                    </ul>
                 </div>
             </div>
-
             <div class="footer-bottom">
-                <p>&copy; 2018 - 2025 Volvexer - Terms of Use | Privacy Statement</p>
-                <div class="security-badge">
-                    <i class="fas fa-shield-alt"></i>
-                    PCI DSS SECURE
-                </div>
+                <p>&copy; 2024 Volvexer. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- WhatsApp Float Button -->
+    <!-- WhatsApp Float -->
     <div class="whatsapp-float" onclick="openWhatsApp()">
         <i class="fab fa-whatsapp"></i>
     </div>
 
     <script src="static/js/scripts.js"></script>
+    <script>
+        function scrollToServices() {
+            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
 </body>
 
 </html>

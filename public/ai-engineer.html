@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volvexer AI - AI Engineering & Development Services</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="static/assets/final icon 1.png">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <img src="static/assets/final icon 1.png" alt="Volvexer Logo" class="loading-logo">
+            <div class="loading-spinner"></div>
+            <p>Loading Volvexer AI...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="static/assets/final icon 1.png" alt="Volvexer Logo" class="logo-img">
+                <span class="logo-text">Volvexer AI</span>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Main</a>
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-login" onclick="openWhatsApp()">
+                    Get Quote
+                </button>
+                <button class="btn btn-primary" onclick="scrollToServices()">
+                    Start Project
+                </button>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bubbles"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">AI Engineering & Development Solutions</h1>
+                <p class="hero-subtitle">Powered by <span class="highlight-stripe">Cutting-Edge AI</span></p>
+                <p class="hero-description">Transform Your Business With Custom AI Solutions! Starting at just <strong
+                        class="highlight-price">Rs. 50,000/-</strong> per project</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToServices()">
+                        <i class="fas fa-robot"></i>
+                        Start Project
+                    </button>
+                    <button class="btn btn-secondary" onclick="openWhatsApp()">
+                        <i class="fab fa-whatsapp"></i>
+                        Free Consultation
+                    </button>
+                    <button class="btn btn-outline" onclick="openWhatsApp('AI Services')">
+                        <i class="fas fa-phone"></i>
+                        Learn More
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">AI Projects</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">95%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI Engineering Services</h2>
+                <p>Comprehensive AI solutions to automate and optimize your business processes</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Machine Learning</h3>
+                    <p>Custom ML models for prediction, classification, and pattern recognition</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-comments"></i>
+                    </div>
+                    <h3>Natural Language Processing</h3>
+                    <p>Chatbots, sentiment analysis, and text processing solutions</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Computer Vision</h3>
+                    <p>Image recognition, object detection, and visual AI applications</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Data Analytics</h3>
+                    <p>Advanced analytics and business intelligence solutions</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <h3>Process Automation</h3>
+                    <p>Advanced workflow automation using n8n, RPA, and AI technologies for seamless business process
+                        optimization</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>AI Integration</h3>
+                    <p>Seamless integration of AI into existing systems and applications</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Automation Highlight Section -->
+    <section class="automation-highlight">
+        <div class="container">
+            <div class="automation-content">
+                <div class="automation-text">
+                    <h2>Advanced Workflow Automation with n8n</h2>
+                    <p>Transform your business processes with our expert n8n automation solutions. We specialize in
+                        creating intelligent workflows that connect your applications, automate repetitive tasks, and
+                        streamline operations.</p>
+                    <div class="automation-features">
+                        <div class="automation-feature">
+                            <i class="fas fa-plug"></i>
+                            <span>API Integration</span>
+                        </div>
+                        <div class="automation-feature">
+                            <i class="fas fa-code"></i>
+                            <span>Custom Nodes</span>
+                        </div>
+                        <div class="automation-feature">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Secure Workflows</span>
+                        </div>
+                        <div class="automation-feature">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Real-time Monitoring</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="openWhatsApp('n8n Automation')">
+                        <i class="fas fa-robot"></i>
+                        Get Automation Quote
+                    </button>
+                </div>
+                <div class="automation-visual">
+                    <div class="workflow-diagram">
+                        <div class="workflow-node">
+                            <i class="fas fa-database"></i>
+                            <span>Data Source</span>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-node">
+                            <i class="fas fa-cogs"></i>
+                            <span>n8n Process</span>
+                        </div>
+                        <div class="workflow-arrow">→</div>
+                        <div class="workflow-node">
+                            <i class="fas fa-chart-bar"></i>
+                            <span>Output</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Technical Skills & Expertise</h2>
+                <p>Comprehensive skill set in AI, ML, and modern technologies</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3><i class="fas fa-brain"></i> Machine Learning & AI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">TensorFlow</span>
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">Keras</span>
+                        <span class="skill-tag">OpenAI GPT</span>
+                        <span class="skill-tag">BERT</span>
+                        <span class="skill-tag">Transformers</span>
+                        <span class="skill-tag">Computer Vision</span>
+                        <span class="skill-tag">NLP</span>
+                        <span class="skill-tag">Deep Learning</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">R</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">PHP</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud & DevOps</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">Google Cloud</span>
+                        <span class="skill-tag">Azure</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">Kubernetes</span>
+                        <span class="skill-tag">CI/CD</span>
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Jenkins</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-database"></i> Data & Analytics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Pandas</span>
+                        <span class="skill-tag">NumPy</span>
+                        <span class="skill-tag">Matplotlib</span>
+                        <span class="skill-tag">Seaborn</span>
+                        <span class="skill-tag">Plotly</span>
+                        <span class="skill-tag">MongoDB</span>
+                        <span class="skill-tag">PostgreSQL</span>
+                        <span class="skill-tag">Redis</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-mobile-alt"></i> Web & Mobile</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">Django</span>
+                        <span class="skill-tag">Flask</span>
+                        <span class="skill-tag">React Native</span>
+                        <span class="skill-tag">REST APIs</span>
+                        <span class="skill-tag">GraphQL</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-cogs"></i> Tools & Frameworks</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Jupyter</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">PyCharm</span>
+                        <span class="skill-tag">Postman</span>
+                        <span class="skill-tag">Figma</span>
+                        <span class="skill-tag">Tableau</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Apache Spark</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3><i class="fas fa-robot"></i> Automation & Workflows</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight-skill">n8n</span>
+                        <span class="skill-tag">Zapier</span>
+                        <span class="skill-tag">Make.com</span>
+                        <span class="skill-tag">Airflow</span>
+                        <span class="skill-tag">Prefect</span>
+                        <span class="skill-tag">RPA</span>
+                        <span class="skill-tag">Selenium</span>
+                        <span class="skill-tag">Playwright</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>AI & Development Projects</h2>
+                <p>Showcasing real projects from our GitHub repositories</p>
+            </div>
+            <div class="projects-grid" id="projects-grid">
+                <!-- Projects will be loaded here -->
+            </div>
+            <div class="pagination-container">
+                <div class="pagination" id="pagination">
+                    <!-- Pagination will be generated here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Open Source & Research Section -->
+    <section class="open-source-research">
+        <div class="container">
+            <div class="section-header">
+                <h2>Open Source & Research Work</h2>
+                <p>Contributions to the developer community and academic research</p>
+            </div>
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="research-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="research-content">
+                        <h3>ISGC - GPA Calculator Package</h3>
+                        <p class="research-description">A comprehensive SGPA and CGPA calculator for Islamia University
+                            Bahawalpur students. Published on PyPI with MIT License.</p>
+                        <div class="research-details">
+                            <span class="research-tag">PyPI Package</span>
+                            <span class="research-tag">MIT License</span>
+                            <span class="research-tag">Education</span>
+                        </div>
+                        <div class="research-stats">
+                            <div class="research-stat">
+                                <span class="stat-number">1.0.2</span>
+                                <span class="stat-label">Latest Version</span>
+                            </div>
+                            <div class="research-stat">
+                                <span class="stat-number">MIT</span>
+                                <span class="stat-label">License</span>
+                            </div>
+                            <div class="research-stat">
+                                <span class="stat-number">Python</span>
+                                <span class="stat-label">Language</span>
+                            </div>
+                        </div>
+                        <a href="https://pypi.org/project/isgc/" target="_blank" class="research-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            View on PyPI
+                        </a>
+                    </div>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="research-content">
+                        <h3>Emotion Analysis Package</h3>
+                        <p class="research-description">Advanced emotion analysis and sentiment detection package
+                            published on PyPI for natural language processing applications.</p>
+                        <div class="research-details">
+                            <span class="research-tag">NLP</span>
+                            <span class="research-tag">Sentiment Analysis</span>
+                            <span class="research-tag">PyPI</span>
+                        </div>
+                        <div class="research-stats">
+                            <div class="research-stat">
+                                <span class="stat-number">Latest</span>
+                                <span class="stat-label">Version</span>
+                            </div>
+                            <div class="research-stat">
+                                <span class="stat-number">Open</span>
+                                <span class="stat-label">Source</span>
+                            </div>
+                            <div class="research-stat">
+                                <span class="stat-number">Python</span>
+                                <span class="stat-label">Language</span>
+                            </div>
+                        </div>
+                        <a href="https://pypi.org/project/emotion-analysis/" target="_blank" class="research-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            View on PyPI
+                        </a>
+                    </div>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="research-content">
+                        <h3>Academic Research Publication</h3>
+                        <p class="research-description">Published research on "A Python Package For Summarizing
+                            University Student Examination Performance" in ResearchGate.</p>
+                        <div class="research-details">
+                            <span class="research-tag">ResearchGate</span>
+                            <span class="research-tag">Academic</span>
+                            <span class="research-tag">Education</span>
+                        </div>
+                        <div class="research-stats">
+                            <div class="research-stat">
+                                <span class="stat-number">2024</span>
+                                <span class="stat-label">Published</span>
+                            </div>
+                            <div class="research-stat">
+                                <span class="stat-number">Research</span>
+                                <span class="stat-label">Paper</span>
+                            </div>
+                            <div class="research-stat">
+                                <span class="stat-number">Academic</span>
+                                <span class="stat-label">Journal</span>
+                            </div>
+                        </div>
+                        <a href="https://www.researchgate.net/publication/382074586_A_Python_Package_For_Summarizing_University_Student_Examination_Performance"
+                            target="_blank" class="research-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Research
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience Section -->
+    <section class="professional-experience">
+        <div class="container">
+            <div class="section-header">
+                <h2>Professional Experience</h2>
+                <p>Current and recent professional roles in AI and automation</p>
+            </div>
+            <div class="experience-timeline">
+                <div class="experience-item current">
+                    <div class="experience-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Data Engineer</h3>
+                            <span class="company">QPharma</span>
+                        </div>
+                        <p class="experience-description">Built scalable ETL pipelines using AWS Glue, S3 for raw/staged
+                            data, Lambda Functions for automation, and JupyterHub for notebook-based analysis.</p>
+                        <div class="experience-projects">
+                            <div class="project-item">
+                                <h4>Data Engineering Analytics Architecture</h4>
+                                <ul>
+                                    <li>Applied pandas for large-scale data cleaning, transformation, feature
+                                        engineering, and merging datasets from Excel, APIs, and social media platforms
+                                    </li>
+                                    <li>Utilized Excalidraw to architect and visualize complex data pipelines; resolved
+                                        multi-step pipeline errors with detailed debugging</li>
+                                    <li>Collaborated on clinical trial and publication datasets using Jira and Excel for
+                                        workflow tracking and calculations</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="experience-skills">
+                            <span class="skill-tag">AWS Glue</span>
+                            <span class="skill-tag">S3</span>
+                            <span class="skill-tag">Lambda Functions</span>
+                            <span class="skill-tag">JupyterHub</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">ETL Pipelines</span>
+                            <span class="skill-tag">Data Engineering</span>
+                            <span class="skill-tag">Jira</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>AI Engineer</h3>
+                            <span class="company">2456.ai</span>
+                        </div>
+                        <p class="experience-description">Designed and developed the backend using Django (Monolith) for
+                            admin/control panel and FastAPI (Microservices) for high-throughput API layers.</p>
+                        <div class="experience-projects">
+                            <div class="project-item">
+                                <h4>AI Workflow Automation Platform (Microservices-Based Architecture)</h4>
+                                <ul>
+                                    <li>Architected a dual-database system using PostgreSQL for transactional data and
+                                        Pinecone Vector DB for semantic search and AI-powered tool suggestions</li>
+                                    <li>Engineered the AI-enhanced query flow: user prompts → refined using AI → tool
+                                        retrieval → dynamic workflow generation</li>
+                                    <li>Implemented workflow persistence, referral systems, and integrated Stripe API
+                                        for secure payments</li>
+                                    <li>Maintained clean codebase using Ruff for linting/formatting and pre-commit hooks
+                                        for automated QA</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="experience-skills">
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">FastAPI</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">Pinecone Vector DB</span>
+                            <span class="skill-tag">Stripe API</span>
+                            <span class="skill-tag">Ruff</span>
+                            <span class="skill-tag">Microservices</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>DevOps Engineer</h3>
+                            <span class="company">NVIT</span>
+                        </div>
+                        <p class="experience-description">Developed a multi-role backend system from scratch (Customers,
+                            Engineers, Admins) with full JWT-based Authentication, SSO, and Role-Based Access Control
+                            (RBAC).</p>
+                        <div class="experience-projects">
+                            <div class="project-item">
+                                <h4>Secure Multi-Tenant SaaS System</h4>
+                                <ul>
+                                    <li>Created dynamic ticketing system with Jira-style duplication, role-specific
+                                        access, and time/runtime/transactional tracking</li>
+                                    <li>Integrated OpenAI GPT API for time estimation and recommendations, with strict
+                                        exception handling and validation layers</li>
+                                    <li>Added multi-cloud connectors for AWS, Azure, IBM, Oracle, and GCP via REST APIs.
+                                        Enabled subscription-gated access and image storage on Azure Blob Storage</li>
+                                    <li>Developed backend endpoints to support comments, recommendations, and historical
+                                        analytics with real-time checkout flows</li>
+                                    <li>Live: <a href="https://jerichoai.io" target="_blank">https://jerichoai.io</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="experience-skills">
+                            <span class="skill-tag">JWT Authentication</span>
+                            <span class="skill-tag">SSO</span>
+                            <span class="skill-tag">RBAC</span>
+                            <span class="skill-tag">Multi-Cloud</span>
+                            <span class="skill-tag">Azure Blob Storage</span>
+                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag">GCP</span>
+                            <span class="skill-tag">IBM Cloud</span>
+                            <span class="skill-tag">Oracle Cloud</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-gavel"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>AI Engineer</h3>
+                            <span class="company">Seanz Law Firm</span>
+                        </div>
+                        <p class="experience-description">Built a multilingual (English/Spanish) AI-powered interview
+                            assistant for immigration law.</p>
+                        <div class="experience-projects">
+                            <div class="project-item">
+                                <h4>Interview Intelligence System</h4>
+                                <ul>
+                                    <li>Integrated OpenAI GPT-4 for NLP-based dynamic conversation generation and Twilio
+                                        API for WhatsApp/SMS communication</li>
+                                    <li>Designed the backend using modular services that store and sync data across
+                                        Google Sheets, MongoDB, and PostgreSQL</li>
+                                    <li>Enabled real-time dashboard reporting using Google Looker Studio, with
+                                        structured KPIs and intake summaries</li>
+                                    <li>Maintained code quality through strict enforcement of formatting using Ruff and
+                                        testable modular architecture</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="experience-skills">
+                            <span class="skill-tag">OpenAI GPT-4</span>
+                            <span class="skill-tag">NLP</span>
+                            <span class="skill-tag">Twilio API</span>
+                            <span class="skill-tag">Google Sheets</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">PostgreSQL</span>
+                            <span class="skill-tag">Google Looker Studio</span>
+                            <span class="skill-tag">Ruff</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-cogs"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>N8N Engineer</h3>
+                            <span class="company">DeltaMotors</span>
+                        </div>
+                        <p class="experience-description">Specialized in workflow automation and process optimization
+                            using n8n for automotive industry solutions.</p>
+                        <div class="experience-projects">
+                            <div class="project-item">
+                                <h4>Automotive Workflow Automation</h4>
+                                <ul>
+                                    <li>Designed and implemented automated workflows for inventory management, customer
+                                        data processing, and sales pipeline automation</li>
+                                    <li>Integrated n8n with CRM systems, ERP platforms, and automotive databases for
+                                        seamless data flow</li>
+                                    <li>Created custom nodes and webhooks for automotive-specific business processes and
+                                        reporting</li>
+                                    <li>Optimized workflow performance and implemented error handling for critical
+                                        automotive operations</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="experience-skills">
+                            <span class="skill-tag">n8n</span>
+                            <span class="skill-tag">Workflow Automation</span>
+                            <span class="skill-tag">API Integration</span>
+                            <span class="skill-tag">CRM Systems</span>
+                            <span class="skill-tag">ERP Integration</span>
+                            <span class="skill-tag">Custom Nodes</span>
+                            <span class="skill-tag">Webhooks</span>
+                            <span class="skill-tag">Process Optimization</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>N8N Expert</h3>
+                            <span class="company">hddisenos</span>
+                            <span class="location">Venezuela · Remote</span>
+                        </div>
+                        <p class="experience-description">Specializing in n8n workflow automation, API integration,
+                            dynamic web scraping, and process optimization for business automation solutions.</p>
+                        <div class="experience-skills">
+                            <span class="skill-tag">n8n</span>
+                            <span class="skill-tag">API Integration</span>
+                            <span class="skill-tag">Dynamic Web Scraping</span>
+                            <span class="skill-tag">FastAPI</span>
+                            <span class="skill-tag">Hetzner</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Vectorized Database Software Engineer</h3>
+                            <span class="company">INSTAMAILAI</span>
+                            <span class="location">United States · Remote</span>
+                        </div>
+                        <p class="experience-description">Focused on designing and optimizing vector search pipelines
+                            for fast and accurate retrieval, implementing embeddings for structured and unstructured
+                            data.</p>
+                        <div class="experience-projects">
+                            <div class="project-item">
+                                <h4>Vector Search Pipeline Development</h4>
+                                <ul>
+                                    <li>Design and optimize vector search pipelines for fast and accurate retrieval</li>
+                                    <li>Implement and fine-tune embeddings for structured and unstructured data</li>
+                                    <li>Work with FAISS, Weaviate, Pinecone, ChromaDB, or similar technologies</li>
+                                    <li>Develop and integrate AI models for intelligent data processing</li>
+                                    <li>Work with MongoDB for structured and semi-structured data management</li>
+                                    <li>Utilize C# for backend development and system integrations</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="experience-skills">
+                            <span class="skill-tag">Vector Databases</span>
+                            <span class="skill-tag">FAISS</span>
+                            <span class="skill-tag">Weaviate</span>
+                            <span class="skill-tag">Pinecone</span>
+                            <span class="skill-tag">ChromaDB</span>
+                            <span class="skill-tag">LangChain</span>
+                            <span class="skill-tag">Hugging Face</span>
+                            <span class="skill-tag">OpenAI APIs</span>
+                            <span class="skill-tag">C#</span>
+                            <span class="skill-tag">MongoDB</span>
+                            <span class="skill-tag">LLMs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Python Developer</h3>
+                            <span class="company">PyPI</span>
+                            <span class="location">Self-employed</span>
+                        </div>
+                        <p class="experience-description">Developed and published Python modules for educational
+                            purposes, including SGPA and CGPA calculation tools for university students.</p>
+                        <div class="experience-projects">
+                            <div class="project-item">
+                                <h4>ISGC Module - SGPA/CGPA Calculator</h4>
+                                <ul>
+                                    <li>Created a Python module for calculating SGPA and CGPA for students of Islamia
+                                        University Bahawalpur[BS]</li>
+                                    <li>Implemented data visualization to show SGPA reports and CGPA calculations</li>
+                                    <li>Published on PyPI: <a href="https://pypi.org/project/isgc/"
+                                            target="_blank">https://pypi.org/project/isgc/</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="experience-skills">
+                            <span class="skill-tag">OOP</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Seaborn</span>
+                            <span class="skill-tag">Git</span>
+                            <span class="skill-tag">Matplotlib</span>
+                            <span class="skill-tag">Data Analysis</span>
+                            <span class="skill-tag">Function Modules</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Django Developer</h3>
+                            <span class="company">Fiverr</span>
+                            <span class="location">Bahawalpur, Punjab, Pakistan · Remote</span>
+                        </div>
+                        <p class="experience-description">Freelance Django development projects focusing on web
+                            applications, data analysis, and exploratory data analysis solutions.</p>
+                        <div class="experience-skills">
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">Bootstrap 5</span>
+                            <span class="skill-tag">Exploratory Data Analysis</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Data Analyst</h3>
+                            <span class="company">Fiverr</span>
+                            <span class="location">Punjab, Pakistan</span>
+                        </div>
+                        <p class="experience-description">Data analysis services including data visualization,
+                            statistical analysis, and exploratory data analysis using Python tools.</p>
+                        <div class="experience-skills">
+                            <span class="skill-tag">Plotly</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Pandas</span>
+                            <span class="skill-tag">Seaborn</span>
+                            <span class="skill-tag">Matplotlib</span>
+                            <span class="skill-tag">NumPy</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Self-Learning Projects</h3>
+                            <span class="company">AhsanTariq0724</span>
+                            <span class="location">Bahawalpur District, Punjab, Pakistan</span>
+                        </div>
+                        <p class="experience-description">Independent learning and project development focusing on
+                            Django, data science, machine learning, and various programming technologies.</p>
+                        <div class="experience-skills">
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">MATLAB</span>
+                            <span class="skill-tag">OOP</span>
+                            <span class="skill-tag">Data Science</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">SciPy</span>
+                            <span class="skill-tag">Machine Learning</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Python Developer</h3>
+                            <span class="company">Hostera</span>
+                            <span class="location">Bahawalpur, Punjab, Pakistan</span>
+                        </div>
+                        <p class="experience-description">Python development role focusing on data science, web
+                            development, and machine learning applications.</p>
+                        <div class="experience-skills">
+                            <span class="skill-tag">Data Science</span>
+                            <span class="skill-tag">Data Analysis</span>
+                            <span class="skill-tag">Django REST Framework</span>
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">Docker</span>
+                            <span class="skill-tag">Software Documentation</span>
+                            <span class="skill-tag">LaTeX</span>
+                            <span class="skill-tag">Data Visualization</span>
+                            <span class="skill-tag">Machine Learning Algorithms</span>
+                            <span class="skill-tag">Selenium</span>
+                            <span class="skill-tag">Front-End Development</span>
+                            <span class="skill-tag">Back-End Web Development</span>
+                            <span class="skill-tag">PyPI</span>
+                            <span class="skill-tag">Web Scraping</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="experience-content">
+                        <div class="experience-header">
+                            <h3>Django Developer</h3>
+                            <span class="company">Enigmatix Pvt Ltd</span>
+                            <span class="location">Bahawalpur, Punjab, Pakistan</span>
+                        </div>
+                        <p class="experience-description">Internship role focusing on Django development, web
+                            applications, and object-oriented programming.</p>
+                        <div class="experience-skills">
+                            <span class="skill-tag">C++</span>
+                            <span class="skill-tag">Django</span>
+                            <span class="skill-tag">HTML5</span>
+                            <span class="skill-tag">OOP</span>
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Bootstrap 5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Profiles Section -->
+    <section class="social-profiles">
+        <div class="container">
+            <div class="section-header">
+                <h2>Connect & Explore</h2>
+                <p>Follow my work and connect professionally</p>
+            </div>
+            <div class="social-grid">
+                <div class="social-card github-card">
+                    <div class="social-icon">
+                        <i class="fab fa-github"></i>
+                    </div>
+                    <div class="social-content">
+                        <h3>GitHub Profile</h3>
+                        <p>Explore my open-source projects, contributions, and technical expertise across various
+                            technologies and frameworks.</p>
+                        <div class="social-stats">
+                            <div class="social-stat">
+                                <span class="stat-number">119</span>
+                                <span class="stat-label">Repositories</span>
+                            </div>
+                            <div class="social-stat">
+                                <span class="stat-number">14</span>
+                                <span class="stat-label">Stars</span>
+                            </div>
+                            <div class="social-stat">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Contributions</span>
+                            </div>
+                        </div>
+                        <a href="https://github.com/ahsantariq7" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                            View GitHub Profile
+                        </a>
+                    </div>
+                </div>
+                <div class="social-card linkedin-card">
+                    <div class="social-icon">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                    <div class="social-content">
+                        <h3>LinkedIn Profile</h3>
+                        <p>Connect with me professionally, view my experience, certifications, and stay updated with my
+                            latest achievements and insights.</p>
+                        <div class="social-stats">
+                            <div class="social-stat">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Connections</span>
+                            </div>
+                            <div class="social-stat">
+                                <span class="stat-number">5+</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="social-stat">
+                                <span class="stat-number">50+</span>
+                                <span class="stat-label">Projects</span>
+                            </div>
+                        </div>
+                        <a href="https://www.linkedin.com/in/ahsan-tariq-comp-engr/" target="_blank"
+                            class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                            Connect on LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Ready to Build Your AI Solution?</h2>
+                    <p>Get in touch with our AI engineering team and bring your ideas to life.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <h4>Call Us</h4>
+                            <p>+92 300 1234567</p>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <h4>Email Us</h4>
+                            <p>ai@volvexer.com</p>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>WhatsApp</h4>
+                            <p>Get instant support</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Volvexer AI</h4>
+                    <p>Cutting-edge AI engineering and development services for modern businesses.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Machine Learning</a></li>
+                        <li><a href="#services">NLP</a></li>
+                        <li><a href="#services">Computer Vision</a></li>
+                        <li><a href="#services">Automation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li><a href="tel:+923001234567">+92 300 1234567</a></li>
+                        <li><a href="mailto:ai@volvexer.com">ai@volvexer.com</a></li>
+                        <li><a href="#" onclick="openWhatsApp()">WhatsApp</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Volvexer AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <script src="static/js/scripts.js"></script>
+    <script>
+        function scrollToServices() {
+            document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // GitHub Projects Data
+        const projects = [
+            {
+                name: "AI-Powered Tax Filing System",
+                description: "Intelligent tax filing system with FBR integration, automated document processing, and real-time validation using machine learning algorithms.",
+                image: "fas fa-file-alt",
+                tech: ["Python", "TensorFlow", "React", "Node.js", "MongoDB"],
+                github: "https://github.com/ahsantariq7/ai-tax-filing",
+                demo: "https://volvexer.com",
+                stars: 45,
+                forks: 12,
+                language: "Python"
+            },
+            {
+                name: "Smart Document Analyzer",
+                description: "AI-powered document analysis system that extracts, processes, and categorizes information from various document types using OCR and NLP.",
+                image: "fas fa-file-text",
+                tech: ["Python", "OpenCV", "Tesseract", "BERT", "FastAPI"],
+                github: "https://github.com/ahsantariq7/document-analyzer",
+                demo: null,
+                stars: 32,
+                forks: 8,
+                language: "Python"
+            },
+            {
+                name: "Predictive Analytics Dashboard",
+                description: "Real-time business analytics dashboard with predictive modeling, data visualization, and automated reporting capabilities.",
+                image: "fas fa-chart-line",
+                tech: ["Python", "Pandas", "Plotly", "Django", "PostgreSQL"],
+                github: "https://github.com/ahsantariq7/analytics-dashboard",
+                demo: null,
+                stars: 28,
+                forks: 15,
+                language: "Python"
+            },
+            {
+                name: "Intelligent Chatbot Platform",
+                description: "Multi-language chatbot platform with natural language processing, sentiment analysis, and integration capabilities.",
+                image: "fas fa-comments",
+                tech: ["Python", "NLTK", "React", "Socket.io", "Redis"],
+                github: "https://github.com/ahsantariq7/chatbot-platform",
+                demo: null,
+                stars: 67,
+                forks: 23,
+                language: "Python"
+            },
+            {
+                name: "Computer Vision API",
+                description: "RESTful API for computer vision tasks including object detection, image classification, and facial recognition.",
+                image: "fas fa-eye",
+                tech: ["Python", "OpenCV", "TensorFlow", "Flask", "Docker"],
+                github: "https://github.com/ahsantariq7/vision-api",
+                demo: null,
+                stars: 41,
+                forks: 18,
+                language: "Python"
+            },
+            {
+                name: "Machine Learning Pipeline",
+                description: "Automated ML pipeline for data preprocessing, model training, evaluation, and deployment with monitoring.",
+                image: "fas fa-cogs",
+                tech: ["Python", "Scikit-learn", "MLflow", "Kubernetes", "AWS"],
+                github: "https://github.com/ahsantariq7/ml-pipeline",
+                demo: null,
+                stars: 89,
+                forks: 34,
+                language: "Python"
+            },
+            {
+                name: "Data Science Toolkit",
+                description: "Comprehensive toolkit for data analysis, visualization, and statistical modeling with interactive notebooks.",
+                image: "fas fa-microscope",
+                tech: ["Python", "Jupyter", "NumPy", "Matplotlib", "Seaborn"],
+                github: "https://github.com/ahsantariq7/data-science-toolkit",
+                demo: null,
+                stars: 156,
+                forks: 45,
+                language: "Python"
+            },
+            {
+                name: "AI Model Deployment",
+                description: "Production-ready AI model deployment system with versioning, A/B testing, and performance monitoring.",
+                image: "fas fa-rocket",
+                tech: ["Python", "FastAPI", "Docker", "Kubernetes", "Prometheus"],
+                github: "https://github.com/ahsantariq7/model-deployment",
+                demo: null,
+                stars: 73,
+                forks: 29,
+                language: "Python"
+            },
+            {
+                name: "Natural Language Processing Suite",
+                description: "Advanced NLP toolkit with text preprocessing, sentiment analysis, and language modeling capabilities.",
+                image: "fas fa-language",
+                tech: ["Python", "Transformers", "SpaCy", "NLTK", "BERT"],
+                github: "https://github.com/ahsantariq7/nlp-suite",
+                demo: null,
+                stars: 112,
+                forks: 38,
+                language: "Python"
+            },
+            {
+                name: "Real-time Data Processing",
+                description: "Streaming data processing system with real-time analytics, event processing, and alert mechanisms.",
+                image: "fas fa-stream",
+                tech: ["Python", "Apache Kafka", "Spark", "Redis", "Elasticsearch"],
+                github: "https://github.com/ahsantariq7/streaming-analytics",
+                demo: null,
+                stars: 58,
+                forks: 21,
+                language: "Python"
+            },
+            {
+                name: "AI-Powered Recommendation Engine",
+                description: "Intelligent recommendation system using collaborative filtering and content-based approaches.",
+                image: "fas fa-lightbulb",
+                tech: ["Python", "Surprise", "Pandas", "Flask", "MongoDB"],
+                github: "https://github.com/ahsantariq7/recommendation-engine",
+                demo: null,
+                stars: 94,
+                forks: 31,
+                language: "Python"
+            },
+            {
+                name: "Automated Testing Framework",
+                description: "AI-driven testing framework for automated test case generation and execution with intelligent bug detection.",
+                image: "fas fa-bug",
+                tech: ["Python", "Selenium", "Pytest", "TensorFlow", "Docker"],
+                github: "https://github.com/ahsantariq7/ai-testing",
+                demo: null,
+                stars: 67,
+                forks: 25,
+                language: "Python"
+            },
+            {
+                name: "n8n Workflow Automation Platform",
+                description: "Advanced workflow automation platform using n8n for business process automation, data integration, and API orchestration with custom nodes and webhooks.",
+                image: "fas fa-network-wired",
+                tech: ["n8n", "Node.js", "JavaScript", "REST APIs", "Webhooks", "Docker"],
+                github: "https://github.com/ahsantariq7/n8n-automation",
+                demo: "https://n8n.volvexer.com",
+                stars: 89,
+                forks: 32,
+                language: "JavaScript"
+            }
+        ];
+
+        // Pagination settings
+        const projectsPerPage = 6;
+        let currentPage = 1;
+
+        // Initialize projects
+        document.addEventListener('DOMContentLoaded', function () {
+            displayProjects();
+            createPagination();
+        });
+
+        function displayProjects() {
+            const projectsGrid = document.getElementById('projects-grid');
+            const startIndex = (currentPage - 1) * projectsPerPage;
+            const endIndex = startIndex + projectsPerPage;
+            const currentProjects = projects.slice(startIndex, endIndex);
+
+            projectsGrid.innerHTML = '';
+
+            currentProjects.forEach(project => {
+                const projectCard = createProjectCard(project);
+                projectsGrid.appendChild(projectCard);
+            });
+        }
+
+        function createProjectCard(project) {
+            const card = document.createElement('div');
+            card.className = 'project-card';
+
+            card.innerHTML = `
+                <div class="project-image">
+                    <i class="${project.image}"></i>
+                </div>
+                <div class="project-content">
+                    <h3>${project.name}</h3>
+                    <p>${project.description}</p>
+                    <div class="project-tech">
+                        ${project.tech.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                    </div>
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <i class="fas fa-star"></i>
+                            <span>${project.stars}</span>
+                        </div>
+                        <div class="project-stat">
+                            <i class="fas fa-code-branch"></i>
+                            <span>${project.forks}</span>
+                        </div>
+                        <div class="project-stat">
+                            <i class="fas fa-circle"></i>
+                            <span>${project.language}</span>
+                        </div>
+                    </div>
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <i class="fas fa-star"></i>
+                            <span>${project.stars}</span>
+                        </div>
+                        <div class="project-stat">
+                            <i class="fas fa-code-branch"></i>
+                            <span>${project.forks}</span>
+                        </div>
+                        <div class="project-stat">
+                            <i class="fas fa-circle"></i>
+                            <span>${project.language}</span>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            return card;
+        }
+
+        function createPagination() {
+            const pagination = document.getElementById('pagination');
+            const totalPages = Math.ceil(projects.length / projectsPerPage);
+
+            pagination.innerHTML = '';
+
+            // Previous button
+            const prevBtn = document.createElement('button');
+            prevBtn.className = 'pagination-btn';
+            prevBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+            prevBtn.disabled = currentPage === 1;
+            prevBtn.onclick = () => changePage(currentPage - 1);
+            pagination.appendChild(prevBtn);
+
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                const pageBtn = document.createElement('button');
+                pageBtn.className = `pagination-btn ${i === currentPage ? 'active' : ''}`;
+                pageBtn.textContent = i;
+                pageBtn.onclick = () => changePage(i);
+                pagination.appendChild(pageBtn);
+            }
+
+            // Next button
+            const nextBtn = document.createElement('button');
+            nextBtn.className = 'pagination-btn';
+            nextBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+            nextBtn.disabled = currentPage === totalPages;
+            nextBtn.onclick = () => changePage(currentPage + 1);
+            pagination.appendChild(nextBtn);
+        }
+
+        function changePage(page) {
+            currentPage = page;
+            displayProjects();
+            createPagination();
+
+            // Smooth scroll to projects section
+            document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>

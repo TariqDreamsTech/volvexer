@@ -1,5 +1,16 @@
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function () {
+    // Hide loading screen
+    const loadingScreen = document.getElementById('loading-screen');
+    if (loadingScreen) {
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+            setTimeout(() => {
+                loadingScreen.style.display = 'none';
+            }, 500);
+        }, 1500);
+    }
+
     // Initialize all functionality
     initializeMobileMenu();
     initializeSmoothScrolling();
@@ -92,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 setTimeout(() => {
                     bubble.classList.add('show');
                     // Animate out after 2.5s
-        setTimeout(() => {
+                    setTimeout(() => {
                         bubble.classList.remove('show');
                         // Repeat after a short random delay
                         animateBubble(bubble, Math.random() * 1200 + 400);
@@ -102,6 +113,9 @@ document.addEventListener('DOMContentLoaded', function () {
         }
         bubbles.forEach((bubble, idx) => animateBubble(bubble, idx * 400));
     }
+
+    // Initialize network visualization
+    initializeNetworkVisualization();
 });
 
 // Mobile Menu
@@ -518,6 +532,10 @@ function initializeContactForm() {
 }
 
 function handleContactForm() {
+    if (!validateContactForm()) {
+        return;
+    }
+
     const formData = {
         name: document.getElementById('name').value,
         email: document.getElementById('email').value,
@@ -526,29 +544,15 @@ function handleContactForm() {
         message: document.getElementById('message').value
     };
 
-    // Validate form
-    if (!formData.name || !formData.email || !formData.phone || !formData.service) {
-        showNotification('Please fill in all required fields.', 'error');
-        return;
-    }
-
-    // Create WhatsApp message
-    const message = `Hello! I'm interested in your services.
-
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone}
-Service: ${formData.service}
-Message: ${formData.message || 'No additional message'}
-
-Please contact me for more information.`;
+    // Show success notification
+    showNotification('Thank you! We\'ll contact you soon via WhatsApp.', 'success', 'Message Sent!');
 
     // Open WhatsApp with pre-filled message
-    openWhatsApp(message);
+    const whatsappMessage = `Hello! I'm interested in ${formData.service} services. Name: ${formData.name}, Phone: ${formData.phone}, Email: ${formData.email}${formData.message ? `, Message: ${formData.message}` : ''}`;
+    openWhatsApp(whatsappMessage);
 
     // Reset form
     document.getElementById('contact-form').reset();
-    showNotification('Form submitted successfully! Redirecting to WhatsApp...', 'success');
 }
 
 // WhatsApp Integration
@@ -624,48 +628,46 @@ function initializeScrollEffects() {
 }
 
 // Utility Functions
-function showNotification(message, type = 'info') {
-    // Create notification element
+function showNotification(message, type = 'info', title = '', duration = 5000) {
+    const container = document.getElementById('notification-container');
+    if (!container) return;
+
     const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
+    notification.className = `notification ${type}`;
+
+    const icon = type === 'success' ? 'fas fa-check-circle' :
+        type === 'error' ? 'fas fa-exclamation-circle' :
+            type === 'warning' ? 'fas fa-exclamation-triangle' : 'fas fa-info-circle';
+
     notification.innerHTML = `
+        <i class="${icon} notification-icon"></i>
         <div class="notification-content">
-            <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
-            <span>${message}</span>
+            ${title ? `<div class="notification-title">${title}</div>` : ''}
+            <div class="notification-message">${message}</div>
         </div>
+        <button class="notification-close" onclick="this.parentElement.remove()">
+            <i class="fas fa-times"></i>
+        </button>
     `;
 
-    // Add styles
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        background: ${type === 'success' ? '#10b981' : type === 'error' ? '#ef4444' : '#3b82f6'};
-        color: white;
-        padding: 1rem 1.5rem;
-        border-radius: 8px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        z-index: 10000;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        max-width: 400px;
-    `;
-
-    // Add to page
-    document.body.appendChild(notification);
+    container.appendChild(notification);
 
     // Animate in
     setTimeout(() => {
-        notification.style.transform = 'translateX(0)';
+        notification.classList.add('show');
     }, 100);
 
-    // Remove after 5 seconds
-    setTimeout(() => {
-        notification.style.transform = 'translateX(100%)';
+    // Auto remove
+    if (duration > 0) {
         setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 5000);
+            notification.classList.remove('show');
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 300);
+        }, duration);
+    }
 }
 
 function scrollToCalculator() {
@@ -714,8 +716,8 @@ if ('serviceWorker' in navigator) {
 
 // Lazy loading for images
 function initializeLazyLoading() {
+    // Lazy loading for images
     const images = document.querySelectorAll('img[data-src]');
-
     const imageObserver = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -730,15 +732,215 @@ function initializeLazyLoading() {
     images.forEach(img => imageObserver.observe(img));
 }
 
-// Initialize lazy loading
-initializeLazyLoading();
+// Notification System
+function showNotification(message, type = 'info', title = '', duration = 5000) {
+    const container = document.getElementById('notification-container');
+    if (!container) return;
 
-// Export functions for global access
-window.openWhatsApp = openWhatsApp;
-window.scrollToCalculator = scrollToCalculator;
-window.calculateTax = calculateTax;
-window.prevTestimonial = prevTestimonial;
-window.nextTestimonial = nextTestimonial;
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+
+    const icon = type === 'success' ? 'fas fa-check-circle' :
+        type === 'error' ? 'fas fa-exclamation-circle' :
+            type === 'warning' ? 'fas fa-exclamation-triangle' : 'fas fa-info-circle';
+
+    notification.innerHTML = `
+        <i class="${icon} notification-icon"></i>
+        <div class="notification-content">
+            ${title ? `<div class="notification-title">${title}</div>` : ''}
+            <div class="notification-message">${message}</div>
+        </div>
+        <button class="notification-close" onclick="this.parentElement.remove()">
+            <i class="fas fa-times"></i>
+        </button>
+    `;
+
+    container.appendChild(notification);
+
+    // Animate in
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 100);
+
+    // Auto remove
+    if (duration > 0) {
+        setTimeout(() => {
+            notification.classList.remove('show');
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.remove();
+                }
+            }, 300);
+        }, duration);
+    }
+}
+
+// Live Chat Widget
+let chatWidget = null;
+let chatMessages = null;
+let chatInput = null;
+let isChatCollapsed = true;
+
+function initializeChat() {
+    chatWidget = document.getElementById('live-chat-widget');
+    chatMessages = document.getElementById('chat-messages');
+    chatInput = document.getElementById('chat-input-field');
+
+    if (chatWidget) {
+        // Start collapsed
+        chatWidget.classList.add('collapsed');
+
+        // Auto expand after 3 seconds
+        setTimeout(() => {
+            if (isChatCollapsed) {
+                toggleChat();
+            }
+        }, 3000);
+    }
+}
+
+function toggleChat() {
+    if (!chatWidget) return;
+
+    isChatCollapsed = !isChatCollapsed;
+    chatWidget.classList.toggle('collapsed', isChatCollapsed);
+
+    if (!isChatCollapsed && chatInput) {
+        chatInput.focus();
+    }
+}
+
+function sendChatMessage() {
+    if (!chatInput || !chatMessages) return;
+
+    const message = chatInput.value.trim();
+    if (!message) return;
+
+    // Add user message
+    addChatMessage(message, 'user');
+    chatInput.value = '';
+
+    // Simulate bot response
+    setTimeout(() => {
+        const responses = [
+            "Thank you for your message! Our tax experts will get back to you shortly. In the meantime, you can also reach us on WhatsApp for immediate assistance.",
+            "I understand your concern. Let me connect you with our tax specialist who can help you with this specific issue.",
+            "That's a great question! Our team of qualified tax professionals can guide you through the entire process.",
+            "I'll forward your inquiry to our tax experts. They'll provide you with the most accurate and up-to-date information.",
+            "Thank you for reaching out! Our team is here to help you with all your tax filing needs."
+        ];
+
+        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+        addChatMessage(randomResponse, 'bot');
+    }, 1000);
+}
+
+function addChatMessage(message, sender) {
+    if (!chatMessages) return;
+
+    const messageDiv = document.createElement('div');
+    messageDiv.className = `message ${sender}-message`;
+
+    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
+    messageDiv.innerHTML = `
+        <div class="message-content">
+            <p>${message}</p>
+        </div>
+        <div class="message-time">${time}</div>
+    `;
+
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+}
+
+function handleChatInput(event) {
+    if (event.key === 'Enter') {
+        sendChatMessage();
+    }
+}
+
+// Initialize chat when DOM is loaded
+document.addEventListener('DOMContentLoaded', function () {
+    // ... existing initialization code ...
+
+    // Initialize chat
+    setTimeout(() => {
+        initializeChat();
+    }, 2000);
+
+    // Show welcome notification
+    setTimeout(() => {
+        showNotification('Welcome to Volvexer! Get professional tax filing assistance.', 'success', 'Welcome!', 4000);
+    }, 3000);
+});
+
+// Enhanced contact form validation
+function validateContactForm() {
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('phone');
+    const service = document.getElementById('service');
+
+    let isValid = true;
+
+    // Name validation
+    if (!name.value.trim()) {
+        showNotification('Please enter your name', 'error', 'Validation Error');
+        name.focus();
+        isValid = false;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.value.trim() || !emailRegex.test(email.value)) {
+        showNotification('Please enter a valid email address', 'error', 'Validation Error');
+        email.focus();
+        isValid = false;
+    }
+
+    // Phone validation
+    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+    if (!phone.value.trim() || !phoneRegex.test(phone.value.replace(/\s/g, ''))) {
+        showNotification('Please enter a valid phone number', 'error', 'Validation Error');
+        phone.focus();
+        isValid = false;
+    }
+
+    // Service validation
+    if (!service.value) {
+        showNotification('Please select a service', 'error', 'Validation Error');
+        service.focus();
+        isValid = false;
+    }
+
+    return isValid;
+}
+
+// Override the existing contact form handler
+function handleContactForm() {
+    if (!validateContactForm()) {
+        return;
+    }
+
+    const formData = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        service: document.getElementById('service').value,
+        message: document.getElementById('message').value
+    };
+
+    // Show success notification
+    showNotification('Thank you! We\'ll contact you soon via WhatsApp.', 'success', 'Message Sent!');
+
+    // Open WhatsApp with pre-filled message
+    const whatsappMessage = `Hello! I'm interested in ${formData.service} services. Name: ${formData.name}, Phone: ${formData.phone}, Email: ${formData.email}${formData.message ? `, Message: ${formData.message}` : ''}`;
+    openWhatsApp(whatsappMessage);
+
+    // Reset form
+    document.getElementById('contact-form').reset();
+}
 
 // Add CSS for notifications
 const notificationStyles = `
@@ -765,4 +967,177 @@ const notificationStyles = `
 // Inject styles
 const styleSheet = document.createElement('style');
 styleSheet.textContent = notificationStyles;
-document.head.appendChild(styleSheet); 
+document.head.appendChild(styleSheet);
+
+// Network Visualization
+function initializeNetworkVisualization() {
+    const networkCanvas = document.querySelector('.network-canvas');
+    const connectionLines = document.querySelector('.connection-lines');
+    const floatingStars = document.querySelector('.floating-stars');
+
+    if (!networkCanvas || !connectionLines || !floatingStars) return;
+
+    // Create connection lines between nodes
+    createConnectionLines();
+
+    // Create floating stars
+    createFloatingStars();
+
+    // Add hover effects for nodes
+    addNodeHoverEffects();
+}
+
+function createConnectionLines() {
+    const connectionLines = document.querySelector('.connection-lines');
+    const upperNodes = document.querySelectorAll('.upper-node');
+    const lowerNodes = document.querySelectorAll('.lower-node');
+
+    if (!connectionLines || upperNodes.length === 0 || lowerNodes.length === 0) return;
+
+    // Clear existing lines
+    const existingLines = connectionLines.querySelectorAll('line');
+    existingLines.forEach(line => line.remove());
+
+    // Create connections from upper to lower nodes
+    upperNodes.forEach((upperNode, upperIndex) => {
+        lowerNodes.forEach((lowerNode, lowerIndex) => {
+            // Create some strategic connections (not all to all)
+            if (shouldConnect(upperIndex, lowerIndex)) {
+                const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+
+                // Get positions
+                const upperRect = upperNode.getBoundingClientRect();
+                const lowerRect = lowerNode.getBoundingClientRect();
+                const canvasRect = connectionLines.getBoundingClientRect();
+
+                const x1 = upperRect.left + upperRect.width / 2 - canvasRect.left;
+                const y1 = upperRect.top + upperRect.height - canvasRect.top;
+                const x2 = lowerRect.left + lowerRect.width / 2 - canvasRect.left;
+                const y2 = lowerRect.top - canvasRect.top;
+
+                line.setAttribute('x1', x1);
+                line.setAttribute('y1', y1);
+                line.setAttribute('x2', x2);
+                line.setAttribute('y2', y2);
+                line.setAttribute('stroke', 'url(#lineGradient)');
+                line.setAttribute('stroke-width', '2');
+                line.setAttribute('stroke-dasharray', '10');
+                line.setAttribute('stroke-dashoffset', '0');
+
+                // Add animation delay based on position
+                const delay = (upperIndex + lowerIndex) * 0.2;
+                line.style.animationDelay = `${delay}s`;
+
+                connectionLines.appendChild(line);
+            }
+        });
+    });
+}
+
+function shouldConnect(upperIndex, lowerIndex) {
+    // Create strategic connections - not all nodes connected to all
+    const connections = [
+        [0, 0], [0, 1], // Tax Calculator -> Validation, Submission
+        [1, 1], [1, 2], // Accounting & Bookkeeping -> Submission, Confirmation
+        [2, 0], [2, 3], // Security Check -> Validation, Support
+        [3, 1], [3, 4], // AI Engineer -> Submission, Analytics
+        [4, 2], [4, 3], // Expert Review -> Confirmation, Support
+        [0, 4], [1, 4], [2, 4], [3, 4], [4, 4] // All to Analytics
+    ];
+
+    return connections.some(([u, l]) => u === upperIndex && l === lowerIndex);
+}
+
+function createFloatingStars() {
+    const floatingStars = document.querySelector('.floating-stars');
+    if (!floatingStars) return;
+
+    // Clear existing stars
+    floatingStars.innerHTML = '';
+
+    // Create multiple stars
+    const starCount = 15;
+    for (let i = 0; i < starCount; i++) {
+        const star = document.createElement('div');
+        star.className = 'floating-star';
+        star.innerHTML = '★';
+
+        // Random position and animation
+        const left = Math.random() * 100;
+        const delay = Math.random() * 6;
+        const duration = 6 + Math.random() * 4; // 6-10 seconds
+
+        star.style.left = `${left}%`;
+        star.style.animationDelay = `${delay}s`;
+        star.style.animationDuration = `${duration}s`;
+
+        floatingStars.appendChild(star);
+    }
+}
+
+function addNodeHoverEffects() {
+    const nodes = document.querySelectorAll('.node');
+
+    nodes.forEach(node => {
+        node.addEventListener('mouseenter', function () {
+            // Highlight connected lines
+            const nodeIndex = parseInt(this.getAttribute('data-node'));
+            highlightConnectedLines(nodeIndex);
+
+            // Add glow effect
+            this.style.filter = 'drop-shadow(0 0 20px rgba(59, 130, 246, 0.5))';
+        });
+
+        node.addEventListener('mouseleave', function () {
+            // Remove line highlights
+            const lines = document.querySelectorAll('.connection-lines line');
+            lines.forEach(line => {
+                line.style.opacity = '0.6';
+                line.style.strokeWidth = '2';
+            });
+
+            // Remove glow effect
+            this.style.filter = '';
+        });
+    });
+}
+
+function highlightConnectedLines(nodeIndex) {
+    const lines = document.querySelectorAll('.connection-lines line');
+
+    // Define which lines should be highlighted for each node
+    const nodeConnections = {
+        1: [0, 1], // Tax Calculator
+        2: [2, 3], // Accounting & Bookkeeping
+        3: [4, 5], // Security Check
+        4: [6, 7], // AI Engineer
+        5: [8, 9], // Expert Review
+        6: [0, 4, 8], // Validation
+        7: [1, 2, 6], // Submission
+        8: [3, 8], // Confirmation
+        9: [5, 9], // Support
+        10: [4, 6, 7, 8, 9] // Analytics
+    };
+
+    const connectedLineIndices = nodeConnections[nodeIndex] || [];
+
+    lines.forEach((line, index) => {
+        if (connectedLineIndices.includes(index)) {
+            line.style.opacity = '1';
+            line.style.strokeWidth = '3';
+        } else {
+            line.style.opacity = '0.3';
+            line.style.strokeWidth = '1';
+        }
+    });
+}
+
+// Update connection lines on window resize
+window.addEventListener('resize', debounce(() => {
+    createConnectionLines();
+}, 250));
+
+// Recreate floating stars periodically
+setInterval(() => {
+    createFloatingStars();
+}, 10000); // Every 10 seconds 

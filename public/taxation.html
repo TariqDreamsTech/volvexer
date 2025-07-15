@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volvexer Taxation - Professional Tax Filing Services | FBR Integration</title>
+    <link rel="stylesheet" href="static/css/styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="static/assets/final icon 1.png">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-content">
+            <img src="static/assets/final icon 1.png" alt="Volvexer Logo" class="loading-logo">
+            <div class="loading-spinner"></div>
+            <p>Loading Volvexer...</p>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="static/assets/final icon 1.png" alt="Volvexer Logo" class="logo-img">
+                <span class="logo-text">Volvexer</span>
+            </div>
+
+            <div class="nav-menu" id="nav-menu">
+                <a href="index.html" class="nav-link">Main</a>
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#calculator" class="nav-link">Tax Calculator</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+
+            <div class="nav-buttons">
+                <button class="btn btn-login" onclick="openWhatsApp()">
+                    Get Help
+                </button>
+                <button class="btn btn-primary" onclick="scrollToCalculator()">
+                    File Now
+                </button>
+                <button class="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bubbles"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Tax Filing Software That Exceeds Expectations</h1>
+                <p class="hero-subtitle">Built native to <span class="highlight-stripe">FBR</span></p>
+                <p class="hero-description">File Your Taxes In Just <span class="highlight-time">6 Minutes</span> With
+                    Our Qualified Consultants! Now available in just <strong class="highlight-price">Rs.
+                        3,500/-</strong></p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="scrollToCalculator()">
+                        <i class="fas fa-calculator"></i>
+                        File Now
+                    </button>
+                    <button class="btn btn-secondary" onclick="openWhatsApp()">
+                        <i class="fab fa-whatsapp"></i>
+                        Get Help
+                    </button>
+                    <button class="btn btn-outline" onclick="openWhatsApp('Free Consultation')">
+                        <i class="fas fa-phone"></i>
+                        Free Consultation
+                    </button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10,000+</span>
+                        <span class="stat-label">Happy Clients</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">99%</span>
+                        <span class="stat-label">Success Rate</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">24/7</span>
+                        <span class="stat-label">Support</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Network Visualization Section -->
+    <section class="network-visualization">
+        <div class="container">
+            <div class="network-header">
+                <h2>Our Connected Ecosystem</h2>
+                <p>Seamless integration across all tax filing processes</p>
+            </div>
+            <div class="network-container">
+                <div class="network-canvas">
+                    <!-- Upper Nodes -->
+                    <div class="node upper-node" data-node="1">
+                        <div class="node-content">
+                            <i class="fas fa-calculator"></i>
+                            <span>Tax Calculator</span>
+                        </div>
+                        <div class="node-stars"></div>
+                    </div>
+                    <div class="node upper-node" data-node="2">
+                        <div class="node-content">
+                            <i class="fas fa-book"></i>
+                            <span>Accounting & Bookkeeping</span>
+                        </div>
+                        <div class="node-stars"></div>
+                    </div>
+                    <div class="node upper-node" data-node="3">
+                        <div class="node-content">
+                            <i class="fas fa-shield-alt"></i>
+                            <span>Security Check</span>
+                        </div>
+                        <div class="node-stars"></div>
+                    </div>
+                    <div class="node upper-node" data-node="4">
+                        <div class="node-content">
+                            <i class="fas fa-robot"></i>
+                            <span>AI Engineer</span>
+                        </div>
+                        <div class="node-stars"></div>
+                    </div>
+                    <div class="node upper-node" data-node="5">
+                        <div class="node-content">
+                            <i class="fas fa-user-tie"></i>
+                            <span>Expert Review</span>
+                        </div>
+                        <div class="node-stars"></div>
+                    </div>
+
+                    <!-- Lower Nodes -->
+                    <div class="node lower-node" data-node="6">
+                        <div class="node-content">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Validation</span>
+                        </div>
+                        <div class="node-stars"></div>
+                    </div>
+                    <div class="node lower-node" data-node="7">
+                        <div class="node-content">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Submission</span>
+                        </div>
+                        <div class="node-stars"></div>
+                    </div>
+                    <div class="node lower-node" data-node="8">
+                        <div class="node-content">
+                            <i class="fas fa-receipt"></i>
+                            <span>Confirmation</span>
+                        </div>
+                        <div class="node-stars"></div>
+                    </div>
+                    <div class="node lower-node" data-node="9">
+                        <div class="node-content">
+                            <i class="fas fa-headset"></i>
+                            <span>Support</span>
+                        </div>
+                        <div class="node-stars"></div>
+                    </div>
+                    <div class="node lower-node" data-node="10">
+                        <div class="node-content">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Analytics</span>
+                        </div>
+                        <div class="node-stars"></div>
+                    </div>
+
+                    <!-- Connection Lines -->
+                    <svg class="connection-lines" width="100%" height="100%">
+                        <defs>
+                            <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+                                <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.6" />
+                                <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.8" />
+                            </linearGradient>
+                        </defs>
+                        <!-- Connection lines will be drawn by JavaScript -->
+                    </svg>
+
+                    <!-- Floating Stars -->
+                    <div class="floating-stars"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Feature Cards Section -->
+    <section class="feature-cards">
+        <div class="container">
+            <div class="cards-grid">
+                <div class="feature-card">
+                    <div class="card-header">
+                        <h3>Be Tax Ready</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="toggle-buttons">
+                            <button class="toggle-btn active">Cash</button>
+                            <button class="toggle-btn">Accrual</button>
+                        </div>
+                        <p>Cash & accrual together at last</p>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-header">
+                        <h3>Be Fundraise Ready</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="chart-container">
+                            <h4>Revenue Recognition</h4>
+                            <div class="bar-chart">
+                                <div class="bar" style="height: 40%"></div>
+                                <div class="bar" style="height: 60%"></div>
+                                <div class="bar" style="height: 80%"></div>
+                                <div class="bar" style="height: 90%"></div>
+                                <div class="bar" style="height: 100%"></div>
+                                <div class="bar" style="height: 85%"></div>
+                            </div>
+                            <div class="chart-labels">
+                                <span>Nov</span>
+                                <span>Dec</span>
+                                <span>Jan</span>
+                                <span>Feb</span>
+                                <span>Mar</span>
+                                <span>Apr</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-header">
+                        <h3>Get Accurate Books, Faster</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="progress-circles">
+                            <div class="progress-circle blue">
+                                <div class="progress-ring">
+                                    <svg width="60" height="60">
+                                        <circle cx="30" cy="30" r="25" fill="none" stroke="#e5e7eb" stroke-width="4" />
+                                        <circle cx="30" cy="30" r="25" fill="none" stroke="#3b82f6" stroke-width="4"
+                                            stroke-dasharray="157" stroke-dashoffset="15.7" />
+                                    </svg>
+                                    <div class="progress-text">
+                                        <span class="percentage">98%</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="progress-circle purple">
+                                <div class="progress-ring">
+                                    <svg width="60" height="60">
+                                        <circle cx="30" cy="30" r="25" fill="none" stroke="#e5e7eb" stroke-width="4" />
+                                        <circle cx="30" cy="30" r="25" fill="none" stroke="#8b5cf6" stroke-width="4"
+                                            stroke-dasharray="157" stroke-dashoffset="31.4" />
+                                    </svg>
+                                    <div class="progress-text">
+                                        <span class="percentage">90%</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="card-header">
+                        <h3>Build a Better Business</h3>
+                    </div>
+                    <div class="card-content">
+                        <div class="metrics-grid">
+                            <div class="metric">
+                                <span class="metric-value positive">+12.5%</span>
+                                <span class="metric-label">Revenue</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value negative">-8.2%</span>
+                                <span class="metric-label">Expenses</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value positive">+24.7%</span>
+                                <span class="metric-label">Profit</span>
+                            </div>
+                            <div class="metric">
+                                <span class="metric-value neutral">0.0%</span>
+                                <span class="metric-label">Tax Rate</span>
+                            </div>
+                        </div>
+                        <p>Spotlight tool highlights changes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- User Personas Section -->
+    <section class="user-personas">
+        <div class="container">
+            <div class="personas-grid">
+                <div class="persona-card">
+                    <div class="persona-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>I'm A Business Owner</h3>
+                    <p>I want quick tax filing and minimal paperwork for my business operations.</p>
+                    <a href="#services" class="persona-link">Explore features for business owners</a>
+                </div>
+
+                <div class="persona-card">
+                    <div class="persona-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>I'm A Tax Professional</h3>
+                    <p>I want efficient tools and comprehensive support for managing multiple client accounts.</p>
+                    <a href="#services" class="persona-link">Explore features for tax professionals</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" style="position:relative;z-index:1;">
+        <div class="about-container"
+            style="display:grid;grid-template-columns:1fr 1.3fr;align-items:center;gap:3rem;max-width:1200px;margin:0 auto;padding:80px 0 60px;">
+            <!-- Left: Creative SVG illustration -->
+            <div class="about-illustration" style="display:flex;justify-content:center;align-items:center;">
+                <svg width="220" height="220" viewBox="0 0 220 220">
+                    <!-- Shield -->
+                    <path d="M110 30 Q180 60 170 120 Q160 190 110 210 Q60 190 50 120 Q40 60 110 30 Z" fill="#e0e7ff"
+                        stroke="#3b82f6" stroke-width="4" />
+                    <!-- Document -->
+                    <rect x="80" y="70" width="60" height="70" rx="10" fill="#fff" stroke="#8b5cf6" stroke-width="3" />
+                    <rect x="92" y="90" width="36" height="8" rx="2" fill="#c7d2fe" />
+                    <rect x="92" y="106" width="36" height="8" rx="2" fill="#c7d2fe" />
+                    <rect x="92" y="122" width="20" height="8" rx="2" fill="#c7d2fe" />
+                    <!-- Stars -->
+                    <polygon points="110,55 114,65 125,66 117,73 119,84 110,78 101,84 103,73 95,66 106,65"
+                        fill="#f59e0b" />
+                    <circle cx="150" cy="60" r="8" fill="#fbbf24" opacity="0.7" />
+                    <circle cx="70" cy="60" r="5" fill="#fbbf24" opacity="0.5" />
+                </svg>
+            </div>
+            <!-- Right: Animated headline and feature cards -->
+            <div class="about-content" style="position:relative;">
+                <h2 class="about-title gradient-text"
+                    style="font-size:2.3rem;font-weight:900;margin-bottom:1.2rem;line-height:1.1;">
+                    Why <span class="about-highlight"
+                        style="background:linear-gradient(90deg,#8b5cf6,#3b82f6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">Volvexer?</span>
+                </h2>
+                <div class="about-features"
+                    style="display:grid;grid-template-columns:1fr 1fr;gap:1.3rem 1.5rem;margin-bottom:2.2rem;">
+                    <div class="about-feature-card fade-in"
+                        style="background:var(--glass-bg);border-radius:16px;box-shadow:0 4px 16px rgba(59,130,246,0.07);padding:1.3rem 1rem;display:flex;flex-direction:column;align-items:center;animation:fadeIn 1s 0.1s both;">
+                        <i class="fas fa-bolt" style="color:#3b82f6;font-size:2rem;margin-bottom:0.5rem;"></i>
+                        <div style="font-weight:700;font-size:1.1rem;color:var(--text-primary);">Fastest Tax Filing
+                        </div>
+                    </div>
+                    <div class="about-feature-card fade-in"
+                        style="background:var(--glass-bg);border-radius:16px;box-shadow:0 4px 16px rgba(139,92,246,0.07);padding:1.3rem 1rem;display:flex;flex-direction:column;align-items:center;animation:fadeIn 1s 0.3s both;">
+                        <i class="fas fa-user-tie" style="color:#8b5cf6;font-size:2rem;margin-bottom:0.5rem;"></i>
+                        <div style="font-weight:700;font-size:1.1rem;color:var(--text-primary);">Expert Support</div>
+                    </div>
+                    <div class="about-feature-card fade-in"
+                        style="background:var(--glass-bg);border-radius:16px;box-shadow:0 4px 16px rgba(6,182,212,0.07);padding:1.3rem 1rem;display:flex;flex-direction:column;align-items:center;animation:fadeIn 1s 0.5s both;">
+                        <i class="fas fa-shield-alt" style="color:#06b6d4;font-size:2rem;margin-bottom:0.5rem;"></i>
+                        <div style="font-weight:700;font-size:1.1rem;color:var(--text-primary);">Secure & Private</div>
+                    </div>
+                    <div class="about-feature-card fade-in"
+                        style="background:var(--glass-bg);border-radius:16px;box-shadow:0 4px 16px rgba(239,68,68,0.07);padding:1.3rem 1rem;display:flex;flex-direction:column;align-items:center;animation:fadeIn 1s 0.7s both;">
+                        <i class="fas fa-users" style="color:#f59e0b;font-size:2rem;margin-bottom:0.5rem;"></i>
+                        <div style="font-weight:700;font-size:1.1rem;color:var(--text-primary);">Trusted by Thousands
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary" style="font-size:1.1rem;padding:0.9rem 2.2rem;">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tax Calculator Section -->
+    <section id="calculator" class="calculator-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Income Tax Calculator</h2>
+                <p>Calculate your income tax with our easy-to-use calculator</p>
+            </div>
+
+            <div class="calculator-container">
+                <div class="calculator-input">
+                    <label for="gross-income">ENTER GROSS INCOME (Monthly)</label>
+                    <div class="input-group">
+                        <span class="currency">Rs.</span>
+                        <input type="number" id="gross-income" placeholder="Enter your monthly income" min="0">
+                    </div>
+
+                    <div class="year-selector">
+                        <label>SELECT TAX YEAR</label>
+                        <select id="tax-year">
+                            <option value="2026" selected>2026 (Latest)</option>
+                            <option value="2025">2025</option>
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                            <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                        </select>
+                    </div>
+
+                    <button class="btn btn-primary calculate-btn" onclick="calculateTax()">
+                        Calculate Tax
+                    </button>
+                </div>
+
+                <div class="calculator-results">
+                    <div class="result-card">
+                        <h3>MONTHLY TAX</h3>
+                        <div class="result-value" id="monthly-tax">0</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>SALARY AFTER TAX</h3>
+                        <div class="result-value" id="salary-after-tax">0</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>ANNUAL TAX</h3>
+                        <div class="result-value" id="annual-tax">0</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>ANNUAL SALARY</h3>
+                        <div class="result-value" id="annual-salary">0</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tax-tips">
+                <a href="#services" class="tips-link">
+                    <i class="fas fa-lightbulb"></i>
+                    Learn how to save more on taxes ➜
+                </a>
+                <div class="tax-info">
+                    <p><strong id="tax-year-display">2026 Tax Slabs:</strong> <span id="tax-slabs-display">0% (up to
+                            600K), 1% (600K-1.2M), 11% (1.2M-2.2M), 23% (2.2M-3.2M), 30% (3.2M-4.1M), 35% (above
+                            4.1M)</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Popular Products</h2>
+                <p>Comprehensive tax and business services</p>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-user-plus"></i>
+                    </div>
+                    <h3>Individual NTN Registration</h3>
+                    <p>Just register your Individual NTN in 3 simple steps. Register, Upload, Pay.</p>
+                    <button class="btn btn-outline" onclick="openWhatsApp('NTN Registration')">
+                        Click here to start now
+                    </button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Tax Filing</h3>
+                    <p>No appointments, no documents, File your taxes within minutes.</p>
+                    <button class="btn btn-outline" onclick="openWhatsApp('Tax Filing')">
+                        Click here to start now
+                    </button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Business NTN Registration</h3>
+                    <p>The simplest and quickest way to start your business.</p>
+                    <button class="btn btn-outline" onclick="openWhatsApp('Business NTN')">
+                        Click here to start now
+                    </button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-receipt"></i>
+                    </div>
+                    <h3>Sales Tax Registration</h3>
+                    <p>GST Registration was never this easy, Register your sales tax with Volvexer Now.</p>
+                    <button class="btn btn-outline" onclick="openWhatsApp('Sales Tax Registration')">
+                        Click here to start now
+                    </button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Business Tax Filing</h3>
+                    <p>Stop worrying about your taxes, Volvexer team of experts got you covered.</p>
+                    <button class="btn btn-outline" onclick="openWhatsApp('Business Tax Filing')">
+                        Click here to start now
+                    </button>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-trademark"></i>
+                    </div>
+                    <h3>Trademark Registration</h3>
+                    <p>Protect your brand with our trademark registration services.</p>
+                    <button class="btn btn-outline" onclick="openWhatsApp('Trademark Registration')">
+                        Click here to start now
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>What people have to say about us</h2>
+            </div>
+
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"Its a great service to deal with the tax issues. staff is very cooperative, helpful and
+                            responds quickly."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Muhammad Umair Umer</h4>
+                            <span>Business Owner</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I was struggling in tax filing, Volvexer helped me in the process. The team is really
+                            professional and competent in their work. Highly recommend."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Rizwan Muhammad</h4>
+                            <span>Freelancer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"My experience have been quite good so far. They do focus on the significance of customer
+                            satisfaction."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Mamoon Javaid</h4>
+                            <span>Corporate Client</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <p>"I filed my tax returns through Volvexer and it was an excellent experience."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="author-info">
+                            <h4>Hussain Khan</h4>
+                            <span>Salaried Employee</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-controls">
+                <button class="control-btn" onclick="prevTestimonial()">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="control-btn" onclick="nextTestimonial()">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team-section">
+        <div class="container" style="text-align:center;">
+            <h2><span style="color:#ef4444;font-weight:800;">100+</span> Talented & Qualified Team Members</h2>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h2>Contact Us</h2>
+                    <p>Get in touch with our expert team for any questions or assistance</p>
+
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fab fa-whatsapp"></i>
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/923390625000" style="color:#2563eb;font-weight:600;">+92 339
+                                    0625000</a></p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3>Quick Contact</h3>
+                    <form id="contact-form">
+                        <div class="form-group">
+                            <input type="text" id="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" placeholder="Your Phone" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="service" required>
+                                <option value="">Select Service</option>
+                                <option value="tax-filing">Tax Filing</option>
+                                <option value="ntn-registration">NTN Registration</option>
+                                <option value="sales-tax">Sales Tax Registration</option>
+                                <option value="business-tax">Business Tax Filing</option>
+                                <option value="trademark">Trademark Registration</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" placeholder="Your Message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fab fa-whatsapp"></i>
+                            Send via WhatsApp
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="static/assets/final icon 1.png" alt="Volvexer Logo" class="logo-img">
+                        <span class="logo-text">Volvexer</span>
+                    </div>
+                    <p>Volvexer is a joint initiative of team of leading tax professionals and technology enthusiasts.
+                        The initiative aims to simplify tax return filing process for individuals and promote the
+                        culture of documentation.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#calculator">Tax Calculator</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Tax Filing</a></li>
+                        <li><a href="#services">NTN Registration</a></li>
+                        <li><a href="#services">Sales Tax</a></li>
+                        <li><a href="#services">Business Registration</a></li>
+                        <li><a href="#services">Trademark Registration</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info-footer">
+                        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/923390625000"
+                                style="color:#2563eb;font-weight:600;">+92 339 0625000</a></p>
+
+                    </div>
+                    <div class="social-links-footer">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-youtube"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2018 - 2025 Volvexer - Terms of Use | Privacy Statement</p>
+                <div class="security-badge">
+                    <i class="fas fa-shield-alt"></i>
+                    PCI DSS SECURE
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <div class="whatsapp-float" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
+
+    <!-- Notification System -->
+    <div id="notification-container" class="notification-container"></div>
+
+    <!-- Live Chat Widget -->
+    <div class="live-chat-widget" id="live-chat-widget">
+        <div class="chat-header" onclick="toggleChat()">
+            <i class="fas fa-comments"></i>
+            <span>Live Chat</span>
+            <i class="fas fa-chevron-up" id="chat-toggle-icon"></i>
+        </div>
+        <div class="chat-body" id="chat-body">
+            <div class="chat-messages" id="chat-messages">
+                <div class="message bot-message">
+                    <div class="message-content">
+                        <p>Hello! 👋 How can we help you with your tax filing today?</p>
+                    </div>
+                    <div class="message-time">Just now</div>
+                </div>
+            </div>
+            <div class="chat-input">
+                <input type="text" id="chat-input-field" placeholder="Type your message..."
+                    onkeypress="handleChatInput(event)">
+                <button onclick="sendChatMessage()">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/scripts.js"></script>
+</body>
+
+</html>
