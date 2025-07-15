@@ -30,7 +30,7 @@
             </div>
 
             <div class="nav-menu" id="nav-menu">
-                <a href="#home" class="nav-link">Home</a>
+
                 <a href="#services" class="nav-link">Services</a>
                 <a href="#about" class="nav-link">About</a>
                 <a href="#contact" class="nav-link">Contact</a>
@@ -51,6 +51,13 @@
             </div>
         </div>
     </nav>
+
+    <!-- Star Animation Background -->
+    <div class="stars-container">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="clouds"></div>
+    </div>
 
     <!-- Hero Section -->
     <section id="home" class="hero">
@@ -115,10 +122,7 @@
                             <span class="feature-tag">6-Minute Filing</span>
                             <span class="feature-tag">Expert Support</span>
                         </div>
-                        <div class="service-overview-price">
-                            <span class="price-label">Starting at</span>
-                            <span class="price-amount">Rs. 3,500/-</span>
-                        </div>
+
                         <button class="btn btn-primary">Explore Tax Services</button>
                     </div>
                 </div>
@@ -136,11 +140,7 @@
                             <span class="feature-tag">Financial Analysis</span>
                             <span class="feature-tag">Payroll Processing</span>
                         </div>
-                        <div class="service-overview-price">
-                            <span class="price-label">Starting at</span>
-                            <span class="price-amount">Rs. 5,000/-</span>
-                            <span class="price-period">/month</span>
-                        </div>
+
                         <button class="btn btn-primary">Explore Accounting</button>
                     </div>
                 </div>
@@ -158,11 +158,7 @@
                             <span class="feature-tag">NLP Solutions</span>
                             <span class="feature-tag">Process Automation</span>
                         </div>
-                        <div class="service-overview-price">
-                            <span class="price-label">Starting at</span>
-                            <span class="price-amount">Rs. 50,000/-</span>
-                            <span class="price-period">/project</span>
-                        </div>
+
                         <button class="btn btn-primary">Explore AI Services</button>
                     </div>
                 </div>
@@ -222,12 +218,12 @@
                         <div class="contact-method">
                             <i class="fas fa-phone"></i>
                             <h4>Call Us</h4>
-                            <p>+92 300 1234567</p>
+                            <p>+923390625000</p>
                         </div>
                         <div class="contact-method">
                             <i class="fas fa-envelope"></i>
                             <h4>Email Us</h4>
-                            <p>info@volvexer.com</p>
+                            <p>info@volvexer.site</p>
                         </div>
                         <div class="contact-method">
                             <i class="fab fa-whatsapp"></i>
@@ -260,8 +256,8 @@
                 <div class="footer-section">
                     <h4>Contact</h4>
                     <ul>
-                        <li><a href="tel:+923001234567">+92 300 1234567</a></li>
-                        <li><a href="mailto:info@volvexer.com">info@volvexer.com</a></li>
+                        <li><a href="tel:+923390625000">+923390625000</a></li>
+                        <li><a href="mailto:info@volvexer.site">info@volvexer.site</a></li>
                         <li><a href="#" onclick="openWhatsApp()">WhatsApp</a></li>
                     </ul>
                 </div>
@@ -271,6 +267,66 @@
             </div>
         </div>
     </footer>
+
+    <!-- AI Chatbot -->
+    <div class="chatbot-container" id="chatbot-container">
+        <div class="chatbot-header" onclick="toggleChatbot()">
+            <div class="chatbot-avatar">
+                <i class="fas fa-robot"></i>
+            </div>
+            <div class="chatbot-info">
+                <h4>Volvexer AI Assistant</h4>
+                <p>Ask me anything about our services</p>
+            </div>
+            <div class="chatbot-controls">
+                <button class="chatbot-toggle" id="chatbot-toggle">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+                <button class="chatbot-close" onclick="closeChatbot()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="chatbot-body" id="chatbot-body">
+            <div class="chatbot-messages" id="chatbot-messages">
+                <div class="message bot-message">
+                    <div class="message-avatar">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="message-content">
+                        <p>Hello! 👋 I'm your Volvexer AI Assistant. How can I help you today?</p>
+                        <div class="quick-questions">
+                            <button class="quick-question" onclick="askQuestion('tax-filing')">
+                                <i class="fas fa-file-alt"></i>
+                                Tax Filing Services
+                            </button>
+                            <button class="quick-question" onclick="askQuestion('accounting')">
+                                <i class="fas fa-book"></i>
+                                Accounting Services
+                            </button>
+                            <button class="quick-question" onclick="askQuestion('ai-engineering')">
+                                <i class="fas fa-robot"></i>
+                                AI Engineering
+                            </button>
+                            <button class="quick-question" onclick="askQuestion('pricing')">
+                                <i class="fas fa-dollar-sign"></i>
+                                Pricing Information
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chatbot-input">
+                <input type="text" id="chatbot-input-field" placeholder="Type your question..."
+                    onkeypress="handleChatbotInput(event)">
+                <button onclick="sendChatbotMessage()" class="send-btn">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- WhatsApp Float -->
     <div class="whatsapp-float" onclick="openWhatsApp()">
@@ -282,6 +338,171 @@
         function scrollToServices() {
             document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
         }
+
+        // Chatbot functionality
+        let chatbotOpen = false;
+        const chatbotResponses = {
+            'tax-filing': {
+                title: 'Tax Filing Services',
+                content: 'Our tax filing service is built native to FBR and allows you to file taxes in just 6 minutes! We offer:\n\n• Individual Tax Filing\n• Business Tax Filing\n• NTN Registration\n• Sales Tax Registration\n• Expert consultation and support\n\nWould you like to know more about any specific service?',
+                actions: [
+                    { text: 'Learn More', action: 'window.location.href=\'taxation.html\'' },
+                    { text: 'Get Quote', action: 'openWhatsApp(\'Tax Filing Services\')' }
+                ]
+            },
+            'accounting': {
+                title: 'Accounting & Bookkeeping',
+                content: 'We provide comprehensive accounting services including:\n\n• Full Bookkeeping Services\n• Financial Analysis & Reporting\n• Payroll Processing\n• Accounts Payable/Receivable\n• Cloud Accounting Solutions\n• Compliance & Audit Support\n\nOur expert team ensures accuracy and compliance.',
+                actions: [
+                    { text: 'Learn More', action: 'window.location.href=\'accounting.html\'' },
+                    { text: 'Get Quote', action: 'openWhatsApp(\'Accounting Services\')' }
+                ]
+            },
+            'ai-engineering': {
+                title: 'AI Engineering Services',
+                content: 'Our AI engineering services include:\n\n• Machine Learning Models\n• Natural Language Processing\n• Computer Vision Solutions\n• Process Automation (n8n)\n• Data Analytics & BI\n• AI Integration Services\n\nWe help businesses automate and optimize their processes.',
+                actions: [
+                    { text: 'Learn More', action: 'window.location.href=\'ai-engineer.html\'' },
+                    { text: 'Get Quote', action: 'openWhatsApp(\'AI Engineering Services\')' }
+                ]
+            },
+            'pricing': {
+                title: 'Pricing Information',
+                content: 'Our pricing varies based on your specific needs:\n\n• Tax Filing: Starting from Rs. 1,500\n• Accounting: Custom quotes based on business size\n• AI Engineering: Project-based pricing\n\nContact us for a personalized quote based on your requirements.',
+                actions: [
+                    { text: 'Get Quote', action: 'openWhatsApp(\'Pricing Inquiry\')' },
+                    { text: 'Contact Us', action: 'document.getElementById(\'contact\').scrollIntoView({behavior: \'smooth\'})' }
+                ]
+            }
+        };
+
+        function toggleChatbot() {
+            const chatbotBody = document.getElementById('chatbot-body');
+            const chatbotToggle = document.getElementById('chatbot-toggle');
+
+            if (chatbotOpen) {
+                chatbotBody.style.display = 'none';
+                chatbotToggle.innerHTML = '<i class="fas fa-chevron-up"></i>';
+                chatbotOpen = false;
+            } else {
+                chatbotBody.style.display = 'block';
+                chatbotToggle.innerHTML = '<i class="fas fa-chevron-down"></i>';
+                chatbotOpen = true;
+            }
+        }
+
+        function closeChatbot() {
+            const chatbotContainer = document.getElementById('chatbot-container');
+            chatbotContainer.style.display = 'none';
+        }
+
+        function askQuestion(questionType) {
+            const response = chatbotResponses[questionType];
+            if (response) {
+                addBotMessage(response.title, response.content, response.actions);
+            }
+        }
+
+        function addBotMessage(title, content, actions = []) {
+            const messagesContainer = document.getElementById('chatbot-messages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message bot-message';
+
+            let actionsHtml = '';
+            if (actions.length > 0) {
+                actionsHtml = '<div class="message-actions">';
+                actions.forEach(action => {
+                    actionsHtml += `<button class="action-btn" onclick="${action.action}">${action.text}</button>`;
+                });
+                actionsHtml += '</div>';
+            }
+
+            messageDiv.innerHTML = `
+                <div class="message-avatar">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="message-content">
+                    <h5>${title}</h5>
+                    <p>${content.replace(/\n/g, '<br>')}</p>
+                    ${actionsHtml}
+                </div>
+            `;
+
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function sendChatbotMessage() {
+            const inputField = document.getElementById('chatbot-input-field');
+            const message = inputField.value.trim();
+
+            if (message) {
+                // Add user message
+                const messagesContainer = document.getElementById('chatbot-messages');
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.className = 'message user-message';
+                userMessageDiv.innerHTML = `
+                    <div class="message-content">
+                        <p>${message}</p>
+                    </div>
+                `;
+                messagesContainer.appendChild(userMessageDiv);
+
+                // Clear input
+                inputField.value = '';
+
+                // Simulate bot response
+                setTimeout(() => {
+                    const botResponse = getBotResponse(message.toLowerCase());
+                    addBotMessage('AI Assistant', botResponse);
+                }, 1000);
+
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }
+        }
+
+        function handleChatbotInput(event) {
+            if (event.key === 'Enter') {
+                sendChatbotMessage();
+            }
+        }
+
+        function getBotResponse(message) {
+            if (message.includes('tax') || message.includes('filing')) {
+                return 'For tax filing services, we offer FBR-integrated solutions that take just 6 minutes to complete. Would you like to learn more about our tax services?';
+            } else if (message.includes('accounting') || message.includes('bookkeeping')) {
+                return 'Our accounting services include full bookkeeping, financial analysis, payroll processing, and more. We serve businesses of all sizes.';
+            } else if (message.includes('ai') || message.includes('automation')) {
+                return 'We provide cutting-edge AI solutions including machine learning, NLP, computer vision, and n8n automation. How can we help optimize your business?';
+            } else if (message.includes('price') || message.includes('cost')) {
+                return 'Our pricing varies based on your specific needs. Contact us for a personalized quote that fits your budget and requirements.';
+            } else if (message.includes('contact') || message.includes('phone')) {
+                return 'You can reach us at +923390625000 or via WhatsApp for immediate assistance. Our team is available 24/7 to help you.';
+            } else {
+                return 'Thank you for your question! I\'d be happy to help you with our services. You can ask about tax filing, accounting, AI engineering, or pricing.';
+            }
+        }
+
+        // Star animation
+        function createStars() {
+            const starsContainer = document.querySelector('.stars');
+            const numberOfStars = 200;
+
+            for (let i = 0; i < numberOfStars; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                star.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                starsContainer.appendChild(star);
+            }
+        }
+
+        // Initialize stars when page loads
+        document.addEventListener('DOMContentLoaded', function () {
+            createStars();
+        });
     </script>
 </body>
 
