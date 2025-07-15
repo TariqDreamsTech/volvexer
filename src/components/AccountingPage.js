@@ -23,7 +23,7 @@ function AccountingPage() {
         }, 2000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [volvexerMeanings.length]);
 
     useEffect(() => {
         const timer = setTimeout(() => {
@@ -253,7 +253,7 @@ function AccountingPage() {
                             <ul>
                                 <li><a href="tel:+923390625000">+923390625000</a></li>
                                 <li><a href="mailto:info@volvexer.site">info@volvexer.site</a></li>
-                                <li><a href="#" onClick={() => openWhatsApp()}>WhatsApp</a></li>
+                                <li><button className="link-button" onClick={() => openWhatsApp()}>WhatsApp</button></li>
                             </ul>
                         </div>
                     </div>

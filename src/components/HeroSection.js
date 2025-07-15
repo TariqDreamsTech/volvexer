@@ -20,7 +20,7 @@ function HeroSection() {
         }, 2000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [volvexerMeanings.length]);
 
     const scrollToServices = () => {
         document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
