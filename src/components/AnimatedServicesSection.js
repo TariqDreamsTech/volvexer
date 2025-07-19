@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 
 function AnimatedServicesSection() {
     const [board, setBoard] = useState(initializeBoard());
@@ -6,10 +6,10 @@ function AnimatedServicesSection() {
     const [gameStatus, setGameStatus] = useState('playing');
     const [currentService, setCurrentService] = useState(null);
     const [showServiceAnimation, setShowServiceAnimation] = useState(false);
-    const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+    const [isAutoPlaying] = useState(true);
 
     // Service mapping for each piece
-    const pieceServices = {
+    const pieceServices = useMemo(() => ({
         '♔': { name: 'Strategic Planning', icon: 'fas fa-chess', color: '#A855F7' },
         '♚': { name: 'Strategic Planning', icon: 'fas fa-chess', color: '#A855F7' },
         '♕': { name: 'Change Management', icon: 'fas fa-exchange-alt', color: '#7C3AED' },
@@ -22,7 +22,7 @@ function AnimatedServicesSection() {
         '♜': { name: 'Quality Assurance', icon: 'fas fa-check-double', color: '#4C1D95' },
         '♙': { name: 'AI Engineering', icon: 'fas fa-robot', color: '#8B5CF6' },
         '♟': { name: 'AI Engineering', icon: 'fas fa-robot', color: '#8B5CF6' }
-    };
+    }), []);
 
     function initializeBoard() {
         const initialBoard = Array(8).fill(null).map(() => Array(8).fill(null));
@@ -44,7 +44,7 @@ function AnimatedServicesSection() {
         return blackPieces.includes(piece) ? 'black' : 'white';
     }
 
-    function isValidMove(fromRow, fromCol, toRow, toCol, piece) {
+    const isValidMove = useCallback((fromRow, fromCol, toRow, toCol, piece) => {
         if (!piece) return false;
 
         const pieceColor = getPieceColor(piece);
@@ -100,9 +100,9 @@ function AnimatedServicesSection() {
             default:
                 return false;
         }
-    }
+    }, [board]);
 
-    function triggerServiceAnimation(piece) {
+    const triggerServiceAnimation = useCallback((piece) => {
         const service = pieceServices[piece];
         if (service) {
             setCurrentService(service);
@@ -114,9 +114,9 @@ function AnimatedServicesSection() {
                 setCurrentService(null);
             }, 3000);
         }
-    }
+    }, [pieceServices]);
 
-    function getValidMoves(piece, row, col) {
+    const getValidMoves = useCallback((piece, row, col) => {
         const validMoves = [];
         for (let toRow = 0; toRow < 8; toRow++) {
             for (let toCol = 0; toCol < 8; toCol++) {
@@ -126,9 +126,9 @@ function AnimatedServicesSection() {
             }
         }
         return validMoves;
-    }
+    }, [isValidMove]);
 
-    function getAllValidMovesForPlayer(player) {
+    const getAllValidMovesForPlayer = useCallback((player) => {
         const validMoves = [];
         for (let row = 0; row < 8; row++) {
             for (let col = 0; col < 8; col++) {
@@ -146,7 +146,7 @@ function AnimatedServicesSection() {
             }
         }
         return validMoves;
-    }
+    }, [board, getValidMoves]);
 
     const makeRandomMove = useCallback(() => {
         if (gameStatus !== 'playing') return;
@@ -166,7 +166,6 @@ function AnimatedServicesSection() {
 
         // Make the move
         const newBoard = board.map(row => [...row]);
-        const capturedPiece = newBoard[to.row][to.col];
         newBoard[to.row][to.col] = piece;
         newBoard[from.row][from.col] = null;
 
@@ -177,7 +176,7 @@ function AnimatedServicesSection() {
         if (isCheckmate(newBoard, currentPlayer === 'white' ? 'black' : 'white')) {
             setGameStatus('checkmate');
         }
-    }, [board, currentPlayer, gameStatus]);
+    }, [board, currentPlayer, gameStatus, getAllValidMovesForPlayer, triggerServiceAnimation]);
 
     // Auto-play effect
     useEffect(() => {

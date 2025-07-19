@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function TaxCalculatorHero() {
-    const [currentLetterIndex, setCurrentLetterIndex] = useState(0);
+
 
     const volvexerMeanings = [
         { letter: 'V', meaning: 'Virtual Solutions' },
@@ -14,22 +14,9 @@ function TaxCalculatorHero() {
         { letter: 'R', meaning: 'Reliable Services' }
     ];
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setCurrentLetterIndex((prevIndex) => (prevIndex + 1) % volvexerMeanings.length);
-        }, 2000);
 
-        return () => clearInterval(interval);
-    }, [volvexerMeanings.length]);
 
-    const scrollToServices = () => {
-        document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
-    };
 
-    const openWhatsApp = (message = '') => {
-        const text = message ? `Hi, I'm interested in ${message}` : 'Hi, I would like to know more about your services';
-        window.open(`https://wa.me/923390625000?text=${encodeURIComponent(text)}`, '_blank');
-    };
 
     const toggleSalaryType = (type) => {
         const monthlyBtn = document.getElementById('monthly-toggle');
