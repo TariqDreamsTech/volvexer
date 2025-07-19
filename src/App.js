@@ -1,17 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import HeroSection from './components/HeroSection';
+import TaxCalculatorHero from './components/TaxCalculatorHero';
+import AnimatedServicesSection from './components/AnimatedServicesSection';
 import ServicesOverview from './components/ServicesOverview';
 import WhyChooseUs from './components/WhyChooseUs';
 import ContactSection from './components/ContactSection';
 import AIEngineerPage from './components/AIEngineerPage';
 import AccountingPage from './components/AccountingPage';
 import TaxationPage from './components/TaxationPage';
-import AccountingNetwork from './components/AccountingNetwork';
-import BookkeepingNetwork from './components/BookkeepingNetwork';
-import TaxationNetwork from './components/TaxationNetwork';
-import AINetwork from './components/AINetwork';
 import Chatbot from './components/Chatbot';
 import './styles.css';
 
@@ -125,11 +122,8 @@ function App() {
                     <Route path="/" element={
                         <>
                             <Navbar />
-                            <HeroSection />
-                            <AccountingNetwork />
-                            <BookkeepingNetwork />
-                            <TaxationNetwork />
-                            <AINetwork />
+                            <TaxCalculatorHero />
+                            <AnimatedServicesSection />
                             <ServicesOverview />
                             <WhyChooseUs />
                             <ContactSection />
