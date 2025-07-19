@@ -1,18 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 function TaxCalculatorHero() {
 
 
-    const volvexerMeanings = [
-        { letter: 'V', meaning: 'Virtual Solutions' },
-        { letter: 'O', meaning: 'Online Services' },
-        { letter: 'L', meaning: 'Legal Compliance' },
-        { letter: 'V', meaning: 'Value Creation' },
-        { letter: 'E', meaning: 'Expert Solutions' },
-        { letter: 'X', meaning: 'Xpert Technology' },
-        { letter: 'E', meaning: 'Efficient Systems' },
-        { letter: 'R', meaning: 'Reliable Services' }
-    ];
+
 
 
 
