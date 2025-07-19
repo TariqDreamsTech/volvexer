@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
     const [, setCurrentLetterIndex] = useState(0);
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const volvexerMeanings = [
         { letter: 'V', meaning: 'Virtual Solutions' },
@@ -23,6 +24,21 @@ function Navbar() {
         return () => clearInterval(interval);
     }, [volvexerMeanings.length]);
 
+    const toggleMobileMenu = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+        // Prevent body scroll when menu is open
+        if (!isMobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = 'unset';
+        }
+    };
+
+    const closeMobileMenu = () => {
+        setIsMobileMenuOpen(false);
+        document.body.style.overflow = 'unset';
+    };
+
     return (
         <nav className="navbar">
             <div className="nav-container">
@@ -30,17 +46,22 @@ function Navbar() {
                     <img src="/static/assets/final icon 1.png" alt="Volvexer Logo" className="logo-img" />
                     <span className="logo-text">VOLVEXER</span>
                 </div>
-                <div className="nav-menu" id="nav-menu">
-                    <Link to="/" className="nav-link">Home</Link>
-                    <Link to="/accounting" className="nav-link">Accounting</Link>
-                    <Link to="/taxation" className="nav-link">Taxation</Link>
-                    <Link to="/ai-engineer" className="nav-link">AI Engineer</Link>
+                <div className={`nav-menu ${isMobileMenuOpen ? 'active' : ''}`} id="nav-menu">
+                    <Link to="/" className="nav-link" onClick={closeMobileMenu}>Home</Link>
+                    <Link to="/accounting" className="nav-link" onClick={closeMobileMenu}>Accounting</Link>
+                    <Link to="/taxation" className="nav-link" onClick={closeMobileMenu}>Taxation</Link>
+                    <Link to="/ai-engineer" className="nav-link" onClick={closeMobileMenu}>AI Engineer</Link>
                 </div>
 
                 <div className="nav-buttons">
                     <button className="btn btn-login" onClick={() => window.open('https://wa.me/923390625000', '_blank')}>Get Help</button>
                     <button className="btn btn-primary" onClick={() => document.getElementById('services').scrollIntoView({ behavior: 'smooth' })}>Explore Services</button>
-                    <button className="mobile-menu-toggle" id="mobile-menu-toggle">
+                    <button 
+                        className={`mobile-menu-toggle ${isMobileMenuOpen ? 'active' : ''}`} 
+                        id="mobile-menu-toggle"
+                        onClick={toggleMobileMenu}
+                        aria-label="Toggle mobile menu"
+                    >
                         <span></span>
                         <span></span>
                         <span></span>

@@ -62,6 +62,36 @@ function App() {
         return () => clearTimeout(timer);
     }, []);
 
+    // Mobile-specific optimizations
+    useEffect(() => {
+        // Prevent zoom on double tap for iOS
+        let lastTouchEnd = 0;
+        const preventZoom = (event) => {
+            const now = (new Date()).getTime();
+            if (now - lastTouchEnd <= 300) {
+                event.preventDefault();
+            }
+            lastTouchEnd = now;
+        };
+
+        document.addEventListener('touchend', preventZoom, false);
+
+        // Optimize for mobile performance
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js').catch(console.log);
+        }
+
+        // Add mobile-specific CSS classes
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        if (isMobile) {
+            document.body.classList.add('mobile-device');
+        }
+
+        return () => {
+            document.removeEventListener('touchend', preventZoom, false);
+        };
+    }, []);
+
     useEffect(() => {
         if (!isLoading) {
             generateStars();
