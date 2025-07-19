@@ -214,9 +214,7 @@ function AnimatedServicesSection() {
     return (
         <section className="animated-services-section">
             <div className="container">
-                <div className="section-header">
-                    <h2>Chess Game</h2>
-                </div>
+
 
                 <div className="chess-game-container">
 
