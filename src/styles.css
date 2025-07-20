@@ -1435,6 +1435,8 @@ p {
     .tax-calculator-hero .hero-container {
         padding: 0 15px;
         gap: 30px;
+        justify-content: center;
+        align-items: center;
     }
 
     .tax-calculator-hero .calculator-card {
@@ -1442,12 +1444,23 @@ p {
     }
 
     .tax-calculator-hero .hero-left-section {
-        order: 2;
-        gap: 25px;
+        display: none;
     }
 
     .tax-calculator-hero .tax-calculator-section {
-        order: 1;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .tax-calculator-hero .calculator-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .tax-calculator-hero .calculator-card {
+        width: 100%;
+        max-width: 100%;
     }
 
     .tax-calculator-hero .hero-graph-section .rainbow-graph-container,
@@ -2123,12 +2136,17 @@ p {
     .calculator-container {
         grid-template-columns: 1fr;
         gap: 30px;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
     }
 
     .calculator-card,
     .tax-slabs-card {
         padding: 20px;
         min-height: unset;
+        width: 100%;
+        max-width: 100%;
     }
 
     .tax-slabs-card {
@@ -3985,6 +4003,8 @@ p {
     .tax-calculator-hero .hero-container {
         padding: 15px;
         gap: 20px;
+        justify-content: center;
+        align-items: center;
     }
 
     .tax-calculator-hero .hero-left-section {
@@ -3994,6 +4014,19 @@ p {
 
     .tax-calculator-hero .tax-calculator-section {
         padding: 20px 15px;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    .tax-calculator-hero .calculator-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .tax-calculator-hero .calculator-card {
+        width: 100%;
+        max-width: 100%;
     }
 
     .calculator-container {
@@ -4377,6 +4410,8 @@ p {
     .tax-calculator-hero .hero-container {
         padding: 10px;
         gap: 15px;
+        justify-content: center;
+        align-items: center;
     }
 
     .tax-calculator-hero .hero-left-section {
@@ -4386,6 +4421,19 @@ p {
 
     .tax-calculator-hero .tax-calculator-section {
         padding: 15px 10px;
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .tax-calculator-hero .calculator-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .tax-calculator-hero .calculator-card {
+        width: 100%;
+        max-width: 100%;
     }
 
     .calculator-container {
