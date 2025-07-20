@@ -1337,11 +1337,9 @@ p {
 }
 
 .tax-calculator-hero .hero-container {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 60px;
-    align-items: start;
-    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -1393,10 +1391,14 @@ p {
 }
 
 .tax-calculator-hero .tax-calculator-section {
-    padding: 0;
+    padding: 40px 0;
     background: transparent;
     position: relative;
     z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
 }
 
 .tax-calculator-hero .tax-calculator-section .container {
@@ -1408,6 +1410,8 @@ p {
     grid-template-columns: 1fr;
     gap: 30px;
     margin-top: 0;
+    max-width: 400px;
+    width: 100%;
 }
 
 .tax-calculator-hero .calculator-card {
@@ -3945,6 +3949,157 @@ p {
         grid-template-columns: 1fr;
     }
 
+    /* Hero Features Mobile Responsiveness */
+    .hero-features {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 25px;
+    }
+
+    .hero-features .feature-item {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .hero-features .feature-icon {
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 10px;
+    }
+
+    .hero-features .feature-icon i {
+        font-size: 1.5rem;
+    }
+
+    .hero-features .feature-title {
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+
+    .hero-features .feature-subtitle {
+        font-size: 0.8rem;
+    }
+
+    /* Tax Calculator Mobile Responsiveness */
+    .tax-calculator-hero .hero-container {
+        padding: 15px;
+        gap: 20px;
+    }
+
+    .tax-calculator-hero .hero-left-section {
+        padding: 20px 15px;
+        display: none;
+    }
+
+    .tax-calculator-hero .tax-calculator-section {
+        padding: 20px 15px;
+    }
+
+    .calculator-container {
+        padding: 15px;
+        max-width: 100%;
+    }
+
+    .calculator-card {
+        padding: 20px 15px;
+    }
+
+    .calculator-header h3 {
+        font-size: 1.5rem;
+        text-align: center;
+    }
+
+    .input-group {
+        margin-bottom: 20px;
+    }
+
+    .input-group label {
+        font-size: 0.9rem;
+        margin-bottom: 8px;
+    }
+
+    .input-wrapper input,
+    .input-wrapper select {
+        padding: 12px 15px;
+        font-size: 0.9rem;
+    }
+
+    .salary-type-toggle {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .toggle-btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+
+    .calculate-btn,
+    .toggle-view-btn {
+        width: 100%;
+        padding: 12px 20px;
+        font-size: 0.9rem;
+        margin-top: 10px;
+    }
+
+    .calculator-result {
+        padding: 15px;
+    }
+
+    .result-header h4 {
+        font-size: 1.2rem;
+    }
+
+    .calculation-kv-tables {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .kv-section {
+        padding: 15px;
+    }
+
+    .kv-section h5 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .kv-row {
+        padding: 8px 0;
+    }
+
+    .kv-key,
+    .kv-value {
+        font-size: 0.85rem;
+    }
+
+    .additional-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .info-item {
+        padding: 8px 0;
+    }
+
+    .info-item .label,
+    .info-item .value {
+        font-size: 0.85rem;
+    }
+
+    /* Graph Back Button Mobile */
+    .graph-back-btn {
+        top: 15px;
+        left: 15px;
+        padding: 8px 15px;
+        font-size: 0.8rem;
+    }
+
+    .graph-back-btn i {
+        font-size: 0.7rem;
+    }
+
     .app-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -4189,6 +4344,111 @@ p {
     .current-meaning {
         font-size: 1.1rem;
         max-width: 200px;
+    }
+
+    /* Hero Features Extra Small Mobile */
+    .hero-features {
+        gap: 10px;
+        margin-top: 20px;
+    }
+
+    .hero-features .feature-item {
+        padding: 12px;
+    }
+
+    .hero-features .feature-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .hero-features .feature-icon i {
+        font-size: 1.2rem;
+    }
+
+    .hero-features .feature-title {
+        font-size: 0.9rem;
+    }
+
+    .hero-features .feature-subtitle {
+        font-size: 0.7rem;
+    }
+
+    /* Tax Calculator Extra Small Mobile */
+    .tax-calculator-hero .hero-container {
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .tax-calculator-hero .hero-left-section {
+        padding: 15px 10px;
+        display: none;
+    }
+
+    .tax-calculator-hero .tax-calculator-section {
+        padding: 15px 10px;
+    }
+
+    .calculator-container {
+        padding: 10px;
+    }
+
+    .calculator-card {
+        padding: 15px 10px;
+    }
+
+    .calculator-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .input-group label {
+        font-size: 0.8rem;
+    }
+
+    .input-wrapper input,
+    .input-wrapper select {
+        padding: 10px 12px;
+        font-size: 0.8rem;
+    }
+
+    .toggle-btn {
+        padding: 8px 12px;
+        font-size: 0.8rem;
+    }
+
+    .calculate-btn,
+    .toggle-view-btn {
+        padding: 10px 15px;
+        font-size: 0.8rem;
+    }
+
+    .result-header h4 {
+        font-size: 1.1rem;
+    }
+
+    .kv-section h5 {
+        font-size: 0.9rem;
+    }
+
+    .kv-key,
+    .kv-value {
+        font-size: 0.8rem;
+    }
+
+    .info-item .label,
+    .info-item .value {
+        font-size: 0.8rem;
+    }
+
+    /* Graph Back Button Extra Small */
+    .graph-back-btn {
+        top: 10px;
+        left: 10px;
+        padding: 6px 12px;
+        font-size: 0.7rem;
+    }
+
+    .graph-back-btn i {
+        font-size: 0.6rem;
     }
 
     .section-header h2 {
@@ -8138,6 +8398,501 @@ body.mobile-device .word-content {
     animation: slideInUp 0.8s ease-out;
 }
 
+/* Override for inline styles */
+.rainbow-graph-container[style*="display: block"] {
+    display: block !important;
+}
+
+/* Ensure graph content is visible */
+.hero-graph-section {
+    width: 100%;
+    min-height: 500px;
+    background-color: #e3f2fd;
+    border-radius: 15px;
+    padding: 20px;
+    margin-top: 20px;
+    border: 3px solid #2196F3;
+    display: block !important;
+}
+
+.hero-graph-section[style*="display: block"] {
+    display: block !important;
+}
+
+/* Home page graph styles - separate from taxation page */
+.home-graph-section {
+    width: 100%;
+    min-height: 500px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 20px;
+    border: 3px solid #4CAF50;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.home-graph-container {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.home-graph-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.home-graph-header h4 {
+    color: white;
+    font-size: 1.5rem;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #fff, #e3f2fd);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.home-graph-content {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-graph-visualization {
+    width: 100%;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border: 2px solid #4CAF50;
+}
+
+.home-graph-main-icon {
+    font-size: 64px;
+    margin-bottom: 15px;
+    animation: homeGraphPulse 2s ease-in-out infinite;
+}
+
+.home-graph-title {
+    font-weight: bold;
+    color: #4CAF50;
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+}
+
+.home-graph-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.home-graph-corner-icons {
+    position: absolute;
+    font-size: 28px;
+    animation: homeGraphFloat 3s ease-in-out infinite;
+}
+
+.home-graph-corner-icons:nth-child(1) {
+    top: 15px;
+    left: 15px;
+    color: #ff6b6b;
+    animation-delay: 0s;
+}
+
+.home-graph-corner-icons:nth-child(2) {
+    top: 15px;
+    right: 15px;
+    color: #48dbfb;
+    animation-delay: 0.5s;
+}
+
+.home-graph-corner-icons:nth-child(3) {
+    bottom: 15px;
+    left: 15px;
+    color: #5f27cd;
+    animation-delay: 1s;
+}
+
+.home-graph-corner-icons:nth-child(4) {
+    bottom: 15px;
+    right: 15px;
+    color: #ff9ff3;
+    animation-delay: 1.5s;
+}
+
+.home-graph-labels {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.home-graph-label-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: white;
+    font-weight: 500;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.home-graph-label-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.home-graph-progress-section {
+    margin-top: 25px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.home-graph-progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.home-graph-progress-header h5 {
+    margin: 0;
+    color: white;
+    font-size: 1.1rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.home-graph-score-value {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #4CAF50;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.home-graph-progress-bar {
+    width: 100%;
+    height: 25px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.home-graph-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50, #8BC34A);
+    width: 75%;
+    transition: width 0.3s ease;
+    box-shadow: 0 2px 8px rgba(76, 175, 80, 0.4);
+}
+
+.home-graph-floating-elements {
+    position: relative;
+    height: 60px;
+    margin-top: 20px;
+}
+
+.home-graph-floating-icon {
+    position: absolute;
+    font-size: 28px;
+    animation: homeGraphFloat 4s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.home-graph-floating-icon:nth-child(1) {
+    left: 10%;
+    color: #ff6b6b;
+    animation-delay: 0s;
+}
+
+.home-graph-floating-icon:nth-child(2) {
+    left: 30%;
+    color: #48dbfb;
+    animation-delay: 1s;
+}
+
+.home-graph-floating-icon:nth-child(3) {
+    left: 50%;
+    color: #5f27cd;
+    animation-delay: 2s;
+}
+
+.home-graph-floating-icon:nth-child(4) {
+    left: 70%;
+    color: #4CAF50;
+    animation-delay: 3s;
+}
+
+/* Home page graph animations */
+@keyframes homeGraphPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+@keyframes homeGraphFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes homeGraphRotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes homeGraphGlow {
+
+    0%,
+    100% {
+        text-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+    }
+
+    50% {
+        text-shadow: 0 0 20px rgba(76, 175, 80, 0.8), 0 0 30px rgba(76, 175, 80, 0.6);
+    }
+}
+
+@keyframes homeGraphFade {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+@keyframes homeGraphDraw {
+    0% {
+        stroke-dasharray: 0 1000;
+    }
+
+    100% {
+        stroke-dasharray: 1000 0;
+    }
+}
+
+@keyframes homeGraphBounce {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes homeGraphSpin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes homeGraphProgress {
+    0% {
+        width: 0%;
+    }
+
+    50% {
+        width: 85%;
+    }
+
+    100% {
+        width: 85%;
+    }
+}
+
+/* Responsive design for home graph */
+@media (max-width: 768px) {
+    .home-graph-section {
+        padding: 20px;
+        margin-top: 15px;
+    }
+
+    .home-graph-container {
+        padding: 20px;
+    }
+
+    .home-graph-header h4 {
+        font-size: 1.2rem;
+    }
+
+    .home-graph-main-icon {
+        font-size: 48px;
+    }
+
+    .home-graph-labels {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+}
+
+/* Graph content styling */
+.graph-content {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.graph-content>div {
+    margin-bottom: 20px;
+    font-size: 18px;
+    color: #333;
+    font-weight: bold;
+}
+
+.graph-content>div[style*="width: 100%"] {
+    width: 100% !important;
+    height: 200px !important;
+    border: 2px solid #2196F3 !important;
+    background-color: #fff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 16px !important;
+    color: #666 !important;
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+/* Progress bar styling */
+.animated-progress-section {
+    margin-top: 20px;
+    width: 100%;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.progress-header h5 {
+    margin: 0;
+    color: #333;
+}
+
+.score-value {
+    font-size: 18px;
+    font-weight: bold;
+    color: #2196F3;
+}
+
+.progress-container {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 20px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #4CAF50;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Floating elements */
+.floating-elements {
+    position: relative;
+    height: 50px;
+    margin-top: 20px;
+}
+
+.floating-icon {
+    position: absolute;
+    font-size: 24px;
+    animation: floatIcon 3s ease-in-out infinite;
+}
+
+.floating-icon:nth-child(1) {
+    left: 10%;
+    color: #ff6b6b;
+    animation-delay: 0s;
+}
+
+.floating-icon:nth-child(2) {
+    left: 30%;
+    color: #48dbfb;
+    animation-delay: 0.5s;
+}
+
+.floating-icon:nth-child(3) {
+    left: 50%;
+    color: #5f27cd;
+    animation-delay: 1s;
+}
+
+.floating-icon:nth-child(4) {
+    left: 70%;
+    color: #4CAF50;
+    animation-delay: 1.5s;
+}
+
 .rainbow-graph-container.show-graph {
     display: block;
     animation: graphAppear 1s cubic-bezier(0.4, 0, 0.2, 1);
@@ -9355,4 +10110,196 @@ body.mobile-device .word-content {
     font-weight: 500;
     color: #fff;
     margin: 10px 0;
+}
+
+/* Hero Features Styles */
+.hero-features {
+    display: flex;
+    gap: 15px;
+    margin: 30px 0;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+}
+
+.hero-features .feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px 15px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 16px;
+    backdrop-filter: blur(15px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    min-width: 140px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-features .feature-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.hero-features .feature-item:hover::before {
+    left: 100%;
+}
+
+.hero-features .feature-item:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 35px rgba(99, 102, 241, 0.4);
+    border-color: rgba(99, 102, 241, 0.6);
+}
+
+.hero-features .feature-icon {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-features .feature-icon i {
+    font-size: 1.3rem;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.hero-features .feature-item:hover .feature-icon {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.4);
+}
+
+.hero-features .feature-item:hover .feature-icon i {
+    transform: rotate(360deg);
+}
+
+.hero-features .feature-content {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.hero-features .feature-title {
+    font-weight: 600;
+    color: #fff;
+    font-size: 0.9rem;
+    line-height: 1.2;
+}
+
+.hero-features .feature-subtitle {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .hero-features {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .hero-features .feature-item {
+        min-width: calc(50% - 5px);
+        padding: 15px 10px;
+    }
+
+    .hero-features .feature-title {
+        font-size: 0.8rem;
+    }
+
+    .hero-features .feature-subtitle {
+        font-size: 0.7rem;
+    }
+}
+
+/* Toggle View Button Styles */
+.toggle-view-btn {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.toggle-view-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+.toggle-view-btn:active {
+    transform: translateY(0);
+}
+
+.toggle-view-btn i {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.toggle-view-btn:hover i {
+    transform: scale(1.1);
+}
+
+/* Graph Back Button */
+.graph-back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.graph-back-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #5a67d8 0%, #6b46c1 100%);
+}
+
+.graph-back-btn:active {
+    transform: translateY(0);
+}
+
+.graph-back-btn i {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.graph-back-btn:hover i {
+    transform: translateX(-3px);
 }

@@ -1,13 +1,128 @@
 import React from 'react';
 
 function TaxCalculatorHero() {
+    const [currentView, setCurrentView] = React.useState('calculator'); // 'calculator' or 'graph'
 
+    const toggleView = () => {
+        if (currentView === 'calculator') {
+            // Show graph
+            const calculatorSection = document.querySelector('.tax-calculator-section');
+            if (calculatorSection) {
+                // Create the graph element dynamically
+                const homeGraphElement = document.createElement('div');
+                homeGraphElement.id = 'home-graph';
+                homeGraphElement.className = 'home-graph-section';
+                homeGraphElement.style.cssText = `
+                    display: block;
+                    visibility: visible;
+                    opacity: 1;
+                    width: 100%;
+                    height: 100%;
+                    min-height: 600px;
+                    position: relative;
+                    background: rgba(255, 255, 255, 0.05);
+                    border: 1px solid rgba(99, 102, 241, 0.2);
+                    border-radius: 20px;
+                    padding: 30px;
+                    backdrop-filter: blur(10px);
+                    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.08);
+                `;
 
+                // Create the graph content directly
+                homeGraphElement.innerHTML = `
+                    <!-- Back Button -->
+                    <button class="graph-back-btn" onclick="window.location.reload()" style="position: absolute; top: 20px; left: 20px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 10px 20px; border-radius: 25px; font-size: 0.9rem; font-weight: 600; cursor: pointer; transition: all 0.3s ease; z-index: 10; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);">
+                        <i class="fas fa-arrow-left" style="font-size: 0.8rem;"></i>
+                        Back to Calculator
+                    </button>
 
+                    <div style="text-align: center; z-index: 2; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                        <!-- Animated Rainbow Emoji -->
+                        <div style="font-size: 64px; margin-bottom: 20px; animation: homeGraphPulse 2s ease-in-out infinite, homeGraphRotate 4s linear infinite;">🌈</div>
+                        
+                        <!-- Animated Title -->
+                        <div style="font-weight: bold; color: #4CAF50; font-size: 1.8rem; margin-bottom: 12px; animation: homeGraphGlow 3s ease-in-out infinite;">Tax Rainbow Graph</div>
+                        
+                        <!-- Animated Subtitle -->
+                        <div style="font-size: 16px; color: #666; margin-bottom: 30px; animation: homeGraphFade 4s ease-in-out infinite;">Interactive Tax Progression Visualization</div>
+                        
+                        <!-- Enhanced Rainbow Curve SVG -->
+                        <svg width="300" height="150" style="margin-top: 20px;">
+                            <defs>
+                                <linearGradient id="rainbowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#ff0000;stop-opacity:1" />
+                                    <stop offset="16.66%" style="stop-color:#ff8000;stop-opacity:1" />
+                                    <stop offset="33.33%" style="stop-color:#ffff00;stop-opacity:1" />
+                                    <stop offset="50%" style="stop-color:#00ff00;stop-opacity:1" />
+                                    <stop offset="66.66%" style="stop-color:#0080ff;stop-opacity:1" />
+                                    <stop offset="83.33%" style="stop-color:#8000ff;stop-opacity:1" />
+                                    <stop offset="100%" style="stop-color:#ff0080;stop-opacity:1" />
+                                </linearGradient>
+                                <filter id="glow">
+                                    <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                    <feMerge> 
+                                        <feMergeNode in="coloredBlur"/>
+                                        <feMergeNode in="SourceGraphic"/>
+                                    </feMerge>
+                                </filter>
+                            </defs>
+                            <path d="M 15 120 Q 75 30 150 60 Q 225 90 285 45" 
+                                  stroke="url(#rainbowGradient)" 
+                                  stroke-width="6" 
+                                  fill="none"
+                                  style="filter: url(#glow); animation: homeGraphDraw 3s ease-in-out infinite;"/>
+                            
+                            <!-- Animated dots along the curve -->
+                            <circle cx="15" cy="120" r="4" fill="#ff0000" style="animation: homeGraphBounce 2s ease-in-out infinite;"/>
+                            <circle cx="75" cy="30" r="4" fill="#ff8000" style="animation: homeGraphBounce 2s ease-in-out infinite 0.4s;"/>
+                            <circle cx="150" cy="60" r="4" fill="#ffff00" style="animation: homeGraphBounce 2s ease-in-out infinite 0.8s;"/>
+                            <circle cx="225" cy="90" r="4" fill="#00ff00" style="animation: homeGraphBounce 2s ease-in-out infinite 1.2s;"/>
+                            <circle cx="285" cy="45" r="4" fill="#8000ff" style="animation: homeGraphBounce 2s ease-in-out infinite 1.6s;"/>
+                        </svg>
+                    </div>
+                    
+                    <!-- Enhanced Rainbow corner elements -->
+                    <div style="position: absolute; top: 60px; left: 20px; font-size: 32px; color: #ff0000; animation: homeGraphFloat 3s ease-in-out infinite, homeGraphSpin 6s linear infinite;">🔴</div>
+                    <div style="position: absolute; top: 60px; right: 20px; font-size: 32px; color: #00ff00; animation: homeGraphFloat 3s ease-in-out infinite 0.5s, homeGraphSpin 6s linear infinite reverse;">🟢</div>
+                    <div style="position: absolute; bottom: 80px; left: 20px; font-size: 32px; color: #0000ff; animation: homeGraphFloat 3s ease-in-out infinite 1s, homeGraphSpin 6s linear infinite;">🔵</div>
+                    <div style="position: absolute; bottom: 80px; right: 20px; font-size: 32px; color: #ffff00; animation: homeGraphFloat 3s ease-in-out infinite 1.5s, homeGraphSpin 6s linear infinite reverse;">🟡</div>
+                    
+                    <!-- Floating particles -->
+                    <div style="position: absolute; top: 50%; left: 10%; font-size: 20px; color: #ff6b6b; animation: homeGraphFloat 4s ease-in-out infinite 0.2s;">✨</div>
+                    <div style="position: absolute; top: 30%; right: 15%; font-size: 20px; color: #4ecdc4; animation: homeGraphFloat 4s ease-in-out infinite 0.7s;">⭐</div>
+                    <div style="position: absolute; bottom: 40%; left: 20%; font-size: 20px; color: #45b7d1; animation: homeGraphFloat 4s ease-in-out infinite 1.3s;">💫</div>
+                    <div style="position: absolute; bottom: 30%; right: 10%; font-size: 20px; color: #96ceb4; animation: homeGraphFloat 4s ease-in-out infinite 1.8s;">🌟</div>
+                    
+                    <!-- Enhanced Progress Section -->
+                    <div style="position: absolute; bottom: 30px; left: 30px; right: 30px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <h5 style="color: #fff; margin: 0; font-size: 1.1rem; animation: homeGraphGlow 2s ease-in-out infinite;">Rainbow Tax Efficiency</h5>
+                            <span style="background: linear-gradient(45deg, #ff0000, #ff8000, #ffff00, #00ff00, #0080ff, #8000ff, #ff0080); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.4rem; font-weight: bold; animation: homeGraphPulse 2s ease-in-out infinite;">85%</span>
+                        </div>
+                        <div style="background: rgba(255, 255, 255, 0.1); border-radius: 10px; height: 8px; overflow: hidden;">
+                            <div style="background: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #00ff00, #0080ff, #8000ff, #ff0080); width: 85%; height: 100%; border-radius: 10px; animation: homeGraphProgress 3s ease-in-out infinite;"></div>
+                        </div>
+                        <div style="display: flex; justify-content: space-around; margin-top: 15px;">
+                            <div style="color: #ff0000; font-size: 24px; animation: homeGraphBounce 2s ease-in-out infinite;">🔴</div>
+                            <div style="color: #ff8000; font-size: 24px; animation: homeGraphBounce 2s ease-in-out infinite 0.2s;">🟠</div>
+                            <div style="color: #ffff00; font-size: 24px; animation: homeGraphBounce 2s ease-in-out infinite 0.4s;">🟡</div>
+                            <div style="color: #00ff00; font-size: 24px; animation: homeGraphBounce 2s ease-in-out infinite 0.6s;">🟢</div>
+                            <div style="color: #0080ff; font-size: 24px; animation: homeGraphBounce 2s ease-in-out infinite 0.8s;">🔵</div>
+                            <div style="color: #8000ff; font-size: 24px; animation: homeGraphBounce 2s ease-in-out infinite 1s;">🟣</div>
+                        </div>
+                    </div>
+                `;
 
-
-
-
+                // Replace the calculator section with the graph
+                calculatorSection.innerHTML = '';
+                calculatorSection.appendChild(homeGraphElement);
+                setCurrentView('graph');
+            }
+        } else {
+            // Show calculator
+            window.location.reload(); // Simple way to restore calculator view
+        }
+    };
 
     const toggleSalaryType = (type) => {
         const monthlyBtn = document.getElementById('monthly-toggle');
@@ -28,514 +143,305 @@ function TaxCalculatorHero() {
         }
     };
 
-    const toggleView = (view) => {
-        const graphElement = document.getElementById('rainbow-graph');
-        const slabsElement = document.getElementById('tax-slabs');
 
-        if (view === 'graph') {
-            graphElement.style.display = 'block';
-            slabsElement.style.display = 'none';
-            graphElement.classList.add('show-graph');
-        } else {
-            graphElement.style.display = 'none';
-            slabsElement.style.display = 'block';
-            graphElement.classList.remove('show-graph');
-        }
-    };
 
     const calculateTax = () => {
-        const salary = parseFloat(document.getElementById('salary').value) || 0;
-        const year = document.getElementById('year').value;
-        const isMonthly = document.getElementById('monthly-toggle').classList.contains('active');
+        const salaryElement = document.getElementById('salary');
+        const yearElement = document.getElementById('year');
+        const monthlyToggleElement = document.getElementById('monthly-toggle');
 
-        // Convert to yearly salary if monthly is selected
-        const yearlySalary = isMonthly ? salary * 12 : salary;
-
-        let tax = 0;
-        let rate = 0;
-
-        // Tax slabs for different years
-        const taxSlabs = {
-            '2025-2026': [
-                { min: 0, max: 600000, rate: 0, fixed: 0 },
-                { min: 600000, max: 1200000, rate: 0.01, fixed: 0 },
-                { min: 1200000, max: 2200000, rate: 0.11, fixed: 6000 },
-                { min: 2200000, max: 3200000, rate: 0.23, fixed: 116000 },
-                { min: 3200000, max: 4100000, rate: 0.30, fixed: 346000 },
-                { min: 4100000, max: Infinity, rate: 0.35, fixed: 616000 }
-            ],
-            '2024-2025': [
-                { min: 0, max: 600000, rate: 0, fixed: 0 },
-                { min: 600000, max: 1200000, rate: 0.05, fixed: 0 },
-                { min: 1200000, max: 2200000, rate: 0.15, fixed: 30000 },
-                { min: 2200000, max: 3200000, rate: 0.25, fixed: 180000 },
-                { min: 3200000, max: 4100000, rate: 0.30, fixed: 430000 },
-                { min: 4100000, max: Infinity, rate: 0.35, fixed: 700000 }
-            ],
-            '2023-2024': [
-                { min: 0, max: 600000, rate: 0, fixed: 0 },
-                { min: 600000, max: 1200000, rate: 0.025, fixed: 0 },
-                { min: 1200000, max: 2400000, rate: 0.125, fixed: 15000 },
-                { min: 2400000, max: 3600000, rate: 0.225, fixed: 165000 },
-                { min: 3600000, max: 6000000, rate: 0.275, fixed: 435000 },
-                { min: 6000000, max: Infinity, rate: 0.35, fixed: 1095000 }
-            ],
-            '2022-2023': [
-                { min: 0, max: 600000, rate: 0, fixed: 0 },
-                { min: 600000, max: 1200000, rate: 0.025, fixed: 0 },
-                { min: 1200000, max: 2400000, rate: 0.125, fixed: 15000 },
-                { min: 2400000, max: 3600000, rate: 0.20, fixed: 165000 },
-                { min: 3600000, max: 6000000, rate: 0.25, fixed: 405000 },
-                { min: 6000000, max: 12000000, rate: 0.325, fixed: 1005000 },
-                { min: 12000000, max: Infinity, rate: 0.35, fixed: 2955000 }
-            ],
-            '2021-2022': [
-                { min: 0, max: 600000, rate: 0, fixed: 0 },
-                { min: 600000, max: 1200000, rate: 0.05, fixed: 0 },
-                { min: 1200000, max: 1800000, rate: 0.10, fixed: 30000 },
-                { min: 1800000, max: 2500000, rate: 0.15, fixed: 90000 },
-                { min: 2500000, max: 3500000, rate: 0.175, fixed: 195000 },
-                { min: 3500000, max: 5000000, rate: 0.20, fixed: 370000 },
-                { min: 5000000, max: 8000000, rate: 0.225, fixed: 670000 },
-                { min: 8000000, max: 12000000, rate: 0.25, fixed: 1345000 },
-                { min: 12000000, max: 30000000, rate: 0.275, fixed: 2345000 },
-                { min: 30000000, max: 50000000, rate: 0.30, fixed: 7295000 },
-                { min: 50000000, max: 75000000, rate: 0.325, fixed: 13295000 },
-                { min: 75000000, max: Infinity, rate: 0.35, fixed: 21420000 }
-            ],
-            '2020-2021': [
-                { min: 0, max: 600000, rate: 0, fixed: 0 },
-                { min: 600000, max: 1200000, rate: 0.05, fixed: 0 },
-                { min: 1200000, max: 1800000, rate: 0.10, fixed: 30000 },
-                { min: 1800000, max: 2500000, rate: 0.15, fixed: 90000 },
-                { min: 2500000, max: 3500000, rate: 0.175, fixed: 195000 },
-                { min: 3500000, max: 5000000, rate: 0.20, fixed: 370000 },
-                { min: 5000000, max: 8000000, rate: 0.225, fixed: 670000 },
-                { min: 8000000, max: 12000000, rate: 0.25, fixed: 1345000 },
-                { min: 12000000, max: 30000000, rate: 0.275, fixed: 2345000 },
-                { min: 30000000, max: 50000000, rate: 0.30, fixed: 7295000 },
-                { min: 50000000, max: 75000000, rate: 0.325, fixed: 13295000 },
-                { min: 75000000, max: Infinity, rate: 0.35, fixed: 21420000 }
-            ]
-        };
-
-        const slabs = taxSlabs[year];
-
-        // Find applicable slab
-        for (let i = slabs.length - 1; i >= 0; i--) {
-            if (yearlySalary > slabs[i].min) {
-                const excess = yearlySalary - slabs[i].min;
-                tax = slabs[i].fixed + (excess * slabs[i].rate);
-                rate = slabs[i].rate * 100;
-                break;
-            }
+        if (!salaryElement || !yearElement || !monthlyToggleElement) {
+            return;
         }
 
-        // Add surcharge for income above 10 million (2025-2026)
-        if (year === '2025-2026' && yearlySalary > 10000000) {
-            const surcharge = tax * 0.09;
-            tax += surcharge;
+        const salary = parseFloat(salaryElement.value) || 0;
+        if (salary <= 0) {
+            return;
         }
 
-        const netIncome = yearlySalary - tax;
+        // Get the calculator section and create rainbow graph
+        const calculatorSection = document.querySelector('.tax-calculator-section');
+        if (calculatorSection) {
+            // Create the graph element dynamically
+            const homeGraphElement = document.createElement('div');
+            homeGraphElement.id = 'home-graph';
+            homeGraphElement.className = 'home-graph-section';
+            homeGraphElement.style.cssText = `
+                display: block;
+                visibility: visible;
+                opacity: 1;
+                width: 100%;
+                height: 100%;
+                min-height: 600px;
+                position: relative;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(99, 102, 241, 0.2);
+                border-radius: 20px;
+                padding: 30px;
+                backdrop-filter: blur(10px);
+                box-shadow: 0 8px 32px rgba(59, 130, 246, 0.08);
+            `;
 
-        // Update results with animation
-        const resultElement = document.getElementById('calculator-result');
-        resultElement.style.display = 'block';
-        resultElement.classList.add('show-result');
+            // Create the graph content directly
+            homeGraphElement.innerHTML = `
+                <div style="text-align: center; z-index: 2; width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <div style="font-size: 64px; margin-bottom: 20px; animation: homeGraphPulse 2s ease-in-out infinite;">🌈</div>
+                    <div style="font-weight: bold; color: #4CAF50; font-size: 1.8rem; margin-bottom: 12px;">Tax Rainbow Graph</div>
+                    <div style="font-size: 16px; color: #666; margin-bottom: 30px;">Interactive Tax Progression Visualization</div>
+                    
+                    <!-- Rainbow Curve SVG -->
+                    <svg width="300" height="150" style="margin-top: 20px;">
+                        <defs>
+                            <linearGradient id="rainbowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#ff0000;stop-opacity:1" />
+                                <stop offset="16.66%" style="stop-color:#ff8000;stop-opacity:1" />
+                                <stop offset="33.33%" style="stop-color:#ffff00;stop-opacity:1" />
+                                <stop offset="50%" style="stop-color:#00ff00;stop-opacity:1" />
+                                <stop offset="66.66%" style="stop-color:#0080ff;stop-opacity:1" />
+                                <stop offset="83.33%" style="stop-color:#8000ff;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#ff0080;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <path d="M 15 120 Q 75 30 150 60 Q 225 90 285 45" 
+                              stroke="url(#rainbowGradient)" 
+                              stroke-width="6" 
+                              fill="none"/>
+                        
+                        <!-- Animated dots along the curve -->
+                        <circle cx="15" cy="120" r="4" fill="#ff0000"/>
+                        <circle cx="75" cy="30" r="4" fill="#ff8000"/>
+                        <circle cx="150" cy="60" r="4" fill="#ffff00"/>
+                        <circle cx="225" cy="90" r="4" fill="#00ff00"/>
+                        <circle cx="285" cy="45" r="4" fill="#8000ff"/>
+                    </svg>
+                </div>
+                
+                <!-- Rainbow corner elements -->
+                <div style="position: absolute; top: 20px; left: 20px; font-size: 32px; color: #ff0000; animation: homeGraphFloat 3s ease-in-out infinite;">🔴</div>
+                <div style="position: absolute; top: 20px; right: 20px; font-size: 32px; color: #00ff00; animation: homeGraphFloat 3s ease-in-out infinite; animation-delay: 0.5s;">🟢</div>
+                <div style="position: absolute; bottom: 20px; left: 20px; font-size: 32px; color: #0000ff; animation: homeGraphFloat 3s ease-in-out infinite; animation-delay: 1s;">🔵</div>
+                <div style="position: absolute; bottom: 20px; right: 20px; font-size: 32px; color: #ffff00; animation: homeGraphFloat 3s ease-in-out infinite; animation-delay: 1.5s;">🟡</div>
+                
+                <!-- Progress Section -->
+                <div style="position: absolute; bottom: 30px; left: 30px; right: 30px;">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <h5 style="color: #fff; margin: 0; font-size: 1.1rem;">Rainbow Tax Efficiency</h5>
+                        <span style="background: linear-gradient(45deg, #ff0000, #ff8000, #ffff00, #00ff00, #0080ff, #8000ff, #ff0080); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; font-size: 1.4rem; font-weight: bold;">85%</span>
+                    </div>
+                    <div style="background: rgba(255, 255, 255, 0.1); border-radius: 10px; height: 8px; overflow: hidden;">
+                        <div style="background: linear-gradient(90deg, #ff0000, #ff8000, #ffff00, #00ff00, #0080ff, #8000ff, #ff0080); width: 85%; height: 100%; border-radius: 10px;"></div>
+                    </div>
+                    <div style="display: flex; justify-content: space-around; margin-top: 15px;">
+                        <div style="color: #ff0000; font-size: 24px;">🔴</div>
+                        <div style="color: #ff8000; font-size: 24px;">🟠</div>
+                        <div style="color: #ffff00; font-size: 24px;">🟡</div>
+                        <div style="color: #00ff00; font-size: 24px;">🟢</div>
+                        <div style="color: #0080ff; font-size: 24px;">🔵</div>
+                        <div style="color: #8000ff; font-size: 24px;">🟣</div>
+                    </div>
+                </div>
+            `;
 
-        // Calculate monthly values
-        const monthlySalary = yearlySalary / 12;
-        const monthlyTax = tax / 12;
-        const monthlyNet = monthlySalary - monthlyTax;
-
-        // Get tax slab description
-        let slabDescription = '';
-        for (let i = slabs.length - 1; i >= 0; i--) {
-            if (yearlySalary > slabs[i].min) {
-                if (slabs[i].rate === 0) {
-                    slabDescription = `0% - Up to PKR ${slabs[i].max.toLocaleString()}`;
-                } else {
-                    slabDescription = `${(slabs[i].rate * 100).toFixed(1)}% - PKR ${slabs[i].min.toLocaleString()} to ${slabs[i].max === Infinity ? 'Above' : slabs[i].max.toLocaleString()}`;
-                }
-                break;
-            }
+            // Replace the calculator section with the graph
+            calculatorSection.innerHTML = '';
+            calculatorSection.appendChild(homeGraphElement);
         }
 
-        // Animate the result values
-        animateValue('monthly-salary', 0, monthlySalary, 1000);
-        animateValue('monthly-tax', 0, monthlyTax, 1000);
-        animateValue('monthly-net', 0, monthlyNet, 1000);
-        animateValue('yearly-salary', 0, salary, 1000);
-        animateValue('yearly-tax', 0, tax, 1000);
-        animateValue('yearly-net', 0, netIncome, 1000);
-        animateValue('result-rate', 0, rate, 1000);
-
-        // Update tax slab description
-        document.getElementById('result-slab').textContent = slabDescription;
-
-        // Show rainbow graph with animation
-        const graphElement = document.getElementById('rainbow-graph');
-        graphElement.style.display = 'block';
-        graphElement.classList.add('show-graph');
-
-        // Hide tax slabs when graph is shown
-        const slabsElement = document.querySelector('.tax-slabs-card');
-        slabsElement.style.display = 'none';
-
-        // Animate the curve path
-        const curvePath = graphElement.querySelector('.curve-path');
-        curvePath.style.strokeDasharray = curvePath.getTotalLength();
-        curvePath.style.strokeDashoffset = curvePath.getTotalLength();
-
-        setTimeout(() => {
-            curvePath.style.transition = 'stroke-dashoffset 2s ease-in-out';
-            curvePath.style.strokeDashoffset = 0;
-        }, 500);
-
-        // Animate progress bar and score
-        const progressFill = document.getElementById('progress-fill');
-        const scoreValue = document.getElementById('tax-score');
-        let score = Math.max(0, Math.min(100, 100 - (tax / yearlySalary * 100)));
-        if (!isFinite(score)) score = 0;
-        progressFill.style.width = '0%';
-        setTimeout(() => {
-            progressFill.style.transition = 'width 1.5s cubic-bezier(0.4,0,0.2,1)';
-            progressFill.style.width = score + '%';
-        }, 800);
-        // Animate score value
-        let start = 0;
-        const duration = 1200;
-        const startTime = performance.now();
-        function animateScore(currentTime) {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-            const current = start + (score - start) * progress;
-            scoreValue.textContent = current.toFixed(0) + '%';
-            if (progress < 1) {
-                requestAnimationFrame(animateScore);
-            }
+        // Hide calculator results section
+        const resultSection = document.querySelector('.calculator-result');
+        if (resultSection) {
+            resultSection.style.display = 'none';
         }
-        requestAnimationFrame(animateScore);
     };
 
-    const animateValue = (elementId, start, end, duration) => {
-        const element = document.getElementById(elementId);
-        const startTime = performance.now();
-        const isPercentage = elementId === 'result-rate';
-        const suffix = isPercentage ? '%' : ' PKR';
 
-        const animate = (currentTime) => {
-            const elapsed = currentTime - startTime;
-            const progress = Math.min(elapsed / duration, 1);
-
-            const current = start + (end - start) * progress;
-
-            if (isPercentage) {
-                element.textContent = current.toFixed(1) + suffix;
-            } else {
-                // Format with 2 decimal places for currency
-                element.textContent = 'PKR ' + current.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-            }
-
-            if (progress < 1) {
-                requestAnimationFrame(animate);
-            }
-        };
-
-        requestAnimationFrame(animate);
-    };
 
     return (
         <section id="home" className="hero tax-calculator-hero">
             <div className="hero-bubbles"></div>
             <div className="hero-container">
                 <div className="hero-left-section">
-                    {/* Tax Graph Section */}
-                    <div className="hero-graph-section">
-                        <div className="rainbow-graph-container" id="rainbow-graph">
-                            <div className="graph-header">
-                                <h4>Tax Progression Graph</h4>
-                                <div className="graph-controls">
-                                    <button
-                                        className="toggle-view-btn"
-                                        onClick={() => toggleView('slabs')}
-                                        title="Show Tax Slabs"
-                                    >
-                                        <i className="fas fa-list"></i>
-                                    </button>
-                                    <div className="graph-animation">
-                                        <div className="pulse-dot"></div>
+                    {/* Hero Content Section */}
+                    <div className="hero-content-section" id="hero-content">
+                        <div className="hero-content">
+                            <h1 className="hero-title">
+                                <span className="gradient-text">Volvexer</span>
+                                <br />
+                                Complete Business Solutions
+                            </h1>
+                            <p className="hero-description">
+                                Transform your business with our comprehensive suite of professional services.
+                                From strategic planning to digital transformation, we provide expert solutions
+                                that drive growth and ensure compliance.
+                            </p>
+                            <div className="hero-features">
+                                <div className="feature-item">
+                                    <div className="feature-icon">
+                                        <i className="fas fa-chart-line"></i>
+                                    </div>
+                                    <div className="feature-content">
+                                        <span className="feature-title">Strategic Planning</span>
+                                        <span className="feature-subtitle">Business Growth</span>
                                     </div>
                                 </div>
-                            </div>
-                            <div className="graph-content">
-                                <svg className="rainbow-curve" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-                                    <defs>
-                                        <linearGradient id="rainbowGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                                            <stop offset="0%" style={{ stopColor: "#ff6b6b", stopOpacity: 1 }} />
-                                            <stop offset="16.66%" style={{ stopColor: "#feca57", stopOpacity: 1 }} />
-                                            <stop offset="33.33%" style={{ stopColor: "#48dbfb", stopOpacity: 1 }} />
-                                            <stop offset="50%" style={{ stopColor: "#0abde3", stopOpacity: 1 }} />
-                                            <stop offset="66.66%" style={{ stopColor: "#54a0ff", stopOpacity: 1 }} />
-                                            <stop offset="83.33%" style={{ stopColor: "#5f27cd", stopOpacity: 1 }} />
-                                            <stop offset="100%" style={{ stopColor: "#ff9ff3", stopOpacity: 1 }} />
-                                        </linearGradient>
-                                        <filter id="glow">
-                                            <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-                                            <feMerge>
-                                                <feMergeNode in="coloredBlur" />
-                                                <feMergeNode in="SourceGraphic" />
-                                            </feMerge>
-                                        </filter>
-                                    </defs>
-                                    <path
-                                        className="curve-path"
-                                        d="M 50 150 Q 100 50 200 100 T 350 50"
-                                        fill="none"
-                                        stroke="url(#rainbowGradient)"
-                                        strokeWidth="4"
-                                        filter="url(#glow)"
-                                    />
-                                    <circle className="moving-dot" cx="50" cy="150" r="6" fill="#ff6b6b">
-                                        <animateMotion
-                                            dur="3s"
-                                            repeatCount="indefinite"
-                                            path="M 0 0 Q 50 -100 150 -50 T 300 -100"
-                                        />
-                                    </circle>
-                                </svg>
-                                <div className="graph-labels">
-                                    <div className="label-item">
-                                        <span className="label-dot" style={{ background: "#ff6b6b" }}></span>
-                                        <span>Low Tax</span>
+                                <div className="feature-item">
+                                    <div className="feature-icon">
+                                        <i className="fas fa-sync"></i>
                                     </div>
-                                    <div className="label-item">
-                                        <span className="label-dot" style={{ background: "#48dbfb" }}></span>
-                                        <span>Medium Tax</span>
-                                    </div>
-                                    <div className="label-item">
-                                        <span className="label-dot" style={{ background: "#5f27cd" }}></span>
-                                        <span>High Tax</span>
+                                    <div className="feature-content">
+                                        <span className="feature-title">Digital Transformation</span>
+                                        <span className="feature-subtitle">Modern Solutions</span>
                                     </div>
                                 </div>
-                            </div>
-
-                            {/* Animated Progress Bar */}
-                            <div className="animated-progress-section">
-                                <div className="progress-header">
-                                    <h5>Tax Efficiency Score</h5>
-                                    <span className="score-value" id="tax-score">0%</span>
-                                </div>
-                                <div className="progress-container">
-                                    <div className="progress-bar">
-                                        <div className="progress-fill" id="progress-fill"></div>
-                                        <div className="progress-particles">
-                                            <div className="particle"></div>
-                                            <div className="particle"></div>
-                                            <div className="particle"></div>
-                                            <div className="particle"></div>
-                                            <div className="particle"></div>
-                                        </div>
+                                <div className="feature-item">
+                                    <div className="feature-icon">
+                                        <i className="fas fa-check-double"></i>
+                                    </div>
+                                    <div className="feature-content">
+                                        <span className="feature-title">Quality Assurance</span>
+                                        <span className="feature-subtitle">Excellence</span>
                                     </div>
                                 </div>
-                                {/* Floating Elements */}
-                                <div className="floating-elements">
-                                    <div className="floating-icon" style={{ animationDelay: '0s' }}>
-                                        <i className="fas fa-coins"></i>
+                                <div className="feature-item">
+                                    <div className="feature-icon">
+                                        <i className="fas fa-robot"></i>
                                     </div>
-                                    <div className="floating-icon" style={{ animationDelay: '0.5s' }}>
-                                        <i className="fas fa-chart-pie"></i>
+                                    <div className="feature-content">
+                                        <span className="feature-title">AI Engineering</span>
+                                        <span className="feature-subtitle">Innovation</span>
                                     </div>
-                                    <div className="floating-icon" style={{ animationDelay: '1s' }}>
-                                        <i className="fas fa-piggy-bank"></i>
-                                    </div>
-                                    <div className="floating-icon" style={{ animationDelay: '1.5s' }}>
-                                        <i className="fas fa-hand-holding-usd"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="tax-slabs-card" id="tax-slabs">
-                            <div className="slabs-header">
-                                <h3>Current Tax Slabs (2025-2026)</h3>
-                                <button
-                                    className="toggle-view-btn"
-                                    onClick={() => toggleView('graph')}
-                                    title="Show Tax Graph"
-                                >
-                                    <i className="fas fa-chart-line"></i>
-                                </button>
-                            </div>
-                            <div className="slabs-container">
-                                <div className="slab-item">
-                                    <div className="slab-range">Up to PKR 600,000</div>
-                                    <div className="slab-rate">0%</div>
-                                </div>
-                                <div className="slab-item">
-                                    <div className="slab-range">PKR 600,001 - 1,200,000</div>
-                                    <div className="slab-rate">1%</div>
-                                </div>
-                                <div className="slab-item">
-                                    <div className="slab-range">PKR 1,200,001 - 2,200,000</div>
-                                    <div className="slab-rate">11%</div>
-                                </div>
-                                <div className="slab-item">
-                                    <div className="slab-range">PKR 2,200,001 - 3,200,000</div>
-                                    <div className="slab-rate">23%</div>
-                                </div>
-                                <div className="slab-item">
-                                    <div className="slab-range">PKR 3,200,001 - 4,100,000</div>
-                                    <div className="slab-rate">30%</div>
-                                </div>
-                                <div className="slab-item">
-                                    <div className="slab-range">Above PKR 4,100,000</div>
-                                    <div className="slab-rate">35%</div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
 
-                {/* Tax Calculator Section - Right Side */}
-                <div className="tax-calculator-section">
-                    <div className="container">
-                        <div className="section-header">
-                            <h2>Income Tax Calculator</h2>
-                            <p>Calculate your income tax liability for different financial years with our interactive calculator</p>
+            {/* Tax Calculator Section - Outside Container */}
+            <div className="tax-calculator-section">
+                <div className="calculator-container">
+                    <div className="calculator-card">
+                        <div className="calculator-header">
+                            <h3>Tax Calculator</h3>
                         </div>
 
-                        <div className="calculator-container">
-                            <div className="calculator-card">
-                                <div className="calculator-header">
-                                    <h3>Tax Calculator 2025-2026</h3>
-                                    <div className="calculator-animation">
-                                        <div className="floating-numbers">
-                                            <span className="number">0%</span>
-                                            <span className="number">1%</span>
-                                            <span className="number">11%</span>
-                                            <span className="number">23%</span>
-                                            <span className="number">30%</span>
-                                            <span className="number">35%</span>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="calculator-form">
-                                    <div className="input-group">
-                                        <label>Salary Type</label>
-                                        <div className="salary-type-toggle">
-                                            <button
-                                                type="button"
-                                                className="toggle-btn active"
-                                                id="monthly-toggle"
-                                                onClick={() => toggleSalaryType('monthly')}
-                                            >
-                                                <i className="fas fa-calendar-day"></i>
-                                                Monthly
-                                            </button>
-                                            <button
-                                                type="button"
-                                                className="toggle-btn"
-                                                id="yearly-toggle"
-                                                onClick={() => toggleSalaryType('yearly')}
-                                            >
-                                                <i className="fas fa-calendar-alt"></i>
-                                                Yearly
-                                            </button>
-                                        </div>
-                                    </div>
-
-                                    <div className="input-group">
-                                        <label htmlFor="salary" id="salary-label">Monthly Salary (PKR)</label>
-                                        <div className="input-wrapper">
-                                            <i className="fas fa-money-bill-wave"></i>
-                                            <input
-                                                type="number"
-                                                id="salary"
-                                                placeholder="Enter your monthly salary"
-                                                min="0"
-                                                step="1000"
-                                            />
-                                        </div>
-                                    </div>
-
-                                    <div className="input-group">
-                                        <label htmlFor="year">Tax Year</label>
-                                        <div className="input-wrapper">
-                                            <i className="fas fa-calendar-alt"></i>
-                                            <select id="year">
-                                                <option value="2025-2026">2025-2026</option>
-                                                <option value="2024-2025">2024-2025</option>
-                                                <option value="2023-2024">2023-2024</option>
-                                                <option value="2022-2023">2022-2023</option>
-                                                <option value="2021-2022">2021-2022</option>
-                                                <option value="2020-2021">2020-2021</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <button className="calculate-btn" onClick={() => calculateTax()}>
-                                        <i className="fas fa-calculator"></i>
-                                        Calculate Tax
+                        <div className="calculator-form">
+                            <div className="input-group">
+                                <label>Salary Type</label>
+                                <div className="salary-type-toggle">
+                                    <button
+                                        type="button"
+                                        className="toggle-btn active"
+                                        id="monthly-toggle"
+                                        onClick={() => toggleSalaryType('monthly')}
+                                    >
+                                        <i className="fas fa-calendar-day"></i>
+                                        Monthly
+                                    </button>
+                                    <button
+                                        type="button"
+                                        className="toggle-btn"
+                                        id="yearly-toggle"
+                                        onClick={() => toggleSalaryType('yearly')}
+                                    >
+                                        <i className="fas fa-calendar-alt"></i>
+                                        Yearly
                                     </button>
                                 </div>
+                            </div>
 
-                                <div className="calculator-result" id="calculator-result">
-                                    <div className="result-header">
-                                        <h4>Tax Calculation Result</h4>
-                                        <div className="result-animation">
-                                            <div className="pulse-circle"></div>
+                            <div className="input-group">
+                                <label htmlFor="salary" id="salary-label">Monthly Salary (PKR)</label>
+                                <div className="input-wrapper">
+                                    <i className="fas fa-money-bill-wave"></i>
+                                    <input
+                                        type="number"
+                                        id="salary"
+                                        placeholder="Enter your monthly salary"
+                                        min="0"
+                                        step="1000"
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="input-group">
+                                <label htmlFor="year">Tax Year</label>
+                                <div className="input-wrapper">
+                                    <i className="fas fa-calendar-alt"></i>
+                                    <select id="year">
+                                        <option value="2025-2026">2025-2026</option>
+                                        <option value="2024-2025">2024-2025</option>
+                                        <option value="2023-2024">2023-2024</option>
+                                        <option value="2022-2023">2022-2023</option>
+                                        <option value="2021-2022">2021-2022</option>
+                                        <option value="2020-2021">2020-2021</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <button className="calculate-btn" onClick={() => calculateTax()}>
+                                <i className="fas fa-calculator"></i>
+                                Calculate Tax
+                            </button>
+
+                            <button className="toggle-view-btn" onClick={() => toggleView()}>
+                                <i className={currentView === 'calculator' ? 'fas fa-chart-line' : 'fas fa-calculator'}></i>
+                                {currentView === 'calculator' ? 'Show Graph' : 'Show Calculator'}
+                            </button>
+                        </div>
+
+                        <div className="calculator-result" id="calculator-result">
+                            <div className="result-header">
+                                <h4>Tax Calculation Result</h4>
+                                <div className="result-animation">
+                                    <div className="pulse-circle"></div>
+                                </div>
+                            </div>
+                            <div className="result-content">
+                                <div className="calculation-kv-tables">
+                                    <div className="kv-section">
+                                        <h5>Monthly Breakdown</h5>
+                                        <div className="kv-list">
+                                            <div className="kv-row">
+                                                <span className="kv-key">Monthly Salary</span>
+                                                <span className="kv-value" id="monthly-salary">PKR 0</span>
+                                            </div>
+                                            <div className="kv-row">
+                                                <span className="kv-key">Monthly Tax</span>
+                                                <span className="kv-value" id="monthly-tax">PKR 0</span>
+                                            </div>
+                                            <div className="kv-row">
+                                                <span className="kv-key">Salary After Tax</span>
+                                                <span className="kv-value" id="monthly-net">PKR 0</span>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div className="result-content">
-                                        <div className="calculation-kv-tables">
-                                            <div className="kv-section">
-                                                <h5>Monthly Breakdown</h5>
-                                                <div className="kv-list">
-                                                    <div className="kv-row">
-                                                        <span className="kv-key">Monthly Salary</span>
-                                                        <span className="kv-value" id="monthly-salary">PKR 0</span>
-                                                    </div>
-                                                    <div className="kv-row">
-                                                        <span className="kv-key">Monthly Tax</span>
-                                                        <span className="kv-value" id="monthly-tax">PKR 0</span>
-                                                    </div>
-                                                    <div className="kv-row">
-                                                        <span className="kv-key">Salary After Tax</span>
-                                                        <span className="kv-value" id="monthly-net">PKR 0</span>
-                                                    </div>
-                                                </div>
+                                    <div className="kv-section">
+                                        <h5>Yearly Breakdown</h5>
+                                        <div className="kv-list">
+                                            <div className="kv-row">
+                                                <span className="kv-key">Yearly Salary</span>
+                                                <span className="kv-value" id="yearly-salary">PKR 0</span>
                                             </div>
-                                            <div className="kv-section">
-                                                <h5>Yearly Breakdown</h5>
-                                                <div className="kv-list">
-                                                    <div className="kv-row">
-                                                        <span className="kv-key">Yearly Salary</span>
-                                                        <span className="kv-value" id="yearly-salary">PKR 0</span>
-                                                    </div>
-                                                    <div className="kv-row">
-                                                        <span className="kv-key">Yearly Tax</span>
-                                                        <span className="kv-value" id="yearly-tax">PKR 0</span>
-                                                    </div>
-                                                    <div className="kv-row">
-                                                        <span className="kv-key">Salary After Tax</span>
-                                                        <span className="kv-value" id="yearly-net">PKR 0</span>
-                                                    </div>
-                                                </div>
+                                            <div className="kv-row">
+                                                <span className="kv-key">Yearly Tax</span>
+                                                <span className="kv-value" id="yearly-tax">PKR 0</span>
+                                            </div>
+                                            <div className="kv-row">
+                                                <span className="kv-key">Salary After Tax</span>
+                                                <span className="kv-value" id="yearly-net">PKR 0</span>
                                             </div>
                                         </div>
-                                        <div className="additional-info">
-                                            <div className="info-item">
-                                                <span className="label">Tax Rate:</span>
-                                                <span className="value" id="result-rate">0%</span>
-                                            </div>
-                                            <div className="info-item">
-                                                <span className="label">Tax Slab:</span>
-                                                <span className="value" id="result-slab">0% - Up to PKR 600,000</span>
-                                            </div>
-                                        </div>
+                                    </div>
+                                </div>
+                                <div className="additional-info">
+                                    <div className="info-item">
+                                        <span className="label">Tax Rate:</span>
+                                        <span className="value" id="result-rate">0%</span>
+                                    </div>
+                                    <div className="info-item">
+                                        <span className="label">Tax Slab:</span>
+                                        <span className="value" id="result-slab">0% - Up to PKR 600,000</span>
                                     </div>
                                 </div>
                             </div>
