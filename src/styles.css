@@ -1444,31 +1444,61 @@ p {
     }
 
     .tax-calculator-hero .hero-left-section {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px 15px;
+    }
+
+    .tax-calculator-hero .hero-left-section h1,
+    .tax-calculator-hero .hero-left-section p,
+    .tax-calculator-hero .hero-left-section .hero-features {
+        text-align: center;
+        width: 100%;
+    }
+
+    .tax-calculator-hero .hero-left-section .hero-features {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .tax-calculator-hero .hero-left-section .hero-features .feature-item {
+        text-align: center;
+        flex: 1;
+        min-width: 120px;
     }
 
     .tax-calculator-hero .tax-calculator-section {
         width: 100%;
-        max-width: 500px;
+        max-width: 100%;
         margin: 0 auto;
+        padding: 0 15px;
     }
 
     .tax-calculator-hero .calculator-container {
         width: 100%;
         max-width: 100%;
+        margin: 0 auto;
     }
 
     .tax-calculator-hero .calculator-card {
         width: 100%;
         max-width: 100%;
+        margin: 0 auto;
     }
 
     .tax-calculator-hero .hero-graph-section {
         width: 100%;
-        max-width: 500px;
+        max-width: 100%;
         margin: 0 auto;
         justify-content: center;
         align-items: center;
+        padding: 0 15px;
     }
 
     .tax-calculator-hero .hero-graph-section .rainbow-graph-container,
@@ -2148,7 +2178,7 @@ p {
         grid-template-columns: 1fr;
         gap: 30px;
         width: 100%;
-        max-width: 500px;
+        max-width: 100%;
         margin: 0 auto;
     }
 
@@ -4426,14 +4456,39 @@ p {
     }
 
     .tax-calculator-hero .hero-left-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
         padding: 15px 10px;
-        display: none;
+    }
+
+    .tax-calculator-hero .hero-left-section h1,
+    .tax-calculator-hero .hero-left-section p,
+    .tax-calculator-hero .hero-left-section .hero-features {
+        text-align: center;
+        width: 100%;
+    }
+
+    .tax-calculator-hero .hero-left-section .hero-features {
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .tax-calculator-hero .hero-left-section .hero-features .feature-item {
+        text-align: center;
+        flex: 1;
+        min-width: 100px;
     }
 
     .tax-calculator-hero .tax-calculator-section {
         padding: 15px 10px;
         width: 100%;
-        max-width: 450px;
+        max-width: 100%;
         margin: 0 auto;
     }
 
@@ -4449,7 +4504,7 @@ p {
 
     .tax-calculator-hero .hero-graph-section {
         width: 100%;
-        max-width: 450px;
+        max-width: 100%;
         margin: 0 auto;
         justify-content: center;
         align-items: center;
