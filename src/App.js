@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import TaxCalculatorHero from './components/TaxCalculatorHero';
+import TaxCalculatorSection from './components/TaxCalculatorSection';
 import AnimatedServicesSection from './components/AnimatedServicesSection';
 import ServicesOverview from './components/ServicesOverview';
 import WhyChooseUs from './components/WhyChooseUs';
@@ -123,6 +124,7 @@ function App() {
                         <>
                             <Navbar />
                             <TaxCalculatorHero />
+                            <TaxCalculatorSection />
                             <AnimatedServicesSection />
                             <ServicesOverview />
                             <WhyChooseUs />
