@@ -1463,9 +1463,20 @@ p {
         max-width: 100%;
     }
 
+    .tax-calculator-hero .hero-graph-section {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+    }
+
     .tax-calculator-hero .hero-graph-section .rainbow-graph-container,
     .tax-calculator-hero .hero-graph-section .tax-slabs-card {
         padding: 20px;
+        width: 100%;
+        max-width: 100%;
+        display: block;
     }
 }
 
@@ -4434,6 +4445,22 @@ p {
     .tax-calculator-hero .calculator-card {
         width: 100%;
         max-width: 100%;
+    }
+
+    .tax-calculator-hero .hero-graph-section {
+        width: 100%;
+        max-width: 450px;
+        margin: 0 auto;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .tax-calculator-hero .hero-graph-section .rainbow-graph-container,
+    .tax-calculator-hero .hero-graph-section .tax-slabs-card {
+        padding: 20px;
+        width: 100%;
+        max-width: 100%;
+        display: block;
     }
 
     .calculator-container {
