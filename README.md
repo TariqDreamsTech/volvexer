@@ -1,6 +1,6 @@
 # Volvexer React
 
-This is the React.js version of Volvexer - Complete Business Solutions (Tax Filing, Accounting & AI Engineering).
+Volvexer's website — professional tax filing, accounting and bookkeeping services for individuals and businesses in Pakistan. Built with React.
 
 ## Getting Started
 
@@ -22,10 +22,10 @@ This is the React.js version of Volvexer - Complete Business Solutions (Tax Fili
 - `src/` - React components, styles, and logic
 
 ## Features
-- Dynamic hero section with animated tagline and acronym
-- Interactive UI/UX enhancements
-- Business services overview
-- Contact and support integration
+- Modern, SEO-optimized marketing site (meta tags, Open Graph, JSON-LD, sitemap, robots)
+- Taxation and Accounting service pages
+- Interactive FBR income tax calculator (FY 2021-2022 to 2025-2026)
+- Team section, FAQ and WhatsApp-based contact
 
 ---
 

@@ -1,46 +1,32 @@
-import React from 'react';
+import { WHY_CHOOSE_US } from '../data/site';
 
 function WhyChooseUs() {
     return (
-        <section className="why-choose-us">
+        <section className="section why" id="why">
             <div className="container">
-                <div className="section-header">
-                    <h2>Why Choose Volvexer?</h2>
-                    <p>We deliver excellence across all our services</p>
+                <div className="section-head">
+                    <span className="section-head__eyebrow">Why Volvexer</span>
+                    <h2 className="section-head__title">A partner you can rely on</h2>
+                    <p className="section-head__sub">
+                        Hundreds of clients trust us with their most sensitive financial work.
+                        Here’s why they stay.
+                    </p>
                 </div>
-                <div className="features-grid">
-                    <div className="feature-item">
-                        <div className="feature-icon">
-                            <i className="fas fa-shield-alt"></i>
+
+                <div className="why__grid">
+                    {WHY_CHOOSE_US.map((item) => (
+                        <div className="why-card" key={item.title}>
+                            <div className="why-card__icon">
+                                <i className={`fas ${item.icon}`} aria-hidden="true"></i>
+                            </div>
+                            <h3>{item.title}</h3>
+                            <p>{item.text}</p>
                         </div>
-                        <h3>Trusted & Secure</h3>
-                        <p>Your data and business information are protected with enterprise-grade security measures.</p>
-                    </div>
-                    <div className="feature-item">
-                        <div className="feature-icon">
-                            <i className="fas fa-clock"></i>
-                        </div>
-                        <h3>24/7 Support</h3>
-                        <p>Round-the-clock support to ensure your business never stops, no matter the time or day.</p>
-                    </div>
-                    <div className="feature-item">
-                        <div className="feature-icon">
-                            <i className="fas fa-users"></i>
-                        </div>
-                        <h3>Expert Team</h3>
-                        <p>Certified professionals with years of experience in their respective fields.</p>
-                    </div>
-                    <div className="feature-item">
-                        <div className="feature-icon">
-                            <i className="fas fa-rocket"></i>
-                        </div>
-                        <h3>Fast Delivery</h3>
-                        <p>Quick turnaround times without compromising on quality or accuracy.</p>
-                    </div>
+                    ))}
                 </div>
             </div>
         </section>
     );
 }
 
-export default WhyChooseUs; 
+export default WhyChooseUs;
