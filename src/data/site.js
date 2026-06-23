@@ -135,11 +135,11 @@ export const TEAM = [
         linkedin: 'https://www.linkedin.com/in/ahsan-tariq-comp-engr/',
     },
     {
-        name: 'Wajiha Zubair',
+        name: 'Wajeeha Zubair',
         role: 'CMO',
         initials: 'WZ',
         bio: 'Heads marketing and brand, connecting Volvexer with the clients who need it most.',
-        linkedin: null,
+        linkedin: 'https://www.linkedin.com/in/wajeeha-zubair-33774b36b/',
     },
 ];
 
